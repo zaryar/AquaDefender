@@ -7,8 +7,6 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance { get; private set; }
 
-    public UnityEvent PlayerMovement;
-
     private void Awake()
     {
         if(instance == null)

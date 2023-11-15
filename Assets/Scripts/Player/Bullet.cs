@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float lifeTime = 2;
+    [SerializeField] float lifeTime = 2;
+    [SerializeField] int Damage = 1;
+    [SerializeField] GameObject Smoke;
     private void Awake()
     {
         Destroy(gameObject, lifeTime);
@@ -12,7 +14,11 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if(collision != null && collision.gameObject.tag == "Enemy") {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
+        }
+        else if (collision.gameObject.tag == "Ground")
+        {
+            Instantiate(Smoke, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
     }
