@@ -6,9 +6,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class BasicMovementPlaceholder : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
-    
+    /*
+     This script handles Player Control Input and Player Movement+Animations.
+     Anything else should be put in different scripts to avoid cluttering.
+     */
     PlayerControls _playerControls;
 
     //Movement
@@ -25,15 +28,16 @@ public class BasicMovementPlaceholder : MonoBehaviour
     [SerializeField] Camera mainCamera;
 
     //Gun
-    [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] GameObject ammunition;
-    [SerializeField] float bulletSpeed;
+    GunTemplate _gun;
+    Transform _gunTransform;
 
     private void Move(InputAction.CallbackContext context)
     {
+        //Update movement direction
         _movementInput = context.ReadValue<Vector2>();
         _Movement.x = _movementInput.x;
         _Movement.z = _movementInput.y;
+        //For animtion switching
         _isMovementPressed = _movementInput.x != 0 || _movementInput.y != 0;
     }
     private void Aim()
@@ -43,6 +47,7 @@ public class BasicMovementPlaceholder : MonoBehaviour
         {
             posn.y += 0.5f;
             Vector3 dir = transform.position - posn;
+            _gunTransform.forward = dir;
             dir.y = 0;
             transform.forward = dir;
         }
@@ -66,13 +71,15 @@ public class BasicMovementPlaceholder : MonoBehaviour
     {
         _playerControls = new PlayerControls();
         _characterController = GetComponent<CharacterController>();
+        _gunTransform = transform.Find("Gun");
+        _gun = _gunTransform.GetComponent<GunTemplate>();
+
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
         _playerControls.CharacterControls.Move.canceled += context => { Move(context); };
         _playerControls.CharacterControls.Move.performed += context => { Move(context); };
         _playerControls.CharacterControls.Attack.started += context => {
-            var bullet = Instantiate(ammunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+            _gun.Shoot();
         };
     }
 
@@ -89,10 +96,6 @@ public class BasicMovementPlaceholder : MonoBehaviour
     private void Update()
     {
         Aim();
-    }
-
-    private void FixedUpdate()
-    {
         _characterController.SimpleMove(_Movement * movementSpeed);
     }
 }
