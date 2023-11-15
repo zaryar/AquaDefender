@@ -3,48 +3,97 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class BasicMovementPlaceholder : MonoBehaviour
 {
-    public float moveSpeed;
-    public float moveDrag;
+    
+    PlayerControls _playerControls;
 
-    public float horizontalInput;
-    public float verticalInput;
-    Vector3 moveDirection;
-    Rigidbody rb;
+    //Movement
+    CharacterController _characterController;
+    Vector2 _movementInput;
+    Vector3 _Movement;
+    [SerializeField] float movementSpeed = 4;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    //for Animations
+    bool _isMovementPressed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        myInput();
-        rb.drag = moveDrag;
-    }
-    private void FixedUpdate()
-    {
-        myMove();
-    }
+    //Aiming
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] Camera mainCamera;
 
-    private void myInput()
+    //Gun
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] GameObject ammunition;
+    [SerializeField] float bulletSpeed;
+
+    private void Move(InputAction.CallbackContext context)
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector3(horizontalInput * Time.deltaTime, 0, verticalInput * Time.deltaTime);
+        _movementInput = context.ReadValue<Vector2>();
+        _Movement.x = _movementInput.x;
+        _Movement.z = _movementInput.y;
+        _isMovementPressed = _movementInput.x != 0 || _movementInput.y != 0;
     }
-    private void myMove()
+    private void Aim()
     {
-        rb.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Force);
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-        if(flatVel.magnitude > moveSpeed) {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = limitedVel;
+        var (success, posn) = GetMouseRay();
+        if (success)
+        {
+            posn.y += 0.5f;
+            Vector3 dir = transform.position - posn;
+            dir.y = 0;
+            transform.forward = dir;
         }
     }
 
+    private (bool success, Vector3 posn) GetMouseRay()
+    {
+        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, groundMask))
+        {
+            return (success: true, posn: hitInfo.point);
+        }
+        else
+        {
+            return (success: false, posn: Vector3.zero);
+        }
+    }
+
+    private void Awake()
+    {
+        _playerControls = new PlayerControls();
+        _characterController = GetComponent<CharacterController>();
+
+        _playerControls.CharacterControls.Move.started += context => { Move(context); };
+        _playerControls.CharacterControls.Move.canceled += context => { Move(context); };
+        _playerControls.CharacterControls.Move.performed += context => { Move(context); };
+        _playerControls.CharacterControls.Attack.started += context => {
+            var bullet = Instantiate(ammunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+        };
+    }
+
+    private void OnEnable()
+    {
+        _playerControls.CharacterControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerControls.CharacterControls.Disable();
+    }
+
+    private void Update()
+    {
+        Aim();
+    }
+
+    private void FixedUpdate()
+    {
+        _characterController.SimpleMove(_Movement * movementSpeed);
+    }
 }
 
