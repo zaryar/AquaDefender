@@ -22,23 +22,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.629
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.284
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalRotation.y
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -84,7 +84,7 @@ PrefabInstance:
       addedObject: {fileID: 1079833283843239525}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7794200236220855884}
+      addedObject: {fileID: 7993756574869885946}
   m_SourcePrefab: {fileID: 100100000, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
 --- !u!1 &2617128888953819818 stripped
 GameObject:
@@ -129,7 +129,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &7794200236220855884
+--- !u!114 &7993756574869885946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,8 +138,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2617128888953819818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00fd39c68af6b9946a9a4a573f85cdb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b2ed60a0ca85f84b982838b2b02c024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
-  Smoke: {fileID: 575812239389501723, guid: f0d8c38dec8e9544fbbac078e259b773, type: 3}
+  Health: 1
+  HitParticle: {fileID: 575812239389501723, guid: f0d8c38dec8e9544fbbac078e259b773, type: 3}
+  ExplosionEffect: {fileID: 2814060956400009086, guid: d14edc546cb2fd341a3a756ba647496c, type: 3}
+  Timer: 2
+  Damage: 1
+  FireEffect: {fileID: 575812239389501723, guid: 557dbfc8f7aa57d4196b7297842b4934, type: 3}
