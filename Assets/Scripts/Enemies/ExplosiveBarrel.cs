@@ -19,7 +19,7 @@ public class ExplosiveBarrel : EnemyTemplate
     {
         yield return new WaitForSeconds(Timer);
         Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
-        Collider[] HitByExplosion = Physics.OverlapSphere(transform.position, 2);
+        Collider[] HitByExplosion = Physics.OverlapSphere(transform.position, 1.5f);
         foreach (Collider c in HitByExplosion)
         {
             if (c.gameObject.tag == "Enemy" &&
