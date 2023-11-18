@@ -29,8 +29,7 @@ public class GunTemplate : MonoBehaviour
 
     private IEnumerator Cooldown(float time)
     {
-        _reloading = false;
         yield return new WaitForSeconds(time);
-       
+       _reloading = false;
     }
 }
