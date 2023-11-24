@@ -49,6 +49,7 @@ MonoBehaviour:
   ammunition: {fileID: 4793374665009866186, guid: ec335d36211960a4cbc8764df40f4000, type: 3}
   bulletSpeed: 20
   reloadTime: 0.5
+  clips: []
 --- !u!1 &4173255070700547921
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,4 +462,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinCount: 0
-  coinSound: {fileID: 8300000, guid: adc36a0d0e5b3a347a5ec1405133fcf1, type: 3}
+  coinSound: {fileID: 8300000, guid: e986971a26ce7a940b005a68e9367221, type: 3}
