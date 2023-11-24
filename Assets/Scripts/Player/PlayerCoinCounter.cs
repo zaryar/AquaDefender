@@ -6,7 +6,7 @@ public class CoinCounter : MonoBehaviour
 {
     public int coinCount = 0;
     public AudioClip coinSound;
-    //public Text coinText;
+    public Text coinText;
 
     void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,7 @@ public class CoinCounter : MonoBehaviour
             AudioSource.PlayClipAtPoint(coinSound, transform.position);
             Destroy(other.gameObject);
             coinCount++;
-            //coinText.text = "Coins: " + coinCount.ToString();
+            coinText.text = "Coins: " + coinCount.ToString();
         }
     }
 }
