@@ -1,1 +1,0 @@
-![alt text](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXlmd2Fxd2poODJocWhibXE3NnNuNHBycHZncWE0dHhqZHMzNzZoZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cVg5E1OywU08bn5uy7/giphy.gif "Logo Title Text 1")
