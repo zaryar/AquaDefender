@@ -17,6 +17,7 @@ public class PlayerMovementController : MonoBehaviour
     // special skill
     [SerializeField] float invisibleTime = 5f;
     public bool invisible = false;
+    [SerializeField] Material invisibleMaterial;
 
 
     //Movement
@@ -83,7 +84,8 @@ public class PlayerMovementController : MonoBehaviour
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
         _playerControls.CharacterControls.Move.canceled += context => { Move(context); };
         _playerControls.CharacterControls.Move.performed += context => { Move(context); };
-        _playerControls.CharacterControls.Attack.started += context => {
+        _playerControls.CharacterControls.Attack.started += context =>
+        {
             _gun.Shoot();
         };
     }
@@ -103,17 +105,23 @@ public class PlayerMovementController : MonoBehaviour
         Aim();
         _characterController.SimpleMove(_Movement * movementSpeed);
 
-        if(!invisible && Input.GetKeyDown(KeyCode.I)){
+        if (!invisible && Input.GetKeyDown(KeyCode.I))
+        {
             StartCoroutine(makeInvisible());
         }
     }
 
     public IEnumerator makeInvisible()
-    {    
-        Debug.Log("Make Player Invisible");
-        invisible = true; 
+    {
+        Renderer playerRenderer = GetComponent<Renderer>();
+        Material originalMaterial = playerRenderer.material;
+        playerRenderer.material = invisibleMaterial;
+
+        invisible = true;
         yield return new WaitForSeconds(invisibleTime);
         invisible = false;
+        
+        playerRenderer.material = originalMaterial;
     }
 
 }
