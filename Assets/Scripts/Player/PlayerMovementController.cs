@@ -14,6 +14,11 @@ public class PlayerMovementController : MonoBehaviour
      */
     PlayerControls _playerControls;
 
+    // special skill
+    [SerializeField] float invisibleTime = 5f;
+    public bool invisible = false;
+
+
     //Movement
     CharacterController _characterController;
     Vector2 _movementInput;
@@ -97,6 +102,19 @@ public class PlayerMovementController : MonoBehaviour
     {
         Aim();
         _characterController.SimpleMove(_Movement * movementSpeed);
+
+        if(!invisible && Input.GetKeyDown(KeyCode.I)){
+            StartCoroutine(makeInvisible());
+        }
     }
+
+    public IEnumerator makeInvisible()
+    {    
+        Debug.Log("Make Player Invisible");
+        invisible = true; 
+        yield return new WaitForSeconds(invisibleTime);
+        invisible = false;
+    }
+
 }
 
