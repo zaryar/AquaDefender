@@ -8,6 +8,7 @@ public class GunTemplate : MonoBehaviour
     [SerializeField] GameObject ammunition;
     [SerializeField] float bulletSpeed = 10;
     [SerializeField] float reloadTime = .5f;
+    public AudioClip[] clips;
 
     bool _reloading = false;
 
@@ -20,6 +21,8 @@ public class GunTemplate : MonoBehaviour
     {
         if (!_reloading)
         {
+            int randomIndex = Random.Range(0, clips.Length);
+            AudioSource.PlayClipAtPoint(clips[randomIndex], transform.position);
             var bullet = Instantiate(ammunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             _reloading = true;
