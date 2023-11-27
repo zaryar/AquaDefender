@@ -105,7 +105,7 @@ public class PlayerMovementController : MonoBehaviour
             }
 
         };
-        _playerControls.CharacterControls.Attack.started += context =>
+        _playerControls.CharacterControls.SwitchWeapon.started += context =>
         {
             if (weapon == 0)
             {
