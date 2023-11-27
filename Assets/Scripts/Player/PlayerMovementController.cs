@@ -97,6 +97,22 @@ public class PlayerMovementController : MonoBehaviour
         {
             _gun.Shoot();
         };
+        _playerControls.CharacterControls.SwitchWeapon.started += context =>
+        {
+            if (weapon == 0)
+            {
+                weapon = 1;
+            }
+            else if (weapon == 1)
+            {
+                weapon = 0;
+            }
+        };
+        _playerControls.CharacterControls.WaterCannon.started += context =>
+        {
+            _gun.waterCannonShoot();
+        };
+
     }
 
     private void OnEnable()

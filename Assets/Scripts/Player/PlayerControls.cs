@@ -44,6 +44,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""05ee6911-44de-4595-a893-dd69ccc29a88"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WaterCannon"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0d70a8e-91ca-448d-b115-35efb5cf7735"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -123,6 +141,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cadf8c7-febd-46f1-9b9d-6d93c93b5aab"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b9ef5a3-da4d-4dfc-a9e1-38d9c7f3b051"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterCannon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +173,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_Attack = m_CharacterControls.FindAction("Attack", throwIfNotFound: true);
+        m_CharacterControls_SwitchWeapon = m_CharacterControls.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_CharacterControls_WaterCannon = m_CharacterControls.FindAction("WaterCannon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,12 +238,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<ICharacterControlsActions> m_CharacterControlsActionsCallbackInterfaces = new List<ICharacterControlsActions>();
     private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_Attack;
+    private readonly InputAction m_CharacterControls_SwitchWeapon;
+    private readonly InputAction m_CharacterControls_WaterCannon;
     public struct CharacterControlsActions
     {
         private @PlayerControls m_Wrapper;
         public CharacterControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @Attack => m_Wrapper.m_CharacterControls_Attack;
+        public InputAction @SwitchWeapon => m_Wrapper.m_CharacterControls_SwitchWeapon;
+        public InputAction @WaterCannon => m_Wrapper.m_CharacterControls_WaterCannon;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -217,6 +263,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @SwitchWeapon.started += instance.OnSwitchWeapon;
+            @SwitchWeapon.performed += instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+            @WaterCannon.started += instance.OnWaterCannon;
+            @WaterCannon.performed += instance.OnWaterCannon;
+            @WaterCannon.canceled += instance.OnWaterCannon;
         }
 
         private void UnregisterCallbacks(ICharacterControlsActions instance)
@@ -227,6 +279,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @SwitchWeapon.started -= instance.OnSwitchWeapon;
+            @SwitchWeapon.performed -= instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
+            @WaterCannon.started -= instance.OnWaterCannon;
+            @WaterCannon.performed -= instance.OnWaterCannon;
+            @WaterCannon.canceled -= instance.OnWaterCannon;
         }
 
         public void RemoveCallbacks(ICharacterControlsActions instance)
@@ -248,5 +306,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnWaterCannon(InputAction.CallbackContext context);
     }
 }
