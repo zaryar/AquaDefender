@@ -19,7 +19,6 @@ public class GunTemplate : MonoBehaviour
     private void Awake()
     {
         bulletSpawnPoint = transform.Find("Muzzle").transform;
-        waterBulletSpawnPoint = transform.Find("WaterProjectileSpawn").transform;
     }
 
     public void Shoot()
@@ -39,8 +38,8 @@ public class GunTemplate : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                var waterBullet = Instantiate(waterAmmunition, waterBulletSpawnPoint.position, waterBulletSpawnPoint.rotation);
-                waterBullet.GetComponent<Rigidbody>().velocity = waterBulletSpawnPoint.forward * waterBulletSpeed;
+                var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
                 _waterReloading = true;
                 StartCoroutine(CooldownW(waterReloadTime));
             }
