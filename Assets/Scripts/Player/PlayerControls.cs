@@ -152,6 +152,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""SwitchWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""455845a9-0cde-42d7-b436-20bb89ef9328"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaterCannon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
