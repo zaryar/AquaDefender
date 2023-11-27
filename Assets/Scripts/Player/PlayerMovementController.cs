@@ -116,6 +116,10 @@ public class PlayerMovementController : MonoBehaviour
                 weapon = 0;
             }
         };
+        _playerControls.CharacterControls.WaterCannon.started += context =>
+        {
+            _gun.waterCannonShoot();
+        };
 
     }
 
