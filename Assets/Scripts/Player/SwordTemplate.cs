@@ -25,11 +25,9 @@ public class SwordTemplate : MonoBehaviour
 
             for (int i = 0; i < hit.Length; i++)
             {
-                Debug.Log(hit[i].gameObject.CompareTag("Enemy"));
                 if (hit[i].gameObject.CompareTag("Enemy"))
                 {
                     hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
-                    Debug.Log("Ich war hier");
                 }
                 
             }

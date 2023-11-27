@@ -32,7 +32,6 @@ public class BasicEnemy : EnemyTemplate
         if(_player.GetComponent<PlayerMovementController>().invisible)
         {
             _target=null;
-            Debug.Log("Set to null");
 
             while(_player.GetComponent<PlayerMovementController>().invisible){
                 yield return new WaitForSeconds(0.5f);
