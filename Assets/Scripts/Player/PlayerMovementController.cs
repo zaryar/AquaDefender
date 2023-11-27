@@ -95,8 +95,28 @@ public class PlayerMovementController : MonoBehaviour
         _playerControls.CharacterControls.Move.performed += context => { Move(context); };
         _playerControls.CharacterControls.Attack.started += context =>
         {
-            _gun.Shoot();
+            if (weapon == 0)
+            {
+                _gun.Shoot();
+            }
+            if (weapon == 1)
+            {
+                _sword.Attack();
+            }
+
         };
+        _playerControls.CharacterControls.Attack.started += context =>
+        {
+            if (weapon == 0)
+            {
+                weapon = 1;
+            }
+            else if (weapon == 1)
+            {
+                weapon = 0;
+            }
+        };
+
     }
 
     private void OnEnable()
