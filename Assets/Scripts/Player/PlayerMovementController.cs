@@ -37,6 +37,13 @@ public class PlayerMovementController : MonoBehaviour
     GunTemplate _gun;
     Transform _gunTransform;
 
+    //Sword
+    SwordTemplate _sword;
+    Transform _swordTransform;
+
+    //for Weapon Switching, 0 is Gun and 1 is Sword
+    int weapon = 0;
+
     private void Move(InputAction.CallbackContext context)
     {
         //Update movement direction
@@ -79,6 +86,8 @@ public class PlayerMovementController : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _gunTransform = transform.Find("Gun");
         _gun = _gunTransform.GetComponent<GunTemplate>();
+        _swordTransform = transform.Find("Sword");
+        _sword = _swordTransform.GetComponent<SwordTemplate>();
 
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
