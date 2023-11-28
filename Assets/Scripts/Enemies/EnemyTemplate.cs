@@ -8,6 +8,7 @@ public class EnemyTemplate : MonoBehaviour
     [SerializeField] int Health = 1;
     [SerializeField] GameObject HitParticle;
     
+
     public void Hurt(int dmg)
     {
         Health -= dmg;

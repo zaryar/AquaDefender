@@ -15,6 +15,7 @@ public class GunTemplate : MonoBehaviour
     [SerializeField] float waterCannonFireRate = 20f;
 
     WaitForSeconds waterCannonFireWait; 
+    public AudioClip[] clips;
 
     bool _reloading = false;
 
@@ -28,6 +29,8 @@ public class GunTemplate : MonoBehaviour
     {
         if (!_reloading)
         {
+            int randomIndex = Random.Range(0, clips.Length);
+            AudioSource.PlayClipAtPoint(clips[randomIndex], transform.position);
             var bullet = Instantiate(ammunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             _reloading = true;
