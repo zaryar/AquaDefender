@@ -14,6 +14,12 @@ public class PlayerMovementController : MonoBehaviour
      */
     PlayerControls _playerControls;
 
+    // special skill
+    [SerializeField] float invisibleTime = 5f;
+    public bool invisible = false;
+    [SerializeField] Material invisibleMaterial;
+
+
     //Movement
     CharacterController _characterController;
     Vector2 _movementInput;
@@ -30,6 +36,16 @@ public class PlayerMovementController : MonoBehaviour
     //Gun
     GunTemplate _gun;
     Transform _gunTransform;
+
+    //WaterCannon
+    Coroutine waterCannonCoroutine;
+
+    //Sword
+    SwordTemplate _sword;
+    Transform _swordTransform;
+
+    //for Weapon Switching, 0 is Gun and 1 is Sword
+    int weapon = 0;
 
     private void Move(InputAction.CallbackContext context)
     {
@@ -73,13 +89,43 @@ public class PlayerMovementController : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _gunTransform = transform.Find("Gun");
         _gun = _gunTransform.GetComponent<GunTemplate>();
+        _swordTransform = transform.Find("Sword");
+        _sword = _swordTransform.GetComponent<SwordTemplate>();
 
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
         _playerControls.CharacterControls.Move.canceled += context => { Move(context); };
         _playerControls.CharacterControls.Move.performed += context => { Move(context); };
-        _playerControls.CharacterControls.Attack.started += context => {
-            _gun.Shoot();
+        _playerControls.CharacterControls.Attack.started += context =>
+        {
+            if (weapon == 0)
+            {
+                _gun.Shoot();
+            }
+            if (weapon == 1)
+            {
+                _sword.Attack();
+            }
+
+        };
+        _playerControls.CharacterControls.SwitchWeapon.started += context =>
+        {
+            if (weapon == 0)
+            {
+                weapon = 1;
+            }
+            else if (weapon == 1)
+            {
+                weapon = 0;
+            }
+        };
+        _playerControls.CharacterControls.WaterCannon.started += context =>
+        {
+            StartWaterCannon();
+        };
+        _playerControls.CharacterControls.WaterCannon.canceled += context =>
+        {
+            StopWaterCannon();
         };
     }
 
@@ -97,6 +143,37 @@ public class PlayerMovementController : MonoBehaviour
     {
         Aim();
         _characterController.SimpleMove(_Movement * movementSpeed);
+
+        if (!invisible && Input.GetKeyDown(KeyCode.I))
+        {
+            StartCoroutine(makeInvisible());
+        }
+    }
+
+    public IEnumerator makeInvisible()
+    {
+        Renderer playerRenderer = GetComponent<Renderer>();
+        Material originalMaterial = playerRenderer.material;
+        playerRenderer.material = invisibleMaterial;
+
+        invisible = true;
+        yield return new WaitForSeconds(invisibleTime);
+        invisible = false;
+        
+        playerRenderer.material = originalMaterial;
+    }
+
+
+    void StartWaterCannon()
+    {
+        waterCannonCoroutine = StartCoroutine(_gun.FireWaterCannon());
+    }
+    void StopWaterCannon()
+    {
+        if(waterCannonCoroutine != null)
+        {
+            StopCoroutine(waterCannonCoroutine);
+        }
     }
 }
 
