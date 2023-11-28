@@ -18,19 +18,8 @@ public class WaterProjectile : MonoBehaviour
            collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
-            Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "WaterBullet")
-        {
-            Invoke("DestroyWaterBullet", 1f);
-        } else { 
         _collided = true;
-        Destroy(gameObject);
-        }
-    }
-
-    private void DestroyWaterBullet()
-    {
         Destroy(gameObject);
     }
 

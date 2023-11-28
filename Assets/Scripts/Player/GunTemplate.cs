@@ -39,7 +39,6 @@ public class GunTemplate : MonoBehaviour
     {
         var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
-
     }
 
     private IEnumerator Cooldown(float time)
@@ -47,8 +46,6 @@ public class GunTemplate : MonoBehaviour
         yield return new WaitForSeconds(time);
        _reloading = false;
     }
-
-    
 
     public IEnumerator FireWaterCannon()
     {

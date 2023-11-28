@@ -38,7 +38,7 @@ public class PlayerMovementController : MonoBehaviour
     Transform _gunTransform;
 
     //WaterCannon
-    Coroutine fireCoroutine;
+    Coroutine waterCannonCoroutine;
 
     //Sword
     SwordTemplate _sword;
@@ -166,13 +166,13 @@ public class PlayerMovementController : MonoBehaviour
 
     void StartWaterCannon()
     {
-        fireCoroutine = StartCoroutine(_gun.FireWaterCannon());
+        waterCannonCoroutine = StartCoroutine(_gun.FireWaterCannon());
     }
     void StopWaterCannon()
     {
-        if(fireCoroutine != null)
+        if(waterCannonCoroutine != null)
         {
-            StopCoroutine(fireCoroutine);
+            StopCoroutine(waterCannonCoroutine);
         }
     }
 }
