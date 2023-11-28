@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunTemplate : MonoBehaviour
 {
+    
     Transform bulletSpawnPoint;
     Transform waterBulletSpawnPoint;
     [SerializeField] GameObject ammunition;
@@ -11,14 +12,16 @@ public class GunTemplate : MonoBehaviour
     [SerializeField] float bulletSpeed = 10;
     [SerializeField] float waterBulletSpeed = 10;
     [SerializeField] float reloadTime = .5f;
-    [SerializeField] float waterReloadTime = .1f;
+    [SerializeField] float waterCannonFireRate = 20f;
+
+    WaitForSeconds waterCannonFireWait; 
 
     bool _reloading = false;
-    bool _waterReloading = false;
 
     private void Awake()
     {
         bulletSpawnPoint = transform.Find("Muzzle").transform;
+        waterCannonFireWait = new WaitForSeconds(1 / waterCannonFireRate);
     }
 
     public void Shoot()
@@ -32,18 +35,11 @@ public class GunTemplate : MonoBehaviour
         }
     }
 
-    public void waterCannonShoot()
+    public void WaterCannonShoot()
     {
-        if (!_waterReloading)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
-                _waterReloading = true;
-                StartCoroutine(CooldownW(waterReloadTime));
-            }
-        }
+        var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
+
     }
 
     private IEnumerator Cooldown(float time)
@@ -52,9 +48,14 @@ public class GunTemplate : MonoBehaviour
        _reloading = false;
     }
 
-    private IEnumerator CooldownW(float time)
+    
+
+    public IEnumerator FireWaterCannon()
     {
-        yield return new WaitForSeconds(time);
-        _waterReloading = false;
+        while (true)
+        {
+            WaterCannonShoot();
+            yield return waterCannonFireWait;
+        }
     }
 }

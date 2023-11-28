@@ -37,6 +37,9 @@ public class PlayerMovementController : MonoBehaviour
     GunTemplate _gun;
     Transform _gunTransform;
 
+    //WaterCannon
+    Coroutine fireCoroutine;
+
     //Sword
     SwordTemplate _sword;
     Transform _swordTransform;
@@ -118,9 +121,12 @@ public class PlayerMovementController : MonoBehaviour
         };
         _playerControls.CharacterControls.WaterCannon.started += context =>
         {
-            _gun.waterCannonShoot();
+            StartWaterCannon();
         };
-
+        _playerControls.CharacterControls.WaterCannon.canceled += context =>
+        {
+            StopWaterCannon();
+        };
     }
 
     private void OnEnable()
@@ -157,5 +163,17 @@ public class PlayerMovementController : MonoBehaviour
         playerRenderer.material = originalMaterial;
     }
 
+
+    void StartWaterCannon()
+    {
+        fireCoroutine = StartCoroutine(_gun.FireWaterCannon());
+    }
+    void StopWaterCannon()
+    {
+        if(fireCoroutine != null)
+        {
+            StopCoroutine(fireCoroutine);
+        }
+    }
 }
 
