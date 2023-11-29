@@ -345,6 +345,8 @@ GameObject:
   - component: {fileID: 6314615892335563190}
   - component: {fileID: 3597122233664751862}
   - component: {fileID: 3257136062153203354}
+  - component: {fileID: 8793678409148448484}
+  - component: {fileID: 3019834312523413459}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -518,3 +520,47 @@ MonoBehaviour:
   coinCount: 0
   coinSound: {fileID: 8300000, guid: e986971a26ce7a940b005a68e9367221, type: 3}
   coinText: {fileID: 0}
+--- !u!114 &8793678409148448484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752234196962838471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a2117f08e623d4faf96ff41e30ed93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  armor: 0
+  criticalHitChance: 0.07
+  criticalHitMultiplier: 2
+--- !u!54 &3019834312523413459
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752234196962838471}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
