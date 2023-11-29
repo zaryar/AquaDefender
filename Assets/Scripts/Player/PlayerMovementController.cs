@@ -110,6 +110,7 @@ public class PlayerMovementController : MonoBehaviour
         };
         _playerControls.CharacterControls.SwitchWeapon.started += context =>
         {
+
             if (weapon == 0)
             {
                 weapon = 1;
@@ -126,6 +127,10 @@ public class PlayerMovementController : MonoBehaviour
         _playerControls.CharacterControls.WaterCannon.canceled += context =>
         {
             StopWaterCannon();
+        };
+        _playerControls.CharacterControls.Invisible.started += context =>
+        {
+            StartCoroutine(makeInvisible());
         };
     }
 
@@ -144,10 +149,6 @@ public class PlayerMovementController : MonoBehaviour
         Aim();
         _characterController.SimpleMove(_Movement * movementSpeed);
 
-        if (!invisible && Input.GetKeyDown(KeyCode.I))
-        {
-            StartCoroutine(makeInvisible());
-        }
     }
 
     public IEnumerator makeInvisible()
