@@ -6,6 +6,7 @@ public class WaterProjectile : MonoBehaviour
 {
     [SerializeField] float lifeTime = 2;
     [SerializeField] int Damage = 1;
+    [SerializeField] GameObject WaterDust;
     bool _collided = false;
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class WaterProjectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
         }
+        Instantiate(WaterDust, transform.position, Quaternion.identity);
         _collided = true;
         Destroy(gameObject);
     }

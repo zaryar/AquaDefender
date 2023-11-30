@@ -6,7 +6,6 @@ public class GunTemplate : MonoBehaviour
 {
     
     Transform bulletSpawnPoint;
-    Transform waterBulletSpawnPoint;
     [SerializeField] GameObject ammunition;
     [SerializeField] GameObject waterAmmunition;
     [SerializeField] float bulletSpeed = 10;

@@ -1585,6 +1585,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6236327713179725331, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: reloadTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236327713179725331, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: waterAmmunition
+      value: 
+      objectReference: {fileID: 337828609065360346, guid: e3172a4f3e6fc4621a60d8c8593c66ca, type: 3}
+    - target: {fileID: 6236327713179725331, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: waterBulletSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236327713179725331, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: waterCannonFireRate
+      value: 20
+      objectReference: {fileID: 0}
       propertyPath: clips.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1607,6 +1622,10 @@ PrefabInstance:
     - target: {fileID: 6752234196962838471, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762105013229149023, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8762105013229149023, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: m_LocalRotation.w
