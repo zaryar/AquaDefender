@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Invisible"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b8d66d3-a3ab-465d-8afd-10c324c3220e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -163,6 +172,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""WaterCannon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3240647a-1e47-4208-84ce-9ef84f3d4ddf"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Invisible"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -175,6 +195,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterControls_Attack = m_CharacterControls.FindAction("Attack", throwIfNotFound: true);
         m_CharacterControls_SwitchWeapon = m_CharacterControls.FindAction("SwitchWeapon", throwIfNotFound: true);
         m_CharacterControls_WaterCannon = m_CharacterControls.FindAction("WaterCannon", throwIfNotFound: true);
+        m_CharacterControls_Invisible = m_CharacterControls.FindAction("Invisible", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,6 +261,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterControls_Attack;
     private readonly InputAction m_CharacterControls_SwitchWeapon;
     private readonly InputAction m_CharacterControls_WaterCannon;
+    private readonly InputAction m_CharacterControls_Invisible;
     public struct CharacterControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -248,6 +270,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_CharacterControls_Attack;
         public InputAction @SwitchWeapon => m_Wrapper.m_CharacterControls_SwitchWeapon;
         public InputAction @WaterCannon => m_Wrapper.m_CharacterControls_WaterCannon;
+        public InputAction @Invisible => m_Wrapper.m_CharacterControls_Invisible;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -269,6 +292,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @WaterCannon.started += instance.OnWaterCannon;
             @WaterCannon.performed += instance.OnWaterCannon;
             @WaterCannon.canceled += instance.OnWaterCannon;
+            @Invisible.started += instance.OnInvisible;
+            @Invisible.performed += instance.OnInvisible;
+            @Invisible.canceled += instance.OnInvisible;
         }
 
         private void UnregisterCallbacks(ICharacterControlsActions instance)
@@ -285,6 +311,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @WaterCannon.started -= instance.OnWaterCannon;
             @WaterCannon.performed -= instance.OnWaterCannon;
             @WaterCannon.canceled -= instance.OnWaterCannon;
+            @Invisible.started -= instance.OnInvisible;
+            @Invisible.performed -= instance.OnInvisible;
+            @Invisible.canceled -= instance.OnInvisible;
         }
 
         public void RemoveCallbacks(ICharacterControlsActions instance)
@@ -308,5 +337,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
         void OnWaterCannon(InputAction.CallbackContext context);
+        void OnInvisible(InputAction.CallbackContext context);
     }
 }
