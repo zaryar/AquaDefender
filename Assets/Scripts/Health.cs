@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Health : MonoBehaviour
     public int armor = 0; // Rüstungswert
     public float criticalHitChance = 0.1f; // 10% Chance für kritische Treffer
     public int criticalHitMultiplier = 2; // Kritische Treffer schaden M;ultiplikator
+    public Text deathText;
 
     void Start()
     {
@@ -40,8 +43,22 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        UnityEngine.Debug.Log("Dead");
+        StartCoroutine(DieCoroutine());
+        
+        
     }
+
+    IEnumerator DieCoroutine()
+    {
+        // Wait for 5 seconds
+        deathText.text = "you're dead";
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(5);
+        Time.timeScale = 1;
+        deathText.text = "";
+        SceneManager.LoadSceneAsync(0);
+    }
+
 
 
     public void IncreaseArmor(int amount)
