@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,10 +11,15 @@ public class ExplosiveBarrel : EnemyTemplate
     [SerializeField] int Damage = 1;
     [SerializeField] GameObject FireEffect;
     private GameObject fire;
+    private Boolean _isDead = false;
     override protected void Die()
     {
-        fire = Instantiate(FireEffect, transform.position, Quaternion.identity);
-        StartCoroutine(CookOff());
+        if(!_isDead)
+        {
+            _isDead= true;
+            fire = Instantiate(FireEffect, transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity);
+            StartCoroutine(CookOff());
+        }
     }
     private IEnumerator CookOff()
     {
