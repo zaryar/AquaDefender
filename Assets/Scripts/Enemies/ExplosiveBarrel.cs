@@ -17,7 +17,7 @@ public class ExplosiveBarrel : EnemyTemplate
         if(!_isDead)
         {
             _isDead= true;
-            fire = Instantiate(FireEffect, transform.position, Quaternion.identity);
+            fire = Instantiate(FireEffect, transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity);
             StartCoroutine(CookOff());
         }
     }
