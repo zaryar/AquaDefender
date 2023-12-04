@@ -11,11 +11,11 @@ public class BasicEnemy : EnemyTemplate
     Transform _player;
     NavMeshAgent _agent;
     // [SerializeField] float invisibleTime = 5f;
-    public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
+    public GameObject coinPrefab; // Assign the gold prefab in the Inspector window
 
     protected override void Die()
     {
-        Instantiate(goldPrefab, transform.position, Quaternion.identity);
+        Instantiate(coinPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     private void Awake()
