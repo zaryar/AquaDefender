@@ -70,6 +70,25 @@ public class BasicEnemy : EnemyTemplate
             attack_finished = 0; 
         }
     }
+
+    private void gun_aim()
+    {
+        Transform enemy_gun = gameObject.transform.Find("EnemyGun");
+        float angle = Vector3.Angle(transform.position - _target.position, Vector3.up);
+        float x_rotation = Math.Max(-60f, angle - 90f);
+        float z_position = Math.Min(Math.Max(0.2f, 0.2f - (0.002f * (angle - 90f))), 0.35f);
+        enemy_gun.transform.localRotation = Quaternion.Euler(x_rotation, 180f, 0f);
+        enemy_gun.transform.localPosition = new Vector3(enemy_gun.transform.localPosition.x, enemy_gun.transform.localPosition.y, z_position);
+    }
+
+    public void follow_gun_attack()
+    {
+        Vector3 direction = _target.position - transform.position;
+        direction.Normalize();
+        _agent.destination = _target.position - 3 * direction;
+        gun_aim(); 
+        _gun.Shoot(); 
+    }
     private void Update()
     {   
         if(_target == _player)
@@ -79,7 +98,8 @@ public class BasicEnemy : EnemyTemplate
         if (_target != null)
         {
             orient_player();
-            follow_sword_attack();
+            //follow_sword_attack();
+            follow_gun_attack(); 
         }
          
     }
