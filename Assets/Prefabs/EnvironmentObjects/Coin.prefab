@@ -145,6 +145,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166182956344846186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fe046575a62aa44a99dac0f40e81581, type: 3}
+  m_Script: {fileID: 11500000, guid: 798c2d1198e09ef4ca5b3c6c6e749d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSound: {fileID: 8300000, guid: e986971a26ce7a940b005a68e9367221, type: 3}
+  rotationSpeed: 50
