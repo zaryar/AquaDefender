@@ -17,10 +17,12 @@ public class SwordTemplate : WeaponTemplate
     {
         if (!onCooldown)
         {
+            Debug.Log("Attack");
             Collider[] hit = Physics.OverlapSphere(attackTransform.position, attackRange);
 
             for (int i = 0; i < hit.Length; i++)
             {
+                Debug.Log(i);
                 tag = hit[i].tag;
                 if (opposingFraction.Contains(tag))
                 {

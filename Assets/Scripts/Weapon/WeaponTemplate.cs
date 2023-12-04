@@ -19,7 +19,22 @@ public class WeaponTemplate : MonoBehaviour {
 
      protected virtual void Awake()
     {
-        attackTransform = GameObject.Find("Muzzle").transform;
+        //attackTransform = GameObject.Find("Muzzle").transform;
+        
+        if (gameObject.name.Contains("Gun"))
+        {
+            attackTransform = gameObject.transform.Find("Muzzle");
+            
+        }
+        else if(gameObject.name.Contains("Sword"))
+        {
+            attackTransform = gameObject.transform.parent.transform;
+        }
+        else
+        {
+            attackTransform = gameObject.transform.Find("EnemyGun");
+            
+        }
         checkOpposingFraction();
        
     }

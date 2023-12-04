@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public int armor = 0; // Rüstungswert
     public float criticalHitChance = 0.1f; // 10% Chance für kritische Treffer
     public int criticalHitMultiplier = 2; // Kritische Treffer schaden M;ultiplikator
+    [SerializeField] GameObject HitParticle;
 
     void Start()
     {
@@ -30,7 +31,6 @@ public class Health : MonoBehaviour
         {
             damage = 0;
         }
-        UnityEngine.Debug.Log(damage);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -40,7 +40,8 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        UnityEngine.Debug.Log("Dead");
+        //UnityEngine.Debug.Log("Dead");
+        Destroy(gameObject);
     }
 
 
@@ -59,13 +60,18 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
-    void OnTriggerEnter(Collider collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")) //Barrel ist auch als Enemy deklariert
+        if (collision != null &&
+            collision.gameObject.tag == "Bullet" &&
+            HitParticle != null)
         {
-            TakeDamage(10);
+            Instantiate(HitParticle, collision.transform.position, Quaternion.identity);
         }
     }
+
+
 
 
 }
