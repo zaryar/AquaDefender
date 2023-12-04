@@ -17,7 +17,7 @@ public class BasicEnemy : EnemyTemplate
     protected override void Die()
     {
         Instantiate(goldPrefab, transform.position, Quaternion.identity);
-        OnDeath?.Invoke(); // Ereignis auslösen
+        OnDeath?.Invoke(); // Ereignis auslÃ¶sen
         Destroy(gameObject);
     }
     private void Awake()
