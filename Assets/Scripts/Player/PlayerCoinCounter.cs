@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
+//using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class CoinCounter : MonoBehaviour
 {
@@ -12,10 +12,15 @@ public class CoinCounter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            AudioSource.PlayClipAtPoint(coinSound, transform.position);
-            Destroy(other.gameObject);
-            coinCount++;
-            coinText.text = "Coins: " + coinCount.ToString();
+
+            CollectableItem collectableItem = other.GetComponent<CollectableItem>();
+            if (collectableItem != null)
+            {
+                collectableItem.Collect();
+                coinCount++;
+                coinText.text = "Coins: " + coinCount.ToString();
+            }
+           
         }
     }
 }

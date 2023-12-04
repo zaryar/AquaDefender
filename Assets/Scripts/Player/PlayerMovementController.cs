@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -27,7 +27,11 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] float movementSpeed = 4;
 
     //for Animations
-    bool _isMovementPressed;
+    bool _isRunning;
+    int _isRunningHash;
+    int _dirXHash;
+    int _dirZHash;
+    [SerializeField] Animator PlayerAnimator;
 
     //Aiming
     [SerializeField] LayerMask groundMask;
@@ -57,8 +61,13 @@ public class PlayerMovementController : MonoBehaviour
         _movementInput = context.ReadValue<Vector2>();
         _Movement.x = _movementInput.x;
         _Movement.z = _movementInput.y;
-        //For animtion switching
-        _isMovementPressed = _movementInput.x != 0 || _movementInput.y != 0;
+        //For animation switching
+        bool runing = _movementInput.x != 0 || _movementInput.y != 0;
+        if (_isRunning ^ runing)
+        {
+            _isRunning = runing;
+            PlayerAnimator.SetBool(_isRunningHash, runing);
+        }
     }
     private void Aim()
     {
@@ -70,6 +79,10 @@ public class PlayerMovementController : MonoBehaviour
             _gunTransform.forward = dir;
             dir.y = 0;
             transform.forward = dir;
+            float angle = Vector3.Angle(dir.normalized, _Movement);
+            Vector3 moveOffset = Quaternion.Euler(0, angle + 180, 0) * new Vector3(0,0,1);
+            PlayerAnimator.SetFloat(_dirXHash, moveOffset.x);
+            PlayerAnimator.SetFloat(_dirZHash, moveOffset.z);
         }
     }
 
@@ -91,6 +104,9 @@ public class PlayerMovementController : MonoBehaviour
     {
         _playerControls = new PlayerControls();
         _characterController = GetComponent<CharacterController>();
+        _isRunningHash = Animator.StringToHash("isRunning");
+        _dirXHash = Animator.StringToHash("DirectionX");
+        _dirZHash = Animator.StringToHash("DirectionZ");
         _gunTransform = transform.Find("Gun");
         _gun = _gunTransform.GetComponent<GunTemplate>();
         _swordTransform = transform.Find("Sword");
