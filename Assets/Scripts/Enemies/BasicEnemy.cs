@@ -14,6 +14,11 @@ public class BasicEnemy : EnemyTemplate
     public event Action OnDeath;
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
 
+    public void Start()
+    {
+        healthbar = gameObject.GetComponent<HealthBar3D>();
+    }
+
     protected override void Die()
     {
         Instantiate(goldPrefab, transform.position, Quaternion.identity);
