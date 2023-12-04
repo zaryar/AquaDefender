@@ -22,7 +22,8 @@ public class Coin : CollectableItem
     // Update is called once per frame
     void Update()
     {
-        
+        // rotation after coin is dropped:
+        transform.Rotate(new Vector3(rotationSpeed, rotationSpeed, rotationSpeed) * Time.deltaTime);
     }
 
     
