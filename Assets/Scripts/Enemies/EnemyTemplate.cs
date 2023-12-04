@@ -31,6 +31,7 @@ public class EnemyTemplate : MonoBehaviour
             collision.gameObject.tag == "Bullet" &&
             HitParticle != null)
         {
+           
             Instantiate(HitParticle, collision.transform.position, Quaternion.identity);
         }
     }

@@ -125,6 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3b4a393c5cc4549a8c65d769617ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTransform: {fileID: 0}
+  attackRange: 0
+  damage: 0
+  cooldown: 0
   lifeTime: 2
   Damage: 1
   Smoke: {fileID: 575812239389501723, guid: f0d8c38dec8e9544fbbac078e259b773, type: 3}
