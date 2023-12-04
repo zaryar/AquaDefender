@@ -11,11 +11,13 @@ public class BasicEnemy : EnemyTemplate
     Transform _player;
     NavMeshAgent _agent;
     // [SerializeField] float invisibleTime = 5f;
-    public GameObject coinPrefab; // Assign the gold prefab in the Inspector window
+    public event Action OnDeath;
+    public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
 
     protected override void Die()
     {
-        Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        Instantiate(goldPrefab, transform.position, Quaternion.identity);
+        OnDeath?.Invoke(); // Ereignis auslösen
         Destroy(gameObject);
     }
     private void Awake()
