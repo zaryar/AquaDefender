@@ -11,7 +11,10 @@ public class SwordTemplate : WeaponTemplate
     [SerializeField] private float swordCooldown = 1.0f;
     [SerializeField] private int swordDamage = 5;
 
-
+    public float GetswordAttackRange()
+    {
+        return swordAttackRange; 
+    }
     
     public override void Attack()
     {
@@ -22,6 +25,7 @@ public class SwordTemplate : WeaponTemplate
             for (int i = 0; i < hit.Length; i++)
             {
                 tag = hit[i].tag;
+                UnityEngine.Debug.Log(i + " " + tag);
                 if (opposingFraction.Contains(tag))
                 {
                     if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
