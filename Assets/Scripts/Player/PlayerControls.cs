@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BarrelSpawner"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d1ba6df-d149-4678-bd5f-9695e6ed9b5f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,6 +192,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Invisible"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cb9d2c3-5f8c-4ef0-9a8f-171647c9bc06"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BarrelSpawner"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +216,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterControls_SwitchWeapon = m_CharacterControls.FindAction("SwitchWeapon", throwIfNotFound: true);
         m_CharacterControls_WaterCannon = m_CharacterControls.FindAction("WaterCannon", throwIfNotFound: true);
         m_CharacterControls_Invisible = m_CharacterControls.FindAction("Invisible", throwIfNotFound: true);
+        m_CharacterControls_BarrelSpawner = m_CharacterControls.FindAction("BarrelSpawner", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +283,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterControls_SwitchWeapon;
     private readonly InputAction m_CharacterControls_WaterCannon;
     private readonly InputAction m_CharacterControls_Invisible;
+    private readonly InputAction m_CharacterControls_BarrelSpawner;
     public struct CharacterControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -271,6 +293,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @SwitchWeapon => m_Wrapper.m_CharacterControls_SwitchWeapon;
         public InputAction @WaterCannon => m_Wrapper.m_CharacterControls_WaterCannon;
         public InputAction @Invisible => m_Wrapper.m_CharacterControls_Invisible;
+        public InputAction @BarrelSpawner => m_Wrapper.m_CharacterControls_BarrelSpawner;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -295,6 +318,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Invisible.started += instance.OnInvisible;
             @Invisible.performed += instance.OnInvisible;
             @Invisible.canceled += instance.OnInvisible;
+            @BarrelSpawner.started += instance.OnBarrelSpawner;
+            @BarrelSpawner.performed += instance.OnBarrelSpawner;
+            @BarrelSpawner.canceled += instance.OnBarrelSpawner;
         }
 
         private void UnregisterCallbacks(ICharacterControlsActions instance)
@@ -314,6 +340,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Invisible.started -= instance.OnInvisible;
             @Invisible.performed -= instance.OnInvisible;
             @Invisible.canceled -= instance.OnInvisible;
+            @BarrelSpawner.started -= instance.OnBarrelSpawner;
+            @BarrelSpawner.performed -= instance.OnBarrelSpawner;
+            @BarrelSpawner.canceled -= instance.OnBarrelSpawner;
         }
 
         public void RemoveCallbacks(ICharacterControlsActions instance)
@@ -338,5 +367,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSwitchWeapon(InputAction.CallbackContext context);
         void OnWaterCannon(InputAction.CallbackContext context);
         void OnInvisible(InputAction.CallbackContext context);
+        void OnBarrelSpawner(InputAction.CallbackContext context);
     }
 }

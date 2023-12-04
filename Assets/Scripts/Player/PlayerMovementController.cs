@@ -40,6 +40,10 @@ public class PlayerMovementController : MonoBehaviour
     //WaterCannon
     Coroutine waterCannonCoroutine;
 
+    //SpawnBarrel
+    BarrelSpawner _barrelSpawn;
+    Transform _barrelSpawnTransform;
+
     //Sword
     SwordTemplate _sword;
     Transform _swordTransform;
@@ -91,6 +95,8 @@ public class PlayerMovementController : MonoBehaviour
         _gun = _gunTransform.GetComponent<GunTemplate>();
         _swordTransform = transform.Find("Sword");
         _sword = _swordTransform.GetComponent<SwordTemplate>();
+        _barrelSpawnTransform = transform.Find("BarrelSpawn");
+        _barrelSpawn = _barrelSpawnTransform.GetComponent<BarrelSpawner>();
 
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
@@ -131,6 +137,10 @@ public class PlayerMovementController : MonoBehaviour
         _playerControls.CharacterControls.Invisible.started += context =>
         {
             StartCoroutine(makeInvisible());
+        };
+        _playerControls.CharacterControls.BarrelSpawner.started += context =>
+        {
+            _barrelSpawn.SpawnBarrel();
         };
     }
 

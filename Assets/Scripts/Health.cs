@@ -10,8 +10,8 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public int armor = 0; // Rüstungswert
-    public float criticalHitChance = 0.1f; // 10% Chance für kritische Treffer
+    public int armor = 0; // R?stungswert
+    public float criticalHitChance = 0.1f; // 10% Chance f?r kritische Treffer
     public int criticalHitMultiplier = 2; // Kritische Treffer schaden M;ultiplikator
     public Text deathText;
 
@@ -78,7 +78,10 @@ public class Health : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")) //Barrel ist auch als Enemy deklariert
+        if (collision.gameObject.CompareTag("Enemy") &&
+            collision.gameObject.name != "Barrel1(Clone)" &&
+            collision.gameObject.name != "Barrel1" &&
+            collision.gameObject.name != "Barrel1(1)") //Barrel ist auch als Enemy deklariert
         {
             TakeDamage(10);
         }
