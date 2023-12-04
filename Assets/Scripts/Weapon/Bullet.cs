@@ -12,16 +12,15 @@ public class Bullet : WeaponTemplate
 
     protected override void Awake()
     {
-        checkOpposingFraction();
         Destroy(gameObject, lifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        tag = collision.gameObject.tag;
+        string collisionTag = collision.gameObject.tag;
         if(collision != null &&
             !_collided &&
-           opposingFraction.Contains(tag)) {
+           opposingFraction.Contains(collisionTag)) {
             if (collision.gameObject.GetComponent<EnemyTemplate>()!= null)
                 {
                 collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);

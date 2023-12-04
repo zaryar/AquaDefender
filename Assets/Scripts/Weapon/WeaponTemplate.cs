@@ -49,6 +49,13 @@ public class WeaponTemplate : MonoBehaviour {
         //Debug.Log(transform.name + opposingFraction);
     }
 
+     public void setOpposingFraction(string[] fraction)
+    {
+        opposingFraction = fraction;
+
+    }
+
+
 
     protected IEnumerator Cooldown(float time)
     {
