@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
     public int criticalHitMultiplier = 2; // Kritische Treffer schaden M;ultiplikator
     public Text deathText;
 
+    [SerializeField] Animator animator;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -53,6 +55,7 @@ public class Health : MonoBehaviour
         // Wait for 5 seconds
         deathText.text = "you're dead";
         Time.timeScale = 0;
+        GameController.instance.PlayerDeath.Invoke();
         yield return new WaitForSecondsRealtime(5);
         Time.timeScale = 1;
         deathText.text = "";
