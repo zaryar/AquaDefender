@@ -18,7 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] float invisibleTime = 5f;
     public bool invisible = false;
     [SerializeField] Material invisibleMaterial;
-
+    [SerializeField] SkinnedMeshRenderer PlayerRenderer;
 
     //Movement
     CharacterController _characterController;
@@ -178,19 +178,24 @@ public class PlayerMovementController : MonoBehaviour
             _barrelSpawn.SpawnBarrel();
         };
     }
+    private void Start()
+    {
+        GameController.instance.PlayerDeath.AddListener(playerDeath);
+    }
 
     private void OnEnable()
     {
         _playerControls.CharacterControls.Enable();
-        GameController.instance.PlayerDeath.AddListener(playerDeath);
     }
 
     private void OnDisable()
     {
         _playerControls.CharacterControls.Disable();
+    }
+    private void OnDestroy()
+    {
         GameController.instance.PlayerDeath.RemoveListener(playerDeath);
     }
-
     private void Update()
     {
         Aim();
@@ -200,15 +205,20 @@ public class PlayerMovementController : MonoBehaviour
 
     public IEnumerator makeInvisible()
     {
-        Renderer playerRenderer = GetComponent<Renderer>();
-        Material originalMaterial = playerRenderer.material;
-        playerRenderer.material = invisibleMaterial;
+        Material[] originalArr = new Material[PlayerRenderer.materials.Length];
+        Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
+        Material[] invisibleArr = new Material[PlayerRenderer.materials.Length];
+        for (int i = 0; i < PlayerRenderer.materials.Length; ++i)
+        {
+            invisibleArr[i] = invisibleMaterial;
+        }
+        PlayerRenderer.materials = invisibleArr;
 
         invisible = true;
         yield return new WaitForSeconds(invisibleTime);
         invisible = false;
         
-        playerRenderer.material = originalMaterial;
+        PlayerRenderer.materials = originalArr;
     }
 
 
