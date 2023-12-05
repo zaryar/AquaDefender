@@ -486,6 +486,7 @@ MonoBehaviour:
   invisibleTime: 5
   invisible: 0
   invisibleMaterial: {fileID: 2100000, guid: 951fca81110e1324a9c57269ca428db7, type: 2}
+  PlayerRenderer: {fileID: 3780341078821077779}
   movementSpeed: 4
   PlayerAnimator: {fileID: 9136156785121580215}
   groundMask:
@@ -792,6 +793,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9136156785121580215}
   m_SourcePrefab: {fileID: 100100000, guid: 020bd025d5f76574d88de503f74b688c, type: 3}
+--- !u!137 &3780341078821077779 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7205140776170859923, guid: 020bd025d5f76574d88de503f74b688c, type: 3}
+  m_PrefabInstance: {fileID: 6308335204640108160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4008659376260815378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2293973760401034094, guid: 020bd025d5f76574d88de503f74b688c, type: 3}
