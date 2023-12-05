@@ -7,14 +7,14 @@ using UnityEngine.AI;
 
 public class BasicEnemy : EnemyTemplate
 {
-    Transform _target;
-    Transform _player;
-    NavMeshAgent _agent;
+    public Transform _target;
+    public Transform _player;
+    public NavMeshAgent _agent;
     // [SerializeField] float invisibleTime = 5f;
     public event Action OnDeath;
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
-    GunTemplate _gun;
-    SwordTemplate _sword;
+    public GunTemplate _gun;
+    public SwordTemplate _sword;
 
     //Helper variables
     int attack_finished = 0;
@@ -39,7 +39,33 @@ public class BasicEnemy : EnemyTemplate
         _gun = gameObject.transform.Find("EnemyGun").GetComponent<GunTemplate>();
     }
 
-    private void orient_player()
+    public Vector3 Get_sorted_distance(List<Vector3> vectors, Vector3 target, string type)
+    {
+        Vector3 vec = vectors[0];
+        float Distance = Vector3.Distance(vec, target);
+        //float Distance = float.MaxValue;
+        Vector3 Vector = vectors[0];
+
+
+        foreach (Vector3 vector in vectors)
+        {
+            float distance = Vector3.Distance(vector, target);
+            if (distance < Distance && type == "min")
+            {
+                Distance = distance;
+                Vector = vector;
+            }
+            else if (distance > Distance && type == "max")
+            {
+                Distance = distance;
+                Vector = vector;
+            }
+        }
+
+        return Vector;
+    }
+
+    public void orient_player()
     {
         Vector3 dir = _target.position - transform.position;
         dir.y = 0;
@@ -71,7 +97,7 @@ public class BasicEnemy : EnemyTemplate
         }
     }
 
-    private void gun_aim()
+    public void gun_aim()
     {
         Transform enemy_gun = gameObject.transform.Find("EnemyGun");
         float angle = Vector3.Angle(transform.position - _target.position, Vector3.up);
