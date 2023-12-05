@@ -14,6 +14,8 @@ public class PatroulEnemy : BasicEnemy
     // Start is called before the first frame update
     void Start()
     {
+        player_id = GameController.instance.patrol_player_id;
+        GameController.instance.patrol_player_id++;
         healthbar = gameObject.GetComponent<HealthBar3D>();
         data = gameObject.GetComponent<EnemyData>();
         trajectory = data.Getpatroultrajectory(player_id);

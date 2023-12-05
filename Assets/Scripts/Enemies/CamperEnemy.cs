@@ -10,6 +10,16 @@ public class CamperEnemy : BasicEnemy
 
     public void Start()
     {
+        player_id = GameController.instance.camper_player_id;
+        if (GameController.instance.camper_player_id==2)
+        {
+            GameController.instance.camper_player_id = 0;
+        }
+        else
+         {
+            GameController.instance.camper_player_id++;
+
+        }
         healthbar = gameObject.GetComponent<HealthBar3D>();
         data = gameObject.GetComponent<EnemyData>();
         trajectory = data.Getcampertrajectory(player_id);

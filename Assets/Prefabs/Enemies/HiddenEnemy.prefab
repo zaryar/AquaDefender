@@ -415,9 +415,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4396726380069856030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f63430aaf9caa9408e970128ef8c3df, type: 3}
+  m_Script: {fileID: 11500000, guid: 0262b0aa55e3ce64b8f6137b036b3d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  Health: 1
+  HitParticle: {fileID: 0}
+  healthbar: {fileID: 0}
+  _target: {fileID: 0}
+  _player: {fileID: 0}
+  _agent: {fileID: 0}
+  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
+  _gun: {fileID: 0}
+  _sword: {fileID: 0}
+  player_id: 0
 --- !u!114 &3404226192644667604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +438,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4396726380069856030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeaf2a39069e3cd42a002353e7bb76f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c0ff74adf387584ea527f2b5054f985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1391327248702110443
@@ -439,20 +450,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4396726380069856030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfbe86a1d21a30042afdabdb786dbfeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 35d8396661c67404cbddaa48f3f6842f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  Health: 10
-  HitParticle: {fileID: 0}
-  healthbar: {fileID: 0}
-  _target: {fileID: 0}
-  _player: {fileID: 0}
-  _agent: {fileID: 0}
-  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
-  _gun: {fileID: 0}
-  _sword: {fileID: 0}
-  player_id: 0
 --- !u!1 &4426860765454411705
 GameObject:
   m_ObjectHideFlags: 0

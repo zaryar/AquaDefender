@@ -76,7 +76,7 @@ public class BasicEnemy : EnemyTemplate
     public void follow_sword_attack()
     {
         //Debug.Log(Vector3.Distance(transform.position, _target.position) + " " + _agent.destination + " " + _target.position);
-        if (Vector3.Distance(transform.position, _target.position) >= _sword.GetswordAttackRange()+2f)
+        if (Vector3.Distance(transform.position, _target.position) >= _sword.GetswordAttackRange()+1.0f)
         {
             _agent.destination = _target.position;
             attack_finished = 0;

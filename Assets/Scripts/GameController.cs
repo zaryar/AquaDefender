@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
     public static GameController instance { get; private set; }
+    public int camper_player_id = 0;
+    public int patrol_player_id = 0;
 
     private void Awake()
     {
