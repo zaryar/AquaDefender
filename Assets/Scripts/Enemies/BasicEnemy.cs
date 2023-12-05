@@ -35,8 +35,8 @@ public class BasicEnemy : EnemyTemplate
         _agent= GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         _target= _player;
-        _sword = gameObject.transform.Find("EnemySword").GetComponent<SwordTemplate>();
-        _gun = gameObject.transform.Find("EnemyGun").GetComponent<GunTemplate>();
+        _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();
+        _gun = gameObject.transform.Find("Gun").GetComponent<GunTemplate>();
     }
 
     public Vector3 Get_sorted_distance(List<Vector3> vectors, Vector3 target, string type)
@@ -83,7 +83,6 @@ public class BasicEnemy : EnemyTemplate
         }
         else if (Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished==0)
         {
-            UnityEngine.Debug.Log("Attack");
             _sword.Attack();
             Vector3 direction = _target.position - transform.position;
             direction.Normalize();
@@ -99,7 +98,7 @@ public class BasicEnemy : EnemyTemplate
 
     public void gun_aim()
     {
-        Transform enemy_gun = gameObject.transform.Find("EnemyGun");
+        Transform enemy_gun = gameObject.transform.Find("Gun");
         float angle = Vector3.Angle(transform.position - _target.position, Vector3.up);
         float x_rotation = Math.Max(-60f, angle - 90f);
         float z_position = Math.Min(Math.Max(0.2f, 0.2f - (0.002f * (angle - 90f))), 0.35f);
@@ -124,8 +123,8 @@ public class BasicEnemy : EnemyTemplate
         if (_target != null)
         {
             orient_player();
-            //follow_sword_attack();
-            follow_gun_attack(); 
+            follow_sword_attack();
+            //follow_gun_attack(); 
         }
          
     }

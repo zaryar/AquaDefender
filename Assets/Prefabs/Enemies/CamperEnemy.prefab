@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6050296646516279394}
   - component: {fileID: 8672364567038787465}
   m_Layer: 0
-  m_Name: EnemySword
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4664986480328266028}
   - component: {fileID: 4047521487246884872}
   m_Layer: 0
-  m_Name: EnemyGun
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
