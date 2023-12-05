@@ -18,7 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] float invisibleTime = 5f;
     public bool invisible = false;
     [SerializeField] Material invisibleMaterial;
-
+    [SerializeField] SkinnedMeshRenderer PlayerRenderer;
 
     //Movement
     CharacterController _characterController;
@@ -28,6 +28,7 @@ public class PlayerMovementController : MonoBehaviour
 
     //for Animations
     bool _isRunning;
+    bool _isDead = false;
     int _isRunningHash;
     int _dirXHash;
     int _dirZHash;
@@ -40,6 +41,7 @@ public class PlayerMovementController : MonoBehaviour
     //Gun
     GunTemplate _gun;
     Transform _gunTransform;
+    [SerializeField] GameObject GunModel;
 
     //WaterCannon
     Coroutine waterCannonCoroutine;
@@ -51,6 +53,7 @@ public class PlayerMovementController : MonoBehaviour
     //Sword
     SwordTemplate _sword;
     Transform _swordTransform;
+    [SerializeField] GameObject SwordModel;
 
     //for Weapon Switching, 0 is Gun and 1 is Sword
     int weapon = 0;
@@ -72,7 +75,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Aim()
     {
         var (success, posn) = GetMouseRay();
-        if (success)
+        if (success && !_isDead)
         {
             posn.y += 0.5f;
             Vector3 dir = transform.position - posn;
@@ -98,6 +101,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             return (success: false, posn: Vector3.zero);
         }
+    }
+
+    private void playerDeath()
+    {
+        _playerControls.CharacterControls.Disable();
+        _isDead = true;
+        PlayerAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        PlayerAnimator.SetBool("isDead", true);
     }
 
     private void Awake()
@@ -126,7 +137,11 @@ public class PlayerMovementController : MonoBehaviour
             }
             if (weapon == 1)
             {
+                //should be replaced with a return from the sword if the attack was succesfull.
+                //maybe give the Attack() function a return type to determine if a strike is executed?
+                bool _isStriking= true;
                 _sword.Attack();
+                if (_isStriking) { PlayerAnimator.SetTrigger("Attack"); }
             }
 
         };
@@ -136,15 +151,19 @@ public class PlayerMovementController : MonoBehaviour
             if (weapon == 0)
             {
                 weapon = 1;
+                GunModel.GetComponent<MeshRenderer>().enabled = false;
+                SwordModel.GetComponent<MeshRenderer>().enabled = true;
             }
             else if (weapon == 1)
             {
                 weapon = 0;
+                GunModel.GetComponent<MeshRenderer>().enabled = true;
+                SwordModel.GetComponent<MeshRenderer>().enabled = false;
             }
         };
         _playerControls.CharacterControls.WaterCannon.started += context =>
         {
-            StartWaterCannon();
+            if(weapon == 0) StartWaterCannon();
         };
         _playerControls.CharacterControls.WaterCannon.canceled += context =>
         {
@@ -159,6 +178,10 @@ public class PlayerMovementController : MonoBehaviour
             _barrelSpawn.SpawnBarrel();
         };
     }
+    private void Start()
+    {
+        GameController.instance.PlayerDeath.AddListener(playerDeath);
+    }
 
     private void OnEnable()
     {
@@ -169,7 +192,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         _playerControls.CharacterControls.Disable();
     }
-
+    private void OnDestroy()
+    {
+        GameController.instance.PlayerDeath.RemoveListener(playerDeath);
+    }
     private void Update()
     {
         Aim();
@@ -179,15 +205,20 @@ public class PlayerMovementController : MonoBehaviour
 
     public IEnumerator makeInvisible()
     {
-        Renderer playerRenderer = GetComponent<Renderer>();
-        Material originalMaterial = playerRenderer.material;
-        playerRenderer.material = invisibleMaterial;
+        Material[] originalArr = new Material[PlayerRenderer.materials.Length];
+        Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
+        Material[] invisibleArr = new Material[PlayerRenderer.materials.Length];
+        for (int i = 0; i < PlayerRenderer.materials.Length; ++i)
+        {
+            invisibleArr[i] = invisibleMaterial;
+        }
+        PlayerRenderer.materials = invisibleArr;
 
         invisible = true;
         yield return new WaitForSeconds(invisibleTime);
         invisible = false;
         
-        playerRenderer.material = originalMaterial;
+        PlayerRenderer.materials = originalArr;
     }
 
 
