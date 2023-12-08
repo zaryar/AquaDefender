@@ -15,6 +15,7 @@ public class BasicEnemy : EnemyTemplate
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
     public GunTemplate _gun;
     public SwordTemplate _sword;
+    public AudioClip[] huhClips;
 
     //Helper variables
     int attack_finished = 0;
@@ -135,10 +136,19 @@ public class BasicEnemy : EnemyTemplate
         {
             _target=null;
 
+            StartCoroutine(huhSounds());
             while(_player.GetComponent<PlayerMovementController>().invisible){
                 yield return new WaitForSeconds(0.5f);
             }
             _target = _player;
         }
+    }
+
+    IEnumerator huhSounds() {
+        float time = UnityEngine.Random.Range(0f, 2f);
+        yield return new WaitForSeconds(time);
+
+        int randomIndex = UnityEngine.Random.Range(0, huhClips.Length);
+        AudioSource.PlayClipAtPoint(huhClips[randomIndex], transform.position);
     }
 }
