@@ -282,10 +282,11 @@ GameObject:
   - component: {fileID: 72259033351285037}
   - component: {fileID: 1295330746408638693}
   - component: {fileID: 7667856676494659940}
-  - component: {fileID: 3546108197102938990}
   - component: {fileID: 3618219858526281460}
+  - component: {fileID: 3404226192644667604}
+  - component: {fileID: 1391327248702110443}
   m_Layer: 0
-  m_Name: BasicEnemy
+  m_Name: HiddenEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +406,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3546108197102938990
+--- !u!114 &3618219858526281460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,12 +415,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4396726380069856030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54e165638df36043a136eb19f927704, type: 3}
+  m_Script: {fileID: 11500000, guid: 0262b0aa55e3ce64b8f6137b036b3d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  Health: 10
-  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
+  maxHealth: 0
+  Health: 1
+  HitParticle: {fileID: 0}
   healthbar: {fileID: 0}
   _target: {fileID: 0}
   _player: {fileID: 0}
@@ -427,12 +428,20 @@ MonoBehaviour:
   goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
   _gun: {fileID: 0}
   _sword: {fileID: 0}
-  huhClips:
-  - {fileID: 8300000, guid: 43ae13bcc5309a246bd70c2e16e49d28, type: 3}
-  - {fileID: 8300000, guid: 3ec52c2850202054593cd0d9ba275f4e, type: 3}
-  - {fileID: 8300000, guid: df80fe20ceb16c24aaf36228f9a810db, type: 3}
-  - {fileID: 8300000, guid: 12b66c7ef1199414ea118576657dd691, type: 3}
---- !u!114 &3618219858526281460
+  player_id: 0
+--- !u!114 &3404226192644667604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396726380069856030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0ff74adf387584ea527f2b5054f985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1391327248702110443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

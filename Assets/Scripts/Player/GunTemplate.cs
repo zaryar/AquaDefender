@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunTemplate : MonoBehaviour
+public class GunTemplate : WeaponTemplate
 {
     
     Transform bulletSpawnPoint;
@@ -16,39 +16,36 @@ public class GunTemplate : MonoBehaviour
     WaitForSeconds waterCannonFireWait; 
     public AudioClip[] clips;
 
-    bool _reloading = false;
 
-    private void Awake()
+    protected override void Awake()
     {
+        checkOpposingFraction();
         bulletSpawnPoint = transform.Find("Muzzle").transform;
         waterCannonFireWait = new WaitForSeconds(1 / waterCannonFireRate);
     }
 
     public void Shoot()
     {
-        if (!_reloading)
+        if (!onCooldown)
         {
             int randomIndex = Random.Range(0, clips.Length);
             AudioSource.PlayClipAtPoint(clips[randomIndex], transform.position);
             var bullet = Instantiate(ammunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<WeaponTemplate>().setOpposingFraction(opposingFraction);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
-            _reloading = true;
-            StartCoroutine(Cooldown(reloadTime));
+            onCooldown = true;
+            StartCoroutine(base.Cooldown(reloadTime));
         }
     }
 
     public void WaterCannonShoot()
     {
         var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        waterBullet.GetComponent<WeaponTemplate>().setOpposingFraction(opposingFraction);
         waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
     }
 
-    private IEnumerator Cooldown(float time)
-    {
-        yield return new WaitForSeconds(time);
-       _reloading = false;
-    }
-
+    
     public IEnumerator FireWaterCannon()
     {
         while (true)

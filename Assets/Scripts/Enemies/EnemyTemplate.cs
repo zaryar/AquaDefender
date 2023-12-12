@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class EnemyTemplate : MonoBehaviour
 {
+    [SerializeField] int maxHealth;
     [SerializeField] int Health = 1;
     [SerializeField] GameObject HitParticle;
-    
+    public HealthBar3D healthbar;
 
     public void Hurt(int dmg)
     {
         Health -= dmg;
         if(Health <= 0) Die();
+        if(healthbar != null)
+        {
+            healthbar.update_healthbar(maxHealth, dmg);
+        }
     }
 
     public int getHealth()
@@ -31,6 +36,7 @@ public class EnemyTemplate : MonoBehaviour
             collision.gameObject.tag == "Bullet" &&
             HitParticle != null)
         {
+           
             Instantiate(HitParticle, collision.transform.position, Quaternion.identity);
         }
     }
