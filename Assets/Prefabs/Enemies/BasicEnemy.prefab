@@ -427,6 +427,11 @@ MonoBehaviour:
   goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
   _gun: {fileID: 0}
   _sword: {fileID: 0}
+  huhClips:
+  - {fileID: 8300000, guid: 43ae13bcc5309a246bd70c2e16e49d28, type: 3}
+  - {fileID: 8300000, guid: 3ec52c2850202054593cd0d9ba275f4e, type: 3}
+  - {fileID: 8300000, guid: df80fe20ceb16c24aaf36228f9a810db, type: 3}
+  - {fileID: 8300000, guid: 12b66c7ef1199414ea118576657dd691, type: 3}
 --- !u!114 &3618219858526281460
 MonoBehaviour:
   m_ObjectHideFlags: 0
