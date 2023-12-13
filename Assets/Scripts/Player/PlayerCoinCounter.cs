@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class CoinCounter : MonoBehaviour
 {
     public int coinCount = 0;
-    public AudioClip coinSound;
     public Text coinText;
 
     void OnTriggerEnter(Collider other)

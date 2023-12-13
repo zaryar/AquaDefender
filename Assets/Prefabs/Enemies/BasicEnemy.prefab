@@ -425,6 +425,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _agent: {fileID: 0}
   goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
+  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
   _gun: {fileID: 0}
   _sword: {fileID: 0}
   huhClips:

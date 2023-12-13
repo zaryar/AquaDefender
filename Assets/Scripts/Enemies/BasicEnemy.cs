@@ -13,6 +13,7 @@ public class BasicEnemy : EnemyTemplate
     // [SerializeField] float invisibleTime = 5f;
     public event Action OnDeath;
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
+    public GameObject waterPrefab; // Assign the waterdrop prefab in the Inspector window
     public GunTemplate _gun;
     public SwordTemplate _sword;
     public AudioClip[] huhClips;
@@ -28,6 +29,13 @@ public class BasicEnemy : EnemyTemplate
     protected override void Die()
     {
         Instantiate(goldPrefab, transform.position, Quaternion.identity);
+        float spawnChance = 0.2f; // 20% chance of spawning
+        float randomValue = UnityEngine.Random.value; // Generate a random value between 0 and 1
+
+        if (randomValue <= spawnChance)
+        {
+            Instantiate(waterPrefab, transform.position, Quaternion.identity);
+        }
         OnDeath?.Invoke(); // Ereignis auslösen
         Destroy(gameObject);
     }
