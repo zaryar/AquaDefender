@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - WaterBullet
   - Coin
+  - WaterDrop
   layers:
   - Default
   - TransparentFX

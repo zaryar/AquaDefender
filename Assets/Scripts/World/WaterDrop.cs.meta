@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: c06ba8eeb1b199647a30281f60b9bce6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - waterSound: {fileID: 8300000, guid: 0624f24c2acd2ff4ea883fa52b1f0bbf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

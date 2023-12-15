@@ -181,6 +181,7 @@ MonoBehaviour:
   waterBulletSpeed: 15
   reloadTime: 0.5
   waterCannonFireRate: 20
+  player: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: cbeaacb5d5cf15e43bad281fc236d497, type: 3}
   - {fileID: 8300000, guid: 32782440a76c4b743bb00248b090fccf, type: 3}
@@ -418,16 +419,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e1278013a3b044d9633e5bf8d3098f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  Health: 1
-  HitParticle: {fileID: 0}
+  maxHealth: 5
+  Health: 5
+  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
   healthbar: {fileID: 0}
   _target: {fileID: 0}
   _player: {fileID: 0}
   _agent: {fileID: 0}
   goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
+  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
   _gun: {fileID: 0}
   _sword: {fileID: 0}
+  huhClips: []
   player_id: 0
 --- !u!114 &3404226192644667604
 MonoBehaviour:

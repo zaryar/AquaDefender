@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         {
             damage = 0;
         }
-        UnityEngine.Debug.Log(damage);
+        //UnityEngine.Debug.Log(damage);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
