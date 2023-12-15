@@ -13,6 +13,7 @@ public class EnemyTemplate : MonoBehaviour
     public void Hurt(int dmg)
     {
         Health -= dmg;
+        Debug.Log(Health);
         if(Health <= 0) Die();
         if(healthbar != null)
         {
@@ -28,6 +29,7 @@ public class EnemyTemplate : MonoBehaviour
     protected virtual void Die()
     {
         //Death Stuff here
+        Debug.Log("aua");
         Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
