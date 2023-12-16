@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -33,6 +34,7 @@ public class PlayerMovementController : MonoBehaviour
     int _dirXHash;
     int _dirZHash;
     [SerializeField] Animator PlayerAnimator;
+    [SerializeField] Rig AimRig;
 
     //Aiming
     [SerializeField] LayerMask groundMask;
@@ -153,12 +155,14 @@ public class PlayerMovementController : MonoBehaviour
                 weapon = 1;
                 GunModel.GetComponent<MeshRenderer>().enabled = false;
                 SwordModel.GetComponent<MeshRenderer>().enabled = true;
+                AimRig.weight= 0f;
             }
             else if (weapon == 1)
             {
                 weapon = 0;
                 GunModel.GetComponent<MeshRenderer>().enabled = true;
                 SwordModel.GetComponent<MeshRenderer>().enabled = false;
+                AimRig.weight = 1f;
             }
         };
         _playerControls.CharacterControls.WaterCannon.started += context =>
