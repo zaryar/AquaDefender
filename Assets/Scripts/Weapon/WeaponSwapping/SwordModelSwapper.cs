@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SwordModelSwapper : MonoBehaviour
@@ -60,5 +61,27 @@ public class SwordModelSwapper : MonoBehaviour
         Sword1.enabled = false;
         Sword2.enabled = false;
         Sword3.enabled = false;
+    }
+}
+
+[CustomEditor(typeof(SwordModelSwapper))]
+public class SwordModelSwapperEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+        var swapper = (SwordModelSwapper)target;
+        if (GUILayout.Button("sword1"))
+        {
+            swapper.swapModel(Weapons.Swords.sword1);
+        }
+        else if (GUILayout.Button("sword2"))
+        {
+            swapper.swapModel(Weapons.Swords.sword2);
+        }
+        else if (GUILayout.Button("sword3"))
+        {
+            swapper.swapModel(Weapons.Swords.sword3);
+        }
     }
 }
