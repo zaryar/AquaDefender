@@ -25,7 +25,6 @@ public class SwordTemplate : WeaponTemplate
             for (int i = 0; i < hit.Length; i++)
             {
                 tag = hit[i].tag;
-                //Debug.Log(i + " " + tag);
                 if (opposingFraction.Contains(tag))
                 {
                     if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
