@@ -18,6 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     // special skill
     [SerializeField] float invisibleTime = 5f;
     public bool invisible = false;
+    public bool reloadingInvisibility = false;
     [SerializeField] Material invisibleMaterial;
     [SerializeField] SkinnedMeshRenderer PlayerRenderer;
 
@@ -209,21 +210,34 @@ public class PlayerMovementController : MonoBehaviour
 
     public IEnumerator makeInvisible()
     {
-        Material[] originalArr = new Material[PlayerRenderer.materials.Length];
-        Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
-        Material[] invisibleArr = new Material[PlayerRenderer.materials.Length];
-        for (int i = 0; i < PlayerRenderer.materials.Length; ++i)
+        if (!reloadingInvisibility)
         {
-            invisibleArr[i] = invisibleMaterial;
-        }
-        PlayerRenderer.materials = invisibleArr;
+            Material[] originalArr = new Material[PlayerRenderer.materials.Length];
+            Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
+            Material[] invisibleArr = new Material[PlayerRenderer.materials.Length];
+            for (int i = 0; i < PlayerRenderer.materials.Length; ++i)
+            {
+                invisibleArr[i] = invisibleMaterial;
+            }
+            PlayerRenderer.materials = invisibleArr;
 
-        invisible = true;
-        yield return new WaitForSeconds(invisibleTime);
-        invisible = false;
-        
-        PlayerRenderer.materials = originalArr;
+            invisible = true;
+            yield return new WaitForSeconds(invisibleTime);
+            invisible = false;
+
+            PlayerRenderer.materials = originalArr;
+            reloadingInvisibility = true;
+            StartCoroutine(Reload(invisibleTime * 3));
+        }
     }
+
+    protected IEnumerator Reload(float time)
+    {
+        yield return new WaitForSeconds(time);
+        reloadingInvisibility = false;
+    }
+
+
 
 
     void StartWaterCannon()

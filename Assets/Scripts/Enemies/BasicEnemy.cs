@@ -14,6 +14,7 @@ public class BasicEnemy : EnemyTemplate
     public event Action OnDeath;
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
     public GameObject waterPrefab; // Assign the waterdrop prefab in the Inspector window
+    public GameObject barrelCoin; // Assign the BarrelCoin prefab in the Inspector window
     public GunTemplate _gun;
     public SwordTemplate _sword;
     public AudioClip[] huhClips;
@@ -35,6 +36,10 @@ public class BasicEnemy : EnemyTemplate
         if (randomValue <= spawnChance)
         {
             Instantiate(waterPrefab, transform.position, Quaternion.identity);
+        }
+        if (randomValue <= (spawnChance - 0.1f))
+        {
+            Instantiate(barrelCoin, transform.position + new Vector3(0 ,0 ,0.3f), Quaternion.identity);
         }
         OnDeath?.Invoke(); // Ereignis auslösen
         Destroy(gameObject);
@@ -143,12 +148,14 @@ public class BasicEnemy : EnemyTemplate
         if(_player.GetComponent<PlayerMovementController>().invisible)
         {
             _target=null;
-
+            _player.GetComponent<InvisibilityCountdown>().StartCountdown();
             StartCoroutine(huhSounds());
             while(_player.GetComponent<PlayerMovementController>().invisible){
                 yield return new WaitForSeconds(0.5f);
             }
             _target = _player;
+            _player.GetComponent<InvisibilityCountdown>().StopCountdown();
+            _player.GetComponent<InvisibilityCountdown>().StopReload();
         }
     }
 
@@ -159,4 +166,5 @@ public class BasicEnemy : EnemyTemplate
         int randomIndex = UnityEngine.Random.Range(0, huhClips.Length);
         AudioSource.PlayClipAtPoint(huhClips[randomIndex], transform.position);
     }
+
 }
