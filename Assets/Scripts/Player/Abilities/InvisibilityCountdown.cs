@@ -8,7 +8,7 @@ public class InvisibilityCountdown : MonoBehaviour
 {
     public Text invisibilityText;
     float countdownTime;
-    public int invisibleTime = 5; // same as invisibleTime in PlayerMovementController
+    int invisibleTime = 5; // same as invisibleTime in PlayerMovementController
     bool countdownActive = false;
     bool reloading = false;
     string state = "Invisibility: ";
@@ -48,7 +48,7 @@ public class InvisibilityCountdown : MonoBehaviour
     {
         countdownActive = false;
         reloading = true;             //starts reload
-        countdownTime = invisibleTime * 3;
+        countdownTime = invisibleTime * 6;
     }
 
 
