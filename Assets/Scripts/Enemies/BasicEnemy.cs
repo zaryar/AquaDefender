@@ -12,6 +12,7 @@ public class BasicEnemy : EnemyTemplate
     [HideInInspector] public NavMeshAgent _agent;
     // [SerializeField] float invisibleTime = 5f;
     public event Action OnDeath;
+    public event Action OnAttack;
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
     public GameObject waterPrefab; // Assign the waterdrop prefab in the Inspector window
     public GameObject barrelCoin; // Assign the BarrelCoin prefab in the Inspector window
@@ -22,12 +23,20 @@ public class BasicEnemy : EnemyTemplate
 
     //Helper variables
     int attack_finished = 0;
-    bool _isDead = false;
 
     public void Start()
     {
         healthbar = gameObject.GetComponent<HealthBar3D>();
+        System.Random random = new System.Random();
+        Array swords = Enum.GetValues(typeof(Weapons.Swords));
+        SwordModelSwapper smw = GetComponentInChildren<SwordModelSwapper>();
+        if(smw != null)
+        {
+            smw.swapModel((Weapons.Swords)swords.GetValue(random.Next(swords.Length)));
+            smw.enableRenderer();
+        }
     }
+        
 
     protected override void Die()
     {
@@ -45,8 +54,7 @@ public class BasicEnemy : EnemyTemplate
         }
         OnDeath?.Invoke(); // Ereignis auslösen
         _agent.enabled = false;
-        _isDead = true;
-        Destroy(gameObject, 2f);
+        base.Die();
     }
     private void Awake()
     {
@@ -54,8 +62,8 @@ public class BasicEnemy : EnemyTemplate
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         _target= _player;
         _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();
-        _gun = gameObject.transform.Find("Gun").GetComponent<GunTemplate>();
         enemy_gun = gameObject.transform.Find("Gun");
+        _gun = enemy_gun.GetComponent<GunTemplate>();
     }
 
     public Vector3 Get_sorted_distance(List<Vector3> vectors, Vector3 target, string type)
@@ -103,6 +111,7 @@ public class BasicEnemy : EnemyTemplate
         else if (Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished==0)
         {
             _sword.Attack();
+            OnAttack?.Invoke();
             Vector3 direction = _target.position - transform.position;
             direction.Normalize();
             _agent.destination = _target.position - 10 * direction;
