@@ -73,3 +73,5 @@ crashlytics-build.properties
 .vscode/settings.json
 .vscode/launch.json
 .vscode/extensions.json
+Assets/LowPolyTropicalEnvironment_LITE/TropicalEnvironmentLite_2021.3.0_URP_1.0.unitypackage.meta
+ProjectSettings/ShaderGraphSettings.asset
