@@ -16,7 +16,7 @@ public class SwordTemplate : WeaponTemplate
         return swordAttackRange; 
     }
     
-    public override void Attack()
+    public bool Attack()
     {
         if (!onCooldown)
         {
@@ -42,8 +42,9 @@ public class SwordTemplate : WeaponTemplate
             onCooldown = true;
 
             StartCoroutine(base.Cooldown(cooldown));
+            return true;
         }
-        
+        return false;
         
     }
 

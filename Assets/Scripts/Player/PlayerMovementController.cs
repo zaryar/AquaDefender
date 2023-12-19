@@ -142,8 +142,7 @@ public class PlayerMovementController : MonoBehaviour
             {
                 //should be replaced with a return from the sword if the attack was succesfull.
                 //maybe give the Attack() function a return type to determine if a strike is executed?
-                bool _isStriking= true;
-                _sword.Attack();
+                bool _isStriking = _sword.Attack();
                 if (_isStriking) { PlayerAnimator.SetTrigger("Attack"); }
             }
 
