@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunTemplate : MonoBehaviour
+public class GunTemplate : WeaponTemplate
 {
     
     Transform bulletSpawnPoint;
@@ -12,43 +12,45 @@ public class GunTemplate : MonoBehaviour
     [SerializeField] float waterBulletSpeed = 10;
     [SerializeField] float reloadTime = .5f;
     [SerializeField] float waterCannonFireRate = 20f;
+    public GameObject player; // Assign the player instance in the Unity Editor for the watergun
 
     WaitForSeconds waterCannonFireWait; 
     public AudioClip[] clips;
 
-    bool _reloading = false;
 
-    private void Awake()
+    protected override void Awake()
     {
+        checkOpposingFraction();
         bulletSpawnPoint = transform.Find("Muzzle").transform;
         waterCannonFireWait = new WaitForSeconds(1 / waterCannonFireRate);
     }
 
     public void Shoot()
     {
-        if (!_reloading)
+        if (!onCooldown)
         {
             int randomIndex = Random.Range(0, clips.Length);
             AudioSource.PlayClipAtPoint(clips[randomIndex], transform.position);
             var bullet = Instantiate(ammunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<WeaponTemplate>().setOpposingFraction(opposingFraction);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
-            _reloading = true;
-            StartCoroutine(Cooldown(reloadTime));
+            onCooldown = true;
+            StartCoroutine(base.Cooldown(reloadTime));
         }
     }
 
     public void WaterCannonShoot()
     {
-        var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
+        if (player.GetComponent<WaterGun>().water > 0)
+        {
+            var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            waterBullet.GetComponent<WeaponTemplate>().setOpposingFraction(opposingFraction);
+            waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
+            player.GetComponent<WaterGun>().removeWater();
+        }
     }
 
-    private IEnumerator Cooldown(float time)
-    {
-        yield return new WaitForSeconds(time);
-       _reloading = false;
-    }
-
+    
     public IEnumerator FireWaterCannon()
     {
         while (true)

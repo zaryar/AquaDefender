@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         {
             damage = 0;
         }
-        UnityEngine.Debug.Log(damage);
+        //UnityEngine.Debug.Log(damage);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -79,7 +79,7 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
-    void OnTriggerEnter(Collider collision)
+    /*void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Enemy") &&
             collision.gameObject.name != "Barrel1(Clone)" &&
@@ -88,7 +88,7 @@ public class Health : MonoBehaviour
         {
             TakeDamage(10);
         }
-    }
+    }*/
 
 
 }

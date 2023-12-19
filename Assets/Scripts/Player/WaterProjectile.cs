@@ -1,24 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class WaterProjectile : MonoBehaviour
+public class WaterProjectile : WeaponTemplate
 {
     [SerializeField] float lifeTime = 2;
     [SerializeField] int Damage = 1;
     [SerializeField] GameObject WaterDust;
     bool _collided = false;
-    private void Awake()
+    protected override void Awake()
     {
         Destroy(gameObject, lifeTime);
     }
     private void OnCollisionEnter(Collision collision)
     {
+        string collisionTag = collision.gameObject.tag;
         if (collision != null &&
            !_collided &&
-           collision.gameObject.tag == "Enemy")
-        {
+           opposingFraction.Contains(collisionTag))
+        {   
+            if (collision.gameObject.GetComponent<EnemyTemplate>()!= null)
+            {
             collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
+            }
+            else if (collision.gameObject.GetComponent<Health>()!= null)
+            {
+            collision.gameObject.GetComponent<Health>().TakeDamage(Damage);
+            }
+
         }
         Instantiate(WaterDust, transform.position, Quaternion.identity);
         _collided = true;
