@@ -1043,7 +1043,7 @@ Transform:
   m_GameObject: {fileID: 494366690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 1, z: 48}
+  m_LocalPosition: {x: 2, y: 3.13, z: 48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2452,23 +2452,38 @@ MonoBehaviour:
   - {fileID: 494366691}
   - {fileID: 2043720475}
   waves:
-  - enemies:
-    - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-      count: 10
-    spawnInterval: 0
+  - waveStartMode: 0
     startDelay: 0
-  - enemies:
-    - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
-      count: 3
-    - prefab: {fileID: 4396726380069856030, guid: 121f9f75c69ef64438dd0428680ec80d, type: 3}
-      count: 2
-    - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
-      count: 1
-    - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-      count: 25
-    spawnInterval: 0
-    startDelay: 5
-  waveInfo: 
+    timeBetweenWaves: 0
+    enemyGroups:
+    - enemies:
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 5
+        spawnPointIndex: -1
+        health: 5
+      spawnTime: 0
+  - waveStartMode: 1
+    startDelay: 0
+    timeBetweenWaves: 20
+    enemyGroups:
+    - enemies:
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 3
+        spawnPointIndex: 0
+        health: 1000
+      - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
+        count: 3
+        spawnPointIndex: 0
+        health: 1000
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 3
+        spawnPointIndex: 0
+        health: 1000
+      - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
+        count: 3
+        spawnPointIndex: 0
+        health: 1000
+      spawnTime: 0
   waveText: {fileID: 2056572660}
 --- !u!1001 &1300343079
 PrefabInstance:
@@ -4734,7 +4749,7 @@ Transform:
   m_GameObject: {fileID: 2043720474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: 1, z: 48}
+  m_LocalPosition: {x: 48, y: 4.87, z: 48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
