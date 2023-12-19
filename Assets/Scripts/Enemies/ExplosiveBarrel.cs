@@ -11,7 +11,6 @@ public class ExplosiveBarrel : EnemyTemplate
     [SerializeField] int Damage = 1;
     [SerializeField] GameObject FireEffect;
     private GameObject fire;
-    private Boolean _isDead = false;
     override protected void Die()
     {
         if(!_isDead)
