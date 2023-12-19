@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CoinCounter : MonoBehaviour
 {
-    public int coinCount = 0;
+    public static int coins = 0;
     public Text coinText;
 
     void OnTriggerEnter(Collider other)
@@ -16,10 +16,15 @@ public class CoinCounter : MonoBehaviour
             if (collectableItem != null)
             {
                 collectableItem.Collect();
-                coinCount++;
-                coinText.text = "Coins: " + coinCount.ToString();
+                coins++;
+                updateCoinCounterTxt();
             }
            
         }
+    }
+
+    public void updateCoinCounterTxt()
+    {
+        coinText.text = "Coins: " + coins.ToString();
     }
 }
