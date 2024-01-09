@@ -7,10 +7,9 @@ public class BarrelSpawner : MonoBehaviour
 {
     Transform barrelSpawnPoint;
     [SerializeField] GameObject barrel;
-    [SerializeField] float reloadBarrel = 40f;
-    [SerializeField] Vector3 spawnCheckSize = new Vector3(0.1f, 0.1f, 0.1f); // Größe der Überprüfungsbox
+    [SerializeField] Vector3 spawnCheckSize = new Vector3(0.1f, 0.1f, 0.1f); // Gr??e der ?berpr?fungsbox
 
-    bool reloading = false;
+    public GameObject player;
 
     private void Awake()
     {
@@ -19,11 +18,10 @@ public class BarrelSpawner : MonoBehaviour
 
     public void SpawnBarrel()
     {
-        if (!reloading && CanSpawnBarrel())
+        if (player.GetComponent<BarrelCounter>().barrelCount > 0 && CanSpawnBarrel())
         {
             Instantiate(barrel, transform.position, barrelSpawnPoint.rotation);
-            reloading = true;
-            StartCoroutine(Cooldown(reloadBarrel));
+            player.GetComponent<BarrelCounter>().DecreaseBarrelCount();
         }
     }
 
@@ -43,9 +41,4 @@ public class BarrelSpawner : MonoBehaviour
         return true;
     }
 
-    private IEnumerator Cooldown(float time)
-    {
-        yield return new WaitForSeconds(time);
-        reloading = false;
-    }
 }

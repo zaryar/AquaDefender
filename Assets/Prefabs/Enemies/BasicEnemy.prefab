@@ -181,6 +181,7 @@ MonoBehaviour:
   waterBulletSpeed: 15
   reloadTime: 0.5
   waterCannonFireRate: 20
+  player: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: cbeaacb5d5cf15e43bad281fc236d497, type: 3}
   - {fileID: 8300000, guid: 32782440a76c4b743bb00248b090fccf, type: 3}
@@ -424,8 +425,10 @@ MonoBehaviour:
   _target: {fileID: 0}
   _player: {fileID: 0}
   _agent: {fileID: 0}
+  invisibilityReload: 30
   goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
   waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
+  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
   _gun: {fileID: 0}
   _sword: {fileID: 0}
   huhClips:
@@ -433,6 +436,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3ec52c2850202054593cd0d9ba275f4e, type: 3}
   - {fileID: 8300000, guid: df80fe20ceb16c24aaf36228f9a810db, type: 3}
   - {fileID: 8300000, guid: 12b66c7ef1199414ea118576657dd691, type: 3}
+  reloadingInvisibility: 0
 --- !u!114 &3618219858526281460
 MonoBehaviour:
   m_ObjectHideFlags: 0
