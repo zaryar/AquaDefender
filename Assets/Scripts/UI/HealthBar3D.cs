@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class HealthBar3D : MonoBehaviour
 {
+    Transform _barLife;
+    Transform _barBG;
     // Start is called before the first frame update
     void Start()
     {
         gameObject.transform.Find("HealthBar_Life").GetComponent<Renderer>().material.color = Color.green;
         gameObject.transform.Find("HealthBar_Background").GetComponent<Renderer>().material.color = Color.red;
+        _barLife = gameObject.transform.Find("HealthBar_Life");
+        _barBG = gameObject.transform.Find("HealthBar_Background");
     }
 
     // Update is called once per frame
-    public void adapt_bar(string bar, float substract)
+    public void adapt_bar(Transform barobject, float substract)
     {
-        Transform barobject = gameObject.transform.Find(bar);
-        float x_position = barobject.transform.localPosition.x;
-        float x_scale = barobject.transform.localScale.x;
-        barobject.transform.localPosition = new Vector3(x_position - (0.5f * System.Math.Abs(substract)), 1.2f, 0);
-        barobject.transform.localScale = new Vector3(x_scale + substract, 0.2f, 0.2f);
+        barobject.localPosition = new Vector3(barobject.localPosition.x - (0.5f * System.Math.Abs(substract)), barobject.localPosition.y, 0);
+        barobject.localScale = new Vector3(barobject.localScale.x + substract, 0.2f, 0.2f);
     }
 
     public void update_healthbar(int maxHealth, int dmg)
     {
         float substract = (float)dmg / (float)maxHealth;
-        adapt_bar("HealthBar_Life", -substract);
-        adapt_bar("HealthBar_Background", substract);
+        adapt_bar(_barLife, -substract);
+        adapt_bar(_barBG, substract);
     }
 }
