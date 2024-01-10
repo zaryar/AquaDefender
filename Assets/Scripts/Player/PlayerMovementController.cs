@@ -238,23 +238,7 @@ public class PlayerMovementController : MonoBehaviour
         PlayerRenderer.materials = originalArr;
     }
 
-    // public IEnumerator freezeIt()
-    // {
-    //     Material[] originalArr = new Material[PlayerRenderer.materials.Length];
-    //     Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
-    //     Material[] invisibleArr = new Material[PlayerRenderer.materials.Length];
-    //     for (int i = 0; i < PlayerRenderer.materials.Length; ++i)
-    //     {
-    //         invisibleArr[i] = invisibleMaterial;
-    //     }
-    //     PlayerRenderer.materials = invisibleArr;
-
-    //     freezed = true;
-    //     yield return new WaitForSeconds(freezingTime);
-    //     freezed = false;
-        
-    //     PlayerRenderer.materials = originalArr;
-    // }
+    
 
 
     void StartWaterCannon()
