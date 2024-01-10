@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
@@ -12,10 +11,7 @@ public class WaveManager : MonoBehaviour
     private EnemySpawner spawner;
     private List<GameObject> activeEnemies = new List<GameObject>(); // List of active enemies
     private bool isSpawningWave = false;
-    public string waveInfo = string.Empty;
-
-    // References to text components
-    public TMP_Text waveText;
+    public TMP_Text waveText; // Reference to the text component
 
     void Start()
     {
@@ -24,52 +20,82 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        // Check if all enemies of the current wave are defeated and not already spawning
-        if (activeEnemies.Count == 0 && currentWaveIndex < waves.Length && !isSpawningWave)
+        if (currentWaveIndex < waves.Length)
         {
-            isSpawningWave = true;
-            StartNextWave(); // Start the next wave
+            var currentWave = waves[currentWaveIndex];
+            bool shouldStartNextWave = false;
+
+            switch (currentWave.waveStartMode)
+            {
+                case EnemyWave.WaveStartMode.AfterClearing:
+                    if (activeEnemies.Count == 0 && !isSpawningWave)
+                    {
+                        shouldStartNextWave = true;
+                    }
+                    break;
+
+                case EnemyWave.WaveStartMode.AfterTime:
+                    if (!isSpawningWave && !IsInvoking("StartNextWave"))
+                    {
+                        Invoke("StartNextWave", currentWave.timeBetweenWaves);
+                    }
+                    break;
+            }
+
+            if (shouldStartNextWave)
+            {
+                StartNextWave();
+            }
         }
 
         // Update wave information display
-        waveInfo = "Wave: " + (currentWaveIndex) + " | Remaining Enemies: " + activeEnemies.Count;
-        waveText.text = waveInfo;
+        waveText.text = "Wave: " + (currentWaveIndex) + " | Remaining Enemies: " + activeEnemies.Count;
     }
+
 
     private void StartNextWave()
     {
         if (currentWaveIndex < waves.Length)
         {
-            StartCoroutine(SpawnWave(waves[currentWaveIndex])); // Begin spawning the next wave
+            StartCoroutine(SpawnWave(waves[currentWaveIndex]));
+            if (waves[currentWaveIndex].waveStartMode == EnemyWave.WaveStartMode.AfterTime)
+            {
+                CancelInvoke("StartNextWave");
+            }
         }
     }
 
     IEnumerator SpawnWave(EnemyWave wave)
     {
-        yield return new WaitForSeconds(wave.startDelay); // Wait for the start delay
+        isSpawningWave = true;
+        yield return new WaitForSeconds(wave.startDelay);
 
-        // Spawn each enemy in the wave
-        foreach (var enemyType in wave.enemies)
+        foreach (var group in wave.enemyGroups)
         {
-            for (int i = 0; i < enemyType.count; i++)
+            yield return new WaitForSeconds(group.spawnTime);
+
+            foreach (var enemyType in group.enemies)
             {
-                Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)]; // Choose a random spawn point
-                GameObject enemy = spawner.SpawnEnemy(enemyType.prefab, spawnPoint); // Spawn the enemy
-                activeEnemies.Add(enemy); // Add enemy to the list
+                for (int i = 0; i < enemyType.count; i++)
+                {
+                    Transform spawnPoint = enemyType.spawnPointIndex == -1 ?
+                        spawnPoints[Random.Range(0, spawnPoints.Length)] :
+                        spawnPoints[Mathf.Clamp(enemyType.spawnPointIndex, 0, spawnPoints.Length - 1)];
 
-                // Subscribe to the enemy's death event
-                enemy.GetComponent<BasicEnemy>().OnDeath += () => OnEnemyDeath(enemy);
-
-                yield return new WaitForSeconds(wave.spawnInterval); // Wait between spawns
+                    GameObject enemy = spawner.SpawnEnemy(enemyType.prefab, spawnPoint);
+                    enemy.GetComponent<EnemyTemplate>().SetHealth(enemyType.health);
+                    activeEnemies.Add(enemy);
+                    enemy.GetComponent<BasicEnemy>().OnDeath += () => OnEnemyDeath(enemy);
+                }
             }
         }
 
-        currentWaveIndex++; // Increment the wave index
-        isSpawningWave = false; // Reset spawning boolean
+        currentWaveIndex++;
+        isSpawningWave = false;
     }
 
     private void OnEnemyDeath(GameObject enemy)
     {
-        activeEnemies.Remove(enemy); // Remove the enemy from the list on death
+        activeEnemies.Remove(enemy);
     }
 }

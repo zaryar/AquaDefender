@@ -20,7 +20,8 @@ public class SwordTemplate : WeaponTemplate
         return swordAttackRange; 
     }
     
-    public void Attack(bool freeze = false)
+
+    public bool Attack(bool freeze = false)
     {
         if (!onCooldown)
         {
@@ -52,38 +53,13 @@ public class SwordTemplate : WeaponTemplate
             onCooldown = true;
 
             StartCoroutine(base.Cooldown(cooldown));
+            return true;
         }
-        
+        return false;
         
     }
 
-    // public void IceAttack()
-    // {
-        
-    //         Collider[] hit = Physics.OverlapSphere(attackTransform.position, attackRange);
-
-    //         for (int i = 0; i < hit.Length; i++)
-    //         {
-    //             tag = hit[i].tag;
-    //             if (opposingFraction.Contains(tag) & GetComponent<PlayerMovementController>().freezed)
-    //             {
-    //                 if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
-    //                 {
-    //                     hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(swordDamage);
-    //                     StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze());
-
-    //                 }
-    //                 else if(hit[i].gameObject.GetComponent<Health>()!= null)
-    //                 {
-    //                     hit[i].gameObject.GetComponent<Health>().TakeDamage(swordDamage);
-    //                 }
-    //             }
-                
-    //         }
-
-        
-        
-    // }
+    
     
 
     

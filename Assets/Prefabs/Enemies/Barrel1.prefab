@@ -141,9 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2ed60a0ca85f84b982838b2b02c024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   Health: 1
   HitParticle: {fileID: 575812239389501723, guid: f0d8c38dec8e9544fbbac078e259b773, type: 3}
+  healthbar: {fileID: 0}
   ExplosionEffect: {fileID: 2814060956400009086, guid: d14edc546cb2fd341a3a756ba647496c, type: 3}
   Timer: 2
-  Damage: 1
+  Damage: 5
   FireEffect: {fileID: 575812239389501723, guid: 557dbfc8f7aa57d4196b7297842b4934, type: 3}

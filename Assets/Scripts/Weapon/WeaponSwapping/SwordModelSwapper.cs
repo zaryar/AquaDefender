@@ -46,7 +46,7 @@ public class SwordModelSwapper : MonoBehaviour
         _isActive = false;
     }
 
-    private void Start()
+    private void Awake()
     {
         if(Sword1 == null ||
            Sword2 == null ||
