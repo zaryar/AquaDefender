@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4479547477214045501}
   - component: {fileID: 7054263252365983849}
   - component: {fileID: 7455852584475733363}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,10 +34,10 @@ RectTransform:
   - {fileID: 6523085424157559704}
   m_Father: {fileID: 7188328546949425288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -573, y: -82.6734}
-  m_SizeDelta: {x: -1178.6884, y: -314.5026}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7054263252365983849
 CanvasRenderer:
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 524369771679321898}
   - component: {fileID: 8024945788281259799}
   - component: {fileID: 2076000891832613923}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Scroll Rect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.108887, y: -92.80652}
-  m_SizeDelta: {x: -629.29, y: -185.613}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 0, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &524369771679321898
 CanvasRenderer:
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 6258099311218176123}
   - component: {fileID: 4725034387321704028}
   - component: {fileID: 3492418231156155645}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,10 +218,10 @@ RectTransform:
   - {fileID: 6515997623474827308}
   m_Father: {fileID: 4479547477214045501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -126}
-  m_SizeDelta: {x: 91.4644, y: 40.345}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -126}
+  m_SizeDelta: {x: 116.9, y: 40.345}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6258099311218176123
 CanvasRenderer:
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 2019936256762515335}
   - component: {fileID: 4871555167970233573}
   - component: {fileID: 344899432294341661}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ItemContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -400.0693, y: -1164.167}
+  m_AnchoredPosition: {x: -400, y: -1164.167}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &5654275719000393381
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 3764318461696842099}
   - component: {fileID: 7556221716483111380}
   - component: {fileID: 1092431459036045576}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ShopHeader txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 1151653004544302525}
   - component: {fileID: 2592739463040172561}
   - component: {fileID: 6158819161337501762}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 6515997623474827308}
   - component: {fileID: 6103760508075366743}
   - component: {fileID: 8968248240520581424}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ExitButton txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,13 +936,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -976,9 +988,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1113,13 +1137,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1153,9 +1189,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1290,13 +1338,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1330,9 +1390,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1467,13 +1539,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1507,9 +1591,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1644,13 +1740,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1680,9 +1788,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1817,13 +1937,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1857,9 +1989,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1994,13 +2138,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2034,9 +2190,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2171,13 +2339,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2211,9 +2391,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2348,13 +2540,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2388,9 +2592,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2525,13 +2741,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 672474413852933127, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1371194989834439383, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5770874
       objectReference: {fileID: 0}
+    - target: {fileID: 1708686284889964092, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_Name
       value: Shop Item Template (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134803736078156130, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2990672847718334087, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2565,9 +2793,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4195079449681511196, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407796795461107082, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7256459394319089900, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.9562073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499099902813421766, guid: 550318cc44da4104abe35428da421bea, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8762868971694401540, guid: 550318cc44da4104abe35428da421bea, type: 3}
       propertyPath: m_AnchoredPosition.x
