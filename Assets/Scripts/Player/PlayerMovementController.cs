@@ -21,6 +21,9 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] Material invisibleMaterial;
     [SerializeField] SkinnedMeshRenderer PlayerRenderer;
 
+    // special sword attack
+    public bool freezed = false;
+
     //Movement
     CharacterController _characterController;
     Vector2 _movementInput;
@@ -181,6 +184,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             _barrelSpawn.SpawnBarrel();
         };
+        _playerControls.CharacterControls.IceSword.started += context =>
+        {   
+            if(weapon == 1) {
+                bool _isStriking= true;
+                _sword.Attack(true);
+                if (_isStriking) { PlayerAnimator.SetTrigger("Attack"); }
+            }
+        };
     }
     private void Start()
     {
@@ -226,6 +237,24 @@ public class PlayerMovementController : MonoBehaviour
         
         PlayerRenderer.materials = originalArr;
     }
+
+    // public IEnumerator freezeIt()
+    // {
+    //     Material[] originalArr = new Material[PlayerRenderer.materials.Length];
+    //     Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
+    //     Material[] invisibleArr = new Material[PlayerRenderer.materials.Length];
+    //     for (int i = 0; i < PlayerRenderer.materials.Length; ++i)
+    //     {
+    //         invisibleArr[i] = invisibleMaterial;
+    //     }
+    //     PlayerRenderer.materials = invisibleArr;
+
+    //     freezed = true;
+    //     yield return new WaitForSeconds(freezingTime);
+    //     freezed = false;
+        
+    //     PlayerRenderer.materials = originalArr;
+    // }
 
 
     void StartWaterCannon()
