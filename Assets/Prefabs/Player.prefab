@@ -260,7 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 2617128888953819818, guid: 2a409c6bbac4eff44ae21c0b93bc3d49, type: 3}
-  reloadBarrel: 10
   spawnCheckSize: {x: 0.1, y: 0.1, z: 0.1}
   player: {fileID: 0}
 --- !u!1 &4173255070700547921
@@ -605,6 +604,8 @@ GameObject:
   - component: {fileID: 8793678409148448484}
   - component: {fileID: 3019834312523413459}
   - component: {fileID: -8076033203230728374}
+  - component: {fileID: 308768894087997410}
+  - component: {fileID: 1429489112051751270}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -844,6 +845,33 @@ MonoBehaviour:
   water: 100
   coinSound: {fileID: 0}
   waterText: {fileID: 0}
+--- !u!114 &308768894087997410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752234196962838471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2684c05fd6f2d45348d024bd05006797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelText: {fileID: 0}
+  barrelCount: 0
+--- !u!114 &1429489112051751270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752234196962838471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba8b02e706224826a2020c22b32781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invisibilityText: {fileID: 0}
 --- !u!1001 &6308335204640108160
 PrefabInstance:
   m_ObjectHideFlags: 0
