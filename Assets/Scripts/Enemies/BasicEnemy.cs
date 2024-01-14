@@ -64,8 +64,9 @@ public class BasicEnemy : EnemyTemplate
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         _target = _player;
         _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();
-        _gun = enemy_gun.GetComponent<GunTemplate>();
         enemy_gun = gameObject.transform.Find("Gun");
+        _gun = enemy_gun.GetComponent<GunTemplate>();
+        
 
         enemyRenderer = GetComponent<Renderer>();
         if (enemyRenderer == null)
