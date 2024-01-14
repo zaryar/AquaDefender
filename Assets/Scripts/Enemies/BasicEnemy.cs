@@ -21,6 +21,8 @@ public class BasicEnemy : EnemyTemplate
     [HideInInspector] public SwordTemplate _sword;
     public AudioClip[] huhClips;
 
+    private bool isFreezed = false;
+
     private Renderer enemyRenderer;
 
     //Helper variables
@@ -101,11 +103,14 @@ public class BasicEnemy : EnemyTemplate
     }
 
     public void orient_player()
-    {
-        Vector3 dir = _target.position - transform.position;
-        dir.y = 0;
-        Quaternion rot = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rot, 10 * Time.deltaTime);
+    {   
+        if(_target != null && !isFreezed)
+        {
+            Vector3 dir = _target.position - transform.position;
+            dir.y = 0;
+            Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 10 * Time.deltaTime);
+        }
     }
 
     public void follow_sword_attack()
@@ -195,6 +200,10 @@ public class BasicEnemy : EnemyTemplate
 
     public IEnumerator freeze(float freezingTime, Material freezingMaterial)
     {
+        if(isFreezed)
+            yield break;
+        isFreezed = true;
+
         Material[] originalArr = new Material[0];
         if (enemyRenderer != null)
         {
@@ -208,9 +217,14 @@ public class BasicEnemy : EnemyTemplate
             enemyRenderer.materials = invisibleArr;
         }
         
-        _target = null;
+        float speed = _agent.speed;
+        _agent.speed = 0;
         yield return new WaitForSeconds(freezingTime);
-        _target = _player;
+        if(_agent == null)
+            yield break;
+            
+        isFreezed = false;
+        _agent.speed = speed;
 
         if (enemyRenderer != null && originalArr.Length > 0)
             enemyRenderer.materials = originalArr;
