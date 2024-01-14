@@ -26,7 +26,7 @@ public class PlayerMovementController : MonoBehaviour
     CharacterController _characterController;
     Vector2 _movementInput;
     Vector3 _Movement;
-    [SerializeField] float movementSpeed = 4;
+    public float movementSpeed = 4.0f;
 
     //for Animations
     bool _isRunning;

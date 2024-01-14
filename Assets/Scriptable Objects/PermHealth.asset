@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2168097827050d49b480ea813156b0b, type: 3}
-  m_Name: moreExamples2
+  m_Name: PermHealth
   m_EditorClassIdentifier: 
-  itemName: moreExamples2
-  itemAmount: 1x
-  itemCost: 15
+  itemName: ' Eternal Vigor'
+  itemAmount: +5 max hp
+  itemCost: 5

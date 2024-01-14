@@ -670,14 +670,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 0}
   shopItem:
-  - {fileID: 11400000, guid: 2ddb079a5925e4a4eac67adea0c6561b, type: 2}
-  - {fileID: 11400000, guid: 7eef18a7ad30f454c8ac42164c997ba6, type: 2}
-  - {fileID: 11400000, guid: c8cbe9e88f3746f41b1929de4c5e9aa4, type: 2}
   - {fileID: 11400000, guid: 5369fcd28d7f2414380d245113a6f317, type: 2}
-  - {fileID: 11400000, guid: b045a8c3f97f6b34095a7a30e45152bc, type: 2}
-  - {fileID: 11400000, guid: b021f8fa4923c754e83ee81fb28304d6, type: 2}
-  - {fileID: 11400000, guid: 367bef7e167213c4183febfd334ca3a6, type: 2}
+  - {fileID: 11400000, guid: 2ddb079a5925e4a4eac67adea0c6561b, type: 2}
   - {fileID: 11400000, guid: 46405b2f0bdbc234ea36b6c616e8fb46, type: 2}
+  - {fileID: 11400000, guid: 367bef7e167213c4183febfd334ca3a6, type: 2}
+  - {fileID: 11400000, guid: b021f8fa4923c754e83ee81fb28304d6, type: 2}
+  - {fileID: 11400000, guid: b045a8c3f97f6b34095a7a30e45152bc, type: 2}
+  - {fileID: 11400000, guid: c8cbe9e88f3746f41b1929de4c5e9aa4, type: 2}
+  - {fileID: 11400000, guid: 7eef18a7ad30f454c8ac42164c997ba6, type: 2}
   shopPanelsGO:
   - {fileID: 2640883492198997376}
   - {fileID: 6687091990607280973}
