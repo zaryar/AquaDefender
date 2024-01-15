@@ -23,7 +23,6 @@ public class BasicEnemy : EnemyTemplate
 
     private bool isFreezed = false;
 
-    // private Renderer enemyRenderer;
 
     //Helper variables
     int attack_finished = 0;
@@ -69,10 +68,6 @@ public class BasicEnemy : EnemyTemplate
         enemy_gun = gameObject.transform.Find("Gun");
         _gun = enemy_gun.GetComponent<GunTemplate>();
         
-
-        // enemyRenderer = GetComponent<Renderer>();
-        // if (enemyRenderer == null)
-        //     enemyRenderer = GetComponentInChildren<Renderer>();
 
     }
 
@@ -226,7 +221,7 @@ public class BasicEnemy : EnemyTemplate
 
             if(children[i].name.StartsWith("Health"))
                 continue;
-                
+
             Material[] invisibleArr = new Material[length];
             for (int j = 0; j < length; ++j)
                 invisibleArr[j] = freezingMaterial;
