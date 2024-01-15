@@ -23,7 +23,7 @@ public class BasicEnemy : EnemyTemplate
 
     private bool isFreezed = false;
 
-    private Renderer enemyRenderer;
+    // private Renderer enemyRenderer;
 
     //Helper variables
     int attack_finished = 0;
@@ -70,9 +70,9 @@ public class BasicEnemy : EnemyTemplate
         _gun = enemy_gun.GetComponent<GunTemplate>();
         
 
-        enemyRenderer = GetComponent<Renderer>();
-        if (enemyRenderer == null)
-            enemyRenderer = GetComponentInChildren<Renderer>();
+        // enemyRenderer = GetComponent<Renderer>();
+        // if (enemyRenderer == null)
+        //     enemyRenderer = GetComponentInChildren<Renderer>();
 
     }
 
@@ -204,17 +204,33 @@ public class BasicEnemy : EnemyTemplate
             yield break;
         isFreezed = true;
 
-        Material[] originalArr = new Material[0];
+        Material[] originalMaterial = new Material[0];
+        Renderer enemyRenderer = GetComponent<Renderer>();
         if (enemyRenderer != null)
         {
-            originalArr = new Material[enemyRenderer.materials.Length];
-            Array.Copy(enemyRenderer.materials, originalArr, enemyRenderer.materials.Length);
+            originalMaterial = new Material[enemyRenderer.materials.Length];
+            Array.Copy(enemyRenderer.materials, originalMaterial, enemyRenderer.materials.Length);
             Material[] invisibleArr = new Material[enemyRenderer.materials.Length];
             for (int i = 0; i < enemyRenderer.materials.Length; ++i)
-            {
                 invisibleArr[i] = freezingMaterial;
-            }
             enemyRenderer.materials = invisibleArr;
+        }
+
+        Renderer[] children = GetComponentsInChildren<Renderer>();
+        Material[][] materials = new Material[children.Length][];
+        for (int i = 0; i < children.Length; i++) {
+            int length = children[i].materials.Length;
+
+            materials[i] = new Material[length];
+            Array.Copy(children[i].materials, materials[i], length);
+
+            if(children[i].name.StartsWith("Health"))
+                continue;
+                
+            Material[] invisibleArr = new Material[length];
+            for (int j = 0; j < length; ++j)
+                invisibleArr[j] = freezingMaterial;
+            children[i].materials = invisibleArr;
         }
         
         float speed = _agent.speed;
@@ -226,8 +242,12 @@ public class BasicEnemy : EnemyTemplate
         isFreezed = false;
         _agent.speed = speed;
 
-        if (enemyRenderer != null && originalArr.Length > 0)
-            enemyRenderer.materials = originalArr;
+        if (enemyRenderer != null && originalMaterial.Length > 0)
+            enemyRenderer.materials = originalMaterial;
+
+        for (int i = 0; i < children.Length; i++) {
+            children[i].materials = materials[i];
+        }
     }
 
 }
