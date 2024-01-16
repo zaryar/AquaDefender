@@ -7,16 +7,18 @@ using UnityEngine.AI;
 
 public class BasicEnemy : EnemyTemplate
 {
-    public Transform _target;
-    public Transform _player;
-    public NavMeshAgent _agent;
+    [HideInInspector] public Transform _target;
+    [HideInInspector] public Transform _player;
+    [HideInInspector] public NavMeshAgent _agent;
     // [SerializeField] float invisibleTime = 5f;
     public event Action OnDeath;
+    public event Action OnAttack;
     public GameObject goldPrefab; // Assign the gold prefab in the Inspector window
     public GameObject waterPrefab; // Assign the waterdrop prefab in the Inspector window
     public GameObject barrelCoin; // Assign the BarrelCoin prefab in the Inspector window
-    public GunTemplate _gun;
-    public SwordTemplate _sword;
+    [HideInInspector] public GunTemplate _gun;
+    [HideInInspector] public Transform enemy_gun;
+    [HideInInspector] public SwordTemplate _sword;
     public AudioClip[] huhClips;
 
     //Helper variables
@@ -25,7 +27,16 @@ public class BasicEnemy : EnemyTemplate
     public void Start()
     {
         healthbar = gameObject.GetComponent<HealthBar3D>();
+        System.Random random = new System.Random();
+        Array swords = Enum.GetValues(typeof(Weapons.Swords));
+        SwordModelSwapper smw = GetComponentInChildren<SwordModelSwapper>();
+        if(smw != null)
+        {
+            smw.swapModel((Weapons.Swords)swords.GetValue(random.Next(swords.Length)));
+            smw.enableRenderer();
+        }
     }
+        
 
     protected override void Die()
     {
@@ -42,7 +53,8 @@ public class BasicEnemy : EnemyTemplate
             Instantiate(barrelCoin, transform.position + new Vector3(0 ,0 ,0.3f), Quaternion.identity);
         }
         OnDeath?.Invoke(); // Ereignis auslösen
-        Destroy(gameObject);
+        _agent.enabled = false;
+        base.Die();
     }
     private void Awake()
     {
@@ -50,7 +62,8 @@ public class BasicEnemy : EnemyTemplate
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         _target= _player;
         _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();
-        _gun = gameObject.transform.Find("Gun").GetComponent<GunTemplate>();
+        enemy_gun = gameObject.transform.Find("Gun");
+        _gun = enemy_gun.GetComponent<GunTemplate>();
     }
 
     public Vector3 Get_sorted_distance(List<Vector3> vectors, Vector3 target, string type)
@@ -98,6 +111,7 @@ public class BasicEnemy : EnemyTemplate
         else if (Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished==0)
         {
             _sword.Attack();
+            OnAttack?.Invoke();
             Vector3 direction = _target.position - transform.position;
             direction.Normalize();
             _agent.destination = _target.position - 10 * direction;
@@ -112,7 +126,7 @@ public class BasicEnemy : EnemyTemplate
 
     public void gun_aim()
     {
-        Transform enemy_gun = gameObject.transform.Find("Gun");
+        
         float angle = Vector3.Angle(transform.position - _target.position, Vector3.up);
         float x_rotation = Math.Max(-60f, angle - 90f);
         float z_position = Math.Min(Math.Max(0.2f, 0.2f - (0.002f * (angle - 90f))), 0.35f);
@@ -130,6 +144,7 @@ public class BasicEnemy : EnemyTemplate
     }
     private void Update()
     {   
+        if(_isDead) return;
         if(_target == _player)
             StartCoroutine(PlayerVisible());
 
@@ -140,7 +155,6 @@ public class BasicEnemy : EnemyTemplate
             follow_sword_attack();
             //follow_gun_attack(); 
         }
-         
     }
 
     public IEnumerator PlayerVisible()
