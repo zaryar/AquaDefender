@@ -201,7 +201,7 @@ public class BasicEnemy : EnemyTemplate
 
         Material[] originalMaterial = new Material[0];
         Renderer enemyRenderer = GetComponent<Renderer>();
-        if (enemyRenderer != null)
+        if (enemyRenderer != null && !isFreezed)
         {
             originalMaterial = new Material[enemyRenderer.materials.Length];
             Array.Copy(enemyRenderer.materials, originalMaterial, enemyRenderer.materials.Length);
