@@ -16,19 +16,10 @@ public class BarrelCounter : MonoBehaviour
             CollectableItem collectableItem = other.GetComponent<CollectableItem>();
             if (collectableItem != null)
             {
-                collectableItem.Collect();
-                if (barrelCount <= 2)
-                {
-                    barrelCount++;
-                    barrelText.text = "Barrels: " + barrelCount.ToString();
-                }
-                else
-                {
-                    if (barrelCount >= 3)
-                    {
-                        barrelCount = 3;
-                    }
-                }
+
+                barrelCount++;
+                barrelText.text = "Barrels: " + barrelCount.ToString();
+
             }
 
         }
@@ -37,6 +28,12 @@ public class BarrelCounter : MonoBehaviour
     public void DecreaseBarrelCount()
     {
         barrelCount--;
+        barrelText.text = "Barrels: " + barrelCount.ToString();
+    }
+
+    public void plus1Barrel()
+    {
+        barrelCount++;
         barrelText.text = "Barrels: " + barrelCount.ToString();
     }
 

@@ -22,11 +22,14 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] Material invisibleMaterial;
     [SerializeField] SkinnedMeshRenderer PlayerRenderer;
 
+    // special sword attack
+    public bool freezed = false;
+
     //Movement
     CharacterController _characterController;
     Vector2 _movementInput;
     Vector3 _Movement;
-    [SerializeField] float movementSpeed = 4;
+    public float movementSpeed = 4.0f;
 
     //for Animations
     bool _isRunning;
@@ -181,6 +184,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             _barrelSpawn.SpawnBarrel();
         };
+        _playerControls.CharacterControls.IceSword.started += context =>
+        {   
+            if(weapon == 1) {
+                bool _isStriking= true;
+                _sword.Attack(true);
+                if (_isStriking) { PlayerAnimator.SetTrigger("Attack"); }
+            }
+        };
     }
     private void Start()
     {
@@ -237,6 +248,8 @@ public class PlayerMovementController : MonoBehaviour
         yield return new WaitForSeconds(time);
         reloadingInvisibility = false;
     }
+
+    
 
 
 

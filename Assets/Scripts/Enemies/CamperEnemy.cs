@@ -29,6 +29,9 @@ public class CamperEnemy : BasicEnemy
     // Update is called once per frame
     void Update()
     {
+        if(_target == null)
+            return;
+            
         orient_player();
         _agent.destination = Get_sorted_distance(trajectory, _target.position, "min");
         if (Vector3.Distance(transform.position, _agent.destination) <= 0.8 && Vector3.Distance(transform.position, _target.position) < 10f)
