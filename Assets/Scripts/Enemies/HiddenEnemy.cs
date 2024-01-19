@@ -18,7 +18,10 @@ public class HiddenEnemy : BasicEnemy
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        if(_target == null)
+            return;
+            
         orient_player();
         Vector3 direction = transform.position - _target.position;
         float angle = Vector3.Angle(_target.forward, direction);

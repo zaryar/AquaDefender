@@ -24,10 +24,10 @@ public class WeaponTemplate : MonoBehaviour {
     }
 
     
-    public virtual void Attack()
-    {
-        // Allgemeine Implementierung für alle Waffen, falls benötigt
-    }
+    // public virtual void Attack()
+    // {
+    //     // Allgemeine Implementierung für alle Waffen, falls benötigt
+    // }
 
     protected void checkOpposingFraction() 
     {
