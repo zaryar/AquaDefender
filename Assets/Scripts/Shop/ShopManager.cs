@@ -22,6 +22,9 @@ public class ShopManager : MonoBehaviour
     private AudioSource audioSource;
 
     public Health healthScript; // Referenz to Health.cs
+    public PlayerMovementController playerMovementControllerScript; // Referenz to playerMovementControllerScript.cs
+    public BarrelCounter barrelCounterScript; //yea still the same
+    public PlayerEscapeShip playerEscapeShipScript; //idk what to write at this point
 
 
     void Start()
@@ -82,16 +85,32 @@ public class ShopManager : MonoBehaviour
     // Here the functionality of the purchasable Items is implemented
     public void GivePurchasedItem(int buttonId)
     {
-        switch (shopItem[buttonId].itemName)
+        Debug.Log(shopItem[buttonId].ToString());
+        switch (shopItem[buttonId].ToString())
         {
-            case "Health":
-                var healthAmount = int.Parse(shopItem[buttonId].itemAmount);
-                healthScript.Heal(healthAmount);
+            case "Health (ShopItem)":
+                Debug.Log("healing10");
+                healthScript.Heal(10);
                 break;
-            case "Helmet":
-                // 
+            case "PermHealth (ShopItem)":
+                healthScript.maxHealth += 5;
                 break;
-            case "Armor":
+            case "Armor (ShopItem)":
+                healthScript.armor += 10;
+                break;
+            case "Boots (ShopItem)":
+                playerMovementControllerScript.movementSpeed += 0.3f;
+                break;
+            case "BarelUp (ShopItem)":
+                barrelCounterScript.plus1Barrel();
+                break;
+            case "shipinc (ShopItem)":
+                playerEscapeShipScript.increaseShipLvl();
+                break;
+            case "4 (ShopItem)":
+                //
+                break;
+            case "5 (ShopItem)":
                 //
                 break;
             case "Boots":

@@ -7,7 +7,7 @@ public class BarrelSpawner : MonoBehaviour
 {
     Transform barrelSpawnPoint;
     [SerializeField] GameObject barrel;
-    [SerializeField] Vector3 spawnCheckSize = new Vector3(0.1f, 0.1f, 0.1f); // Gr??e der ?berpr?fungsbox
+    [SerializeField] Vector3 spawnCheckSize = new Vector3(1.0f, 0.1f, 1.0f); // Gr??e der ?berpr?fungsbox
 
     public GameObject player;
 

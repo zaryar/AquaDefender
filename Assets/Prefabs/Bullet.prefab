@@ -130,7 +130,7 @@ MonoBehaviour:
   damage: 0
   cooldown: 0
   lifeTime: 2
-  Damage: 1
+  Damage: 5
   Smoke: {fileID: 575812239389501723, guid: f0d8c38dec8e9544fbbac078e259b773, type: 3}
 --- !u!135 &5725861000638543
 SphereCollider:

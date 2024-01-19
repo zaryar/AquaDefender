@@ -4927,6 +4927,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8003555999151050329, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: IceSwordDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003555999151050329, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+      propertyPath: freezingMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 8aaa7704f76605c48b252b1d3d59ee8d, type: 2}
     - target: {fileID: 8762105013229149023, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0

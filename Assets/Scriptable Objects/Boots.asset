@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2168097827050d49b480ea813156b0b, type: 3}
   m_Name: Boots
   m_EditorClassIdentifier: 
-  itemName: Boots
-  itemAmount: 1x
+  itemName: ' Sea Striders'
+  itemAmount: +0.3 speed
   itemCost: 5

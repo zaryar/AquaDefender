@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  Health: 5
+  deathTimer: 0
   HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
   healthbar: {fileID: 0}
   _target: {fileID: 0}
@@ -428,7 +428,9 @@ MonoBehaviour:
   _agent: {fileID: 0}
   goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
   waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
+  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
   _gun: {fileID: 0}
+  enemy_gun: {fileID: 0}
   _sword: {fileID: 0}
   huhClips: []
   player_id: 0
