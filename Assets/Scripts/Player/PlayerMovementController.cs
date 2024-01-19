@@ -29,7 +29,10 @@ public class PlayerMovementController : MonoBehaviour
     CharacterController _characterController;
     Vector2 _movementInput;
     Vector3 _Movement;
+
     public float movementSpeed = 4.0f;
+    public float speedModifier = .8f;
+    GameObject player;
 
     //for Animations
     bool _isRunning;
@@ -216,8 +219,15 @@ public class PlayerMovementController : MonoBehaviour
     private void Update()
     {
         Aim();
-        _characterController.SimpleMove(_Movement * movementSpeed);
-
+        player = GameObject.FindWithTag("Player");
+        if (player.transform.position.y < 1) 
+        {
+            _characterController.SimpleMove(_Movement * movementSpeed * speedModifier);
+        }
+        else
+        {
+            _characterController.SimpleMove(_Movement * movementSpeed);
+        }
     }
 
     public IEnumerator makeInvisible()
