@@ -21,6 +21,9 @@ public class BasicEnemy : EnemyTemplate
     [HideInInspector] public SwordTemplate _sword;
     public AudioClip[] huhClips;
 
+    private bool isFreezed = false;
+
+
     //Helper variables
     int attack_finished = 0;
 
@@ -58,12 +61,14 @@ public class BasicEnemy : EnemyTemplate
     }
     private void Awake()
     {
-        _agent= GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        _target= _player;
+        _target = _player;
         _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();
         enemy_gun = gameObject.transform.Find("Gun");
         _gun = enemy_gun.GetComponent<GunTemplate>();
+        
+
     }
 
     public Vector3 Get_sorted_distance(List<Vector3> vectors, Vector3 target, string type)
@@ -93,34 +98,37 @@ public class BasicEnemy : EnemyTemplate
     }
 
     public void orient_player()
-    {
-        Vector3 dir = _target.position - transform.position;
-        dir.y = 0;
-        Quaternion rot = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rot, 10 * Time.deltaTime);
+    {   
+        if(_target != null && !isFreezed)
+        {
+            Vector3 dir = _target.position - transform.position;
+            dir.y = 0;
+            Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, 10 * Time.deltaTime);
+        }
     }
 
     public void follow_sword_attack()
     {
         //Debug.Log(Vector3.Distance(transform.position, _target.position) + " " + _agent.destination + " " + _target.position);
-        if (Vector3.Distance(transform.position, _target.position) >= _sword.GetswordAttackRange()+1.0f)
+        if (Vector3.Distance(transform.position, _target.position) >= _sword.GetswordAttackRange() + 1.0f)
         {
             _agent.destination = _target.position;
             attack_finished = 0;
         }
-        else if (Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished==0)
+        else if (Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished == 0)
         {
             _sword.Attack();
             OnAttack?.Invoke();
             Vector3 direction = _target.position - transform.position;
             direction.Normalize();
             _agent.destination = _target.position - 10 * direction;
-            attack_finished = 1; 
+            attack_finished = 1;
         }
-        else if(transform.position == _agent.destination)
+        else if (transform.position == _agent.destination)
         {
             _agent.destination = _target.position;
-            attack_finished = 0; 
+            attack_finished = 0;
         }
     }
 
@@ -139,8 +147,8 @@ public class BasicEnemy : EnemyTemplate
         Vector3 direction = _target.position - transform.position;
         direction.Normalize();
         _agent.destination = _target.position - 3 * direction;
-        gun_aim(); 
-        _gun.Shoot(); 
+        gun_aim();
+        _gun.Shoot();
     }
     private void Update()
     {   
@@ -155,16 +163,19 @@ public class BasicEnemy : EnemyTemplate
             follow_sword_attack();
             //follow_gun_attack(); 
         }
+
     }
 
     public IEnumerator PlayerVisible()
     {
-        if(_player.GetComponent<PlayerMovementController>().invisible)
+        if (_player.GetComponent<PlayerMovementController>().invisible)
         {
+
             _target=null;
             _player.GetComponent<InvisibilityCountdown>().StartCountdown();
             StartCoroutine(huhSounds());
-            while(_player.GetComponent<PlayerMovementController>().invisible){
+            while (_player.GetComponent<PlayerMovementController>().invisible)
+            {
                 yield return new WaitForSeconds(0.5f);
             }
             _target = _player;
@@ -173,12 +184,65 @@ public class BasicEnemy : EnemyTemplate
         }
     }
 
-    IEnumerator huhSounds() {
+    IEnumerator huhSounds()
+    {
         float time = UnityEngine.Random.Range(0f, 2f);
         yield return new WaitForSeconds(time);
 
         int randomIndex = UnityEngine.Random.Range(0, huhClips.Length);
         AudioSource.PlayClipAtPoint(huhClips[randomIndex], transform.position);
+    }
+
+    public IEnumerator freeze(float freezingTime, Material freezingMaterial)
+    {
+        if(isFreezed)
+            yield break;
+        isFreezed = true;
+
+        Material[] originalMaterial = new Material[0];
+        Renderer enemyRenderer = GetComponent<Renderer>();
+        if (enemyRenderer != null && !isFreezed)
+        {
+            originalMaterial = new Material[enemyRenderer.materials.Length];
+            Array.Copy(enemyRenderer.materials, originalMaterial, enemyRenderer.materials.Length);
+            Material[] invisibleArr = new Material[enemyRenderer.materials.Length];
+            for (int i = 0; i < enemyRenderer.materials.Length; ++i)
+                invisibleArr[i] = freezingMaterial;
+            enemyRenderer.materials = invisibleArr;
+        }
+
+        Renderer[] children = GetComponentsInChildren<Renderer>();
+        Material[][] materials = new Material[children.Length][];
+        for (int i = 0; i < children.Length; i++) {
+            int length = children[i].materials.Length;
+
+            materials[i] = new Material[length];
+            Array.Copy(children[i].materials, materials[i], length);
+
+            if(children[i].name.StartsWith("Health"))
+                continue;
+
+            Material[] invisibleArr = new Material[length];
+            for (int j = 0; j < length; ++j)
+                invisibleArr[j] = freezingMaterial;
+            children[i].materials = invisibleArr;
+        }
+        
+        float speed = _agent.speed;
+        _agent.speed = 0;
+        yield return new WaitForSeconds(freezingTime);
+        if(_agent == null)
+            yield break;
+            
+        isFreezed = false;
+        _agent.speed = speed;
+
+        if (enemyRenderer != null && originalMaterial.Length > 0)
+            enemyRenderer.materials = originalMaterial;
+
+        for (int i = 0; i < children.Length; i++) {
+            children[i].materials = materials[i];
+        }
     }
 
 }
