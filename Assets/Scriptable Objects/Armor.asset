@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2168097827050d49b480ea813156b0b, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  itemName: Armor
-  itemAmount: 1x
-  itemCost: 10
+  itemName: Iron Hull
+  itemAmount: +10 Armor
+  itemCost: 5

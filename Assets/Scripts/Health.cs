@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
             UnityEngine.Debug.Log("Crit");
         }*/
 
-        damage -= armor;
+        damage = damage * (100/(100+armor));
         if (damage < 0)
         {
             damage = 0;

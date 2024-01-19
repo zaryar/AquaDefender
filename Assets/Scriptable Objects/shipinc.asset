@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2168097827050d49b480ea813156b0b, type: 3}
-  m_Name: Health30
+  m_Name: shipinc
   m_EditorClassIdentifier: 
-  itemName: Health
-  itemAmount: 30
-  itemCost: 3
+  itemName: one step closer
+  itemAmount: +1 part of the ship
+  itemCost: 10
