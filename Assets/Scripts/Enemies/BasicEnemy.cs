@@ -21,6 +21,11 @@ public class BasicEnemy : EnemyTemplate
     [HideInInspector] public SwordTemplate _sword;
     public AudioClip[] huhClips;
 
+    [SerializeField] Animator EnemyAnimator;
+    int start_attack = 0;
+    float timeSinceStartAttack = 0;
+    public float attackPause = 10f;
+
     //Helper variables
     int attack_finished = 0;
 
@@ -100,27 +105,47 @@ public class BasicEnemy : EnemyTemplate
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, 10 * Time.deltaTime);
     }
 
-    public void follow_sword_attack()
+    public void follow_sword_attack(int limitedDistance = 3, int attackPause_range = 4)
     {
-        //Debug.Log(Vector3.Distance(transform.position, _target.position) + " " + _agent.destination + " " + _target.position);
-        if (Vector3.Distance(transform.position, _target.position) >= _sword.GetswordAttackRange()+1.0f)
+        timeSinceStartAttack += Time.deltaTime;
+        if (Vector3.Distance(transform.position, _target.position) >= _sword.GetswordAttackRange() + 1.0f && attack_finished == 0 && start_attack == 0)
         {
             _agent.destination = _target.position;
-            attack_finished = 0;
         }
-        else if (Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished==0)
+        else if ((Vector3.Distance(transform.position, _target.position) <= _sword.GetswordAttackRange() && attack_finished == 0) || start_attack == 1)
         {
-            _sword.Attack();
-            OnAttack?.Invoke();
+            if (start_attack == 0)
+            {
+                timeSinceStartAttack = 0;
+                if (EnemyAnimator != null)
+                {
+                    Debug.Log("Trigger");
+                    EnemyAnimator.SetTrigger("Attack");
+                }
+            }
+            start_attack = 1;
+            if (timeSinceStartAttack > 0.6f)
+            {
+                _sword.Attack();
+                OnAttack?.Invoke();
+                Vector3 direction = _target.position - transform.position;
+                direction.Normalize();
+                _agent.destination = _target.position - direction * limitedDistance;
+                attack_finished = 1;
+                timeSinceStartAttack = 0;
+                start_attack = 0;
+                attackPause = UnityEngine.Random.Range(1, attackPause_range);
+            }
+        }
+        else if (attack_finished == 1)
+        {
+            if (timeSinceStartAttack > attackPause)
+            {
+                attack_finished = 0;
+            }
             Vector3 direction = _target.position - transform.position;
             direction.Normalize();
-            _agent.destination = _target.position - 10 * direction;
-            attack_finished = 1; 
-        }
-        else if(transform.position == _agent.destination)
-        {
-            _agent.destination = _target.position;
-            attack_finished = 0; 
+            _agent.destination = _target.position - direction * limitedDistance;
         }
     }
 

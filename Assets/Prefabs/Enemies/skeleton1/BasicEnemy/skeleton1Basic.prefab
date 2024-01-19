@@ -796,6 +796,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3ec52c2850202054593cd0d9ba275f4e, type: 3}
   - {fileID: 8300000, guid: df80fe20ceb16c24aaf36228f9a810db, type: 3}
   - {fileID: 8300000, guid: 12b66c7ef1199414ea118576657dd691, type: 3}
+  EnemyAnimator: {fileID: 6867330182482117140}
+  attackPause: 10
 --- !u!195 &6440874479548699701
 NavMeshAgent:
   m_ObjectHideFlags: 0
