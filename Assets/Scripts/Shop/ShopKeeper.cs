@@ -18,7 +18,7 @@ public class ShopKeeper : MonoBehaviour
         // check if Player is pressing key "F" + is in Radius of Shopkeeper
         if (Input.GetKeyDown(KeyCode.F) && IsPlayerInRadius())
         {
-            OpenShopMenu();
+            ToggleShopMenu();
         }
     }
 
@@ -38,16 +38,40 @@ public class ShopKeeper : MonoBehaviour
         return false;
     }
 
+    void ToggleShopMenu()
+    {
+        if (shopMenu.activeSelf)
+        {
+            CloseShopMenu();
+        }
+        else
+        {
+            OpenShopMenu();
+        }
+    }
+
     void OpenShopMenu()
     {
-        // Activate das Shop-Menu-GO
+        // Activate Shop-Menu-GO
         shopMenu.SetActive(true);
         PauseGame();
+    }
+
+    void CloseShopMenu()
+    {
+        // Deactivate Shop-Menu-GO
+        shopMenu.SetActive(false);
+        ResumeGame();
     }
 
     void PauseGame()
     {
         Time.timeScale = 0f;
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1f;
     }
 
 }

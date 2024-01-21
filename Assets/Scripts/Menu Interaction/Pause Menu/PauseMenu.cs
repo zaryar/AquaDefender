@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public GameObject shopMenu;
 
     void Start()
     {
@@ -57,7 +58,11 @@ public class PauseMenu : MonoBehaviour
     {
         // Resume game
         this.pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
+        if (!shopMenu.activeSelf)
+        { 
+            Time.timeScale = 1f;
+        }
+        
     }
 
     public void RestartGame()
