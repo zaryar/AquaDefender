@@ -64,6 +64,7 @@ public class SwordModelSwapper : MonoBehaviour
     }
 }
 
+#if(UNITY_EDITOR)
 [CustomEditor(typeof(SwordModelSwapper))]
 public class SwordModelSwapperEditor : Editor
 {
@@ -85,3 +86,4 @@ public class SwordModelSwapperEditor : Editor
         }
     }
 }
+#endif
