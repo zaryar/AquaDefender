@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class CamperEnemy : BasicEnemy
 {
-    [SerializeField] private int player_id=0;
+    [SerializeField] private int player_id = 0;
     private EnemyData data;
-    List<Vector3> trajectory; 
+    List<Vector3> trajectory;
 
     public void Start()
     {
         player_id = GameController.instance.camper_player_id;
-        if (GameController.instance.camper_player_id==2)
+        if (GameController.instance.camper_player_id == 2)
         {
             GameController.instance.camper_player_id = 0;
         }
         else
-         {
+        {
             GameController.instance.camper_player_id++;
 
         }
@@ -29,9 +29,13 @@ public class CamperEnemy : BasicEnemy
     // Update is called once per frame
     void Update()
     {
-        if(_target == null)
+        if (_target == _player)
+            StartCoroutine(PlayerVisible());
+        
+        if (_target == null)
             return;
-            
+
+
         orient_player();
         _agent.destination = Get_sorted_distance(trajectory, _target.position, "min");
         if (Vector3.Distance(transform.position, _agent.destination) <= 0.8 && Vector3.Distance(transform.position, _target.position) < 10f)

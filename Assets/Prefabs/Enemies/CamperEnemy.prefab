@@ -125,6 +125,9 @@ MonoBehaviour:
   swordAttackRange: 1
   swordCooldown: 1
   swordDamage: 1
+  IceSwordDamage: 1
+  freezingTime: 10
+  freezingMaterial: {fileID: 0}
 --- !u!1 &3114591618150173543
 GameObject:
   m_ObjectHideFlags: 0

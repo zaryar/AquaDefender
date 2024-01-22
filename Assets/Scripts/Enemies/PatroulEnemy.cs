@@ -24,6 +24,9 @@ public class PatroulEnemy : BasicEnemy
     // Update is called once per frame
     void Update()
     {
+        //if(_target == _player)
+          //  StartCoroutine(PlayerVisible());
+
         orient_player(); 
         _agent.destination = trajectory[patroul_number];
         if (patroul_status == 0 && patroul_number == 2)
