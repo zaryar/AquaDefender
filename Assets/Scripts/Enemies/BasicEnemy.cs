@@ -187,7 +187,7 @@ public class BasicEnemy : EnemyTemplate
 
     IEnumerator huhSounds()
     {
-        if (huhClips.Length > 0)
+        if (huhClips.Length <= 0)
             yield break;
 
         float time = UnityEngine.Random.Range(0f, 2f);
