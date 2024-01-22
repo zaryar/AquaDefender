@@ -31,9 +31,9 @@ public class Health : MonoBehaviour
         }*/
 
         damage = damage * (100/(100+armor));
-        if (damage < 0)
+        if (damage <= 1)
         {
-            damage = 0;
+            damage = 1;
         }
         //UnityEngine.Debug.Log(damage);
         currentHealth -= damage;
