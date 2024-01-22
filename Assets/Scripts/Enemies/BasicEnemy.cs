@@ -43,17 +43,17 @@ public class BasicEnemy : EnemyTemplate
 
     protected override void Die()
     {
-        Instantiate(goldPrefab, transform.position + new Vector3(0, 0.1f, 0.0f), Quaternion.identity);
+        Instantiate(goldPrefab, transform.position, Quaternion.identity);
         float spawnChance = 0.2f; // 20% chance of spawning
         float randomValue = UnityEngine.Random.value; // Generate a random value between 0 and 1
 
         if (randomValue <= spawnChance)
         {
-            Instantiate(waterPrefab, transform.position + new Vector3(0, 0.1f, 0.0f), Quaternion.identity);
+            Instantiate(waterPrefab, transform.position, Quaternion.identity);
         }
         if (randomValue <= (spawnChance - 0.1f))
         {
-            Instantiate(barrelCoin, transform.position + new Vector3(0 ,0.1f ,0.3f), Quaternion.identity);
+            Instantiate(barrelCoin, transform.position + new Vector3( 0, 0, 0.3f), Quaternion.identity);
         }
         OnDeath?.Invoke(); // Ereignis auslösen
         _agent.enabled = false;
