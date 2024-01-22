@@ -2667,6 +2667,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387800286696758706, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 9121e0ef83540c841b32108b9b77298f, type: 2}
     - target: {fileID: 1231772645470845354, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: m_Name
       value: Island
