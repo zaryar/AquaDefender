@@ -16,7 +16,7 @@ public class BarrelCounter : MonoBehaviour
             CollectableItem collectableItem = other.GetComponent<CollectableItem>();
             if (collectableItem != null)
             {
-
+                collectableItem.Collect();
                 barrelCount++;
                 barrelText.text = "Barrels: " + barrelCount.ToString();
 

@@ -82,41 +82,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2147607140989524660}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3755560949013968753}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
       insertIndex: -1
       addedObject: {fileID: 967794239812568706}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8285608458219295329}
   m_SourcePrefab: {fileID: 100100000, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
 --- !u!1 &4442027363977263695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
   m_PrefabInstance: {fileID: 3559015285398751006}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2147607140989524660
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4442027363977263695}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 4e79dd0520f10a749bebebd0d5f3ba10, type: 3}
 --- !u!208 &3755560949013968753
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -147,3 +125,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinSound: {fileID: 8300000, guid: e986971a26ce7a940b005a68e9367221, type: 3}
   rotationSpeed: 25
+--- !u!135 &8285608458219295329
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442027363977263695}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.012
+  m_Center: {x: 0, y: 7.850407e-19, z: 0.00014731291}
