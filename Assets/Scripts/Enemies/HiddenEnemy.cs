@@ -21,6 +21,9 @@ public class HiddenEnemy : BasicEnemy
     { 
         if(_target == null)
             return;
+
+        //if(_target == _player)
+          //  StartCoroutine(PlayerVisible());
             
         orient_player();
         Vector3 direction = transform.position - _target.position;

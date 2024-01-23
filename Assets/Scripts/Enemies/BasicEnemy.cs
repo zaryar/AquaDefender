@@ -22,6 +22,7 @@ public class BasicEnemy : EnemyTemplate
     public AudioClip[] huhClips;
 
     private bool isFreezed = false;
+    private bool isPlayerVisible = true;
 
 
     //Helper variables
@@ -33,13 +34,13 @@ public class BasicEnemy : EnemyTemplate
         System.Random random = new System.Random();
         Array swords = Enum.GetValues(typeof(Weapons.Swords));
         SwordModelSwapper smw = GetComponentInChildren<SwordModelSwapper>();
-        if(smw != null)
+        if (smw != null)
         {
             smw.swapModel((Weapons.Swords)swords.GetValue(random.Next(swords.Length)));
             smw.enableRenderer();
         }
     }
-        
+
 
     protected override void Die()
     {
@@ -53,7 +54,7 @@ public class BasicEnemy : EnemyTemplate
         }
         if (randomValue <= (spawnChance - 0.1f))
         {
-            Instantiate(barrelCoin, transform.position + new Vector3( 0, 0, 0.3f), Quaternion.identity);
+            Instantiate(barrelCoin, transform.position + new Vector3(0, 0, 0.3f), Quaternion.identity);
         }
         OnDeath?.Invoke(); // Ereignis auslösen
         _agent.enabled = false;
@@ -67,7 +68,7 @@ public class BasicEnemy : EnemyTemplate
         _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();
         enemy_gun = gameObject.transform.Find("Gun");
         _gun = enemy_gun.GetComponent<GunTemplate>();
-        
+
 
     }
 
@@ -98,8 +99,8 @@ public class BasicEnemy : EnemyTemplate
     }
 
     public void orient_player()
-    {   
-        if(_target != null && !isFreezed)
+    {
+        if (_target != null && !isFreezed)
         {
             Vector3 dir = _target.position - transform.position;
             dir.y = 0;
@@ -134,7 +135,7 @@ public class BasicEnemy : EnemyTemplate
 
     public void gun_aim()
     {
-        
+
         float angle = Vector3.Angle(transform.position - _target.position, Vector3.up);
         float x_rotation = Math.Max(-60f, angle - 90f);
         float z_position = Math.Min(Math.Max(0.2f, 0.2f - (0.002f * (angle - 90f))), 0.35f);
@@ -151,9 +152,9 @@ public class BasicEnemy : EnemyTemplate
         _gun.Shoot();
     }
     private void Update()
-    {   
-        if(_isDead) return;
-        if(_target == _player)
+    {
+        if (_isDead) return;
+        if (_target == _player)
             StartCoroutine(PlayerVisible());
 
 
@@ -163,15 +164,14 @@ public class BasicEnemy : EnemyTemplate
             follow_sword_attack();
             //follow_gun_attack(); 
         }
-
     }
 
     public IEnumerator PlayerVisible()
     {
         if (_player.GetComponent<PlayerMovementController>().invisible)
         {
+            _target = null;
 
-            _target=null;
             _player.GetComponent<InvisibilityCountdown>().StartCountdown();
             StartCoroutine(huhSounds());
             while (_player.GetComponent<PlayerMovementController>().invisible)
@@ -179,6 +179,7 @@ public class BasicEnemy : EnemyTemplate
                 yield return new WaitForSeconds(0.5f);
             }
             _target = _player;
+
             _player.GetComponent<InvisibilityCountdown>().StopCountdown();
             _player.GetComponent<InvisibilityCountdown>().StopReload();
         }
@@ -186,16 +187,20 @@ public class BasicEnemy : EnemyTemplate
 
     IEnumerator huhSounds()
     {
+        if (huhClips.Length <= 0)
+            yield break;
+
         float time = UnityEngine.Random.Range(0f, 2f);
         yield return new WaitForSeconds(time);
 
         int randomIndex = UnityEngine.Random.Range(0, huhClips.Length);
         AudioSource.PlayClipAtPoint(huhClips[randomIndex], transform.position);
+
     }
 
     public IEnumerator freeze(float freezingTime, Material freezingMaterial)
     {
-        if(isFreezed)
+        if (isFreezed)
             yield break;
         isFreezed = true;
 
@@ -213,13 +218,14 @@ public class BasicEnemy : EnemyTemplate
 
         Renderer[] children = GetComponentsInChildren<Renderer>();
         Material[][] materials = new Material[children.Length][];
-        for (int i = 0; i < children.Length; i++) {
+        for (int i = 0; i < children.Length; i++)
+        {
             int length = children[i].materials.Length;
 
             materials[i] = new Material[length];
             Array.Copy(children[i].materials, materials[i], length);
 
-            if(children[i].name.StartsWith("Health"))
+            if (children[i].name.StartsWith("Health"))
                 continue;
 
             Material[] invisibleArr = new Material[length];
@@ -227,20 +233,21 @@ public class BasicEnemy : EnemyTemplate
                 invisibleArr[j] = freezingMaterial;
             children[i].materials = invisibleArr;
         }
-        
+
         float speed = _agent.speed;
         _agent.speed = 0;
         yield return new WaitForSeconds(freezingTime);
-        if(_agent == null)
+        if (_agent == null)
             yield break;
-            
+
         isFreezed = false;
         _agent.speed = speed;
 
         if (enemyRenderer != null && originalMaterial.Length > 0)
             enemyRenderer.materials = originalMaterial;
 
-        for (int i = 0; i < children.Length; i++) {
+        for (int i = 0; i < children.Length; i++)
+        {
             children[i].materials = materials[i];
         }
     }
