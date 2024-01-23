@@ -28,4 +28,10 @@ public class HealthBar3D : MonoBehaviour
         adapt_bar(_barLife, -substract);
         adapt_bar(_barBG, substract);
     }
+    public void update_healthbar(float maxHealth, float dmg)
+    {
+        float substract = (float)dmg / (float)maxHealth;
+        adapt_bar(_barLife, -substract);
+        adapt_bar(_barBG, substract);
+    }
 }

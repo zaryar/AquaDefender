@@ -5,6 +5,7 @@ using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
+    public GameObject drachenPrefab;
     public Transform[] spawnPoints; // Array of spawn points
     public EnemyWave[] waves;       // Array of waves
     private int currentWaveIndex = 0;
@@ -62,6 +63,11 @@ public class WaveManager : MonoBehaviour
             {
                 CancelInvoke("StartNextWave");
             }
+        }else
+        {
+            
+
+            GameObject enemy = Instantiate(drachenPrefab, spawnPoints[1].position, spawnPoints[1].rotation);
         }
     }
 

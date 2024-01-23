@@ -20,15 +20,20 @@ public class Bullet : WeaponTemplate
         string collisionTag = collision.gameObject.tag;
         if(collision != null &&
             !_collided &&
-           opposingFraction.Contains(collisionTag)) {
+           opposingFraction.Contains(collisionTag)) 
+        {
             if (collision.gameObject.GetComponent<EnemyTemplate>()!= null)
-                {
+            {
                 collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
-                }
-                else if (collision.gameObject.GetComponent<Health>()!= null)
-                {
+            }
+            else if (collision.gameObject.GetComponent<Health>()!= null)
+            {
                 collision.gameObject.GetComponent<Health>().TakeDamage(Damage);
-                }
+            }
+            else if (collision.gameObject.GetComponent<DragonAI>() != null)
+            {
+                collision.gameObject.GetComponent<DragonAI>().TakeDamage(Damage);
+            }
         }
         else if (collision.gameObject.tag == "Ground")
         {

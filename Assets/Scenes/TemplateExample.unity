@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -263,6 +263,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &252602970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.973318
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 34.029438
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066957953389994794, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
+      propertyPath: m_Name
+      value: Drachen
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
 --- !u!1001 &354544566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1f0bb04431cb141969c0bbf5a3c144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drachenPrefab: {fileID: 1066957953389994794, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
   spawnPoints:
   - {fileID: 1565499747}
   - {fileID: 1536026407}
@@ -1027,213 +1085,19 @@ MonoBehaviour:
   - {fileID: 2043720475}
   waves:
   - waveStartMode: 0
-    startDelay: 0
+    startDelay: 100
     timeBetweenWaves: 0
     enemyGroups:
     - enemies:
       - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 7
-        spawnPointIndex: -1
-        health: 5
-      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
-        count: 7
-        spawnPointIndex: -1
-        health: 5
-      spawnTime: 0
-  - waveStartMode: 1
-    startDelay: 0
-    timeBetweenWaves: 8
-    enemyGroups:
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
-        count: 7
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
-        count: 3
-        spawnPointIndex: -1
-        health: 5
-      spawnTime: 0
-  - waveStartMode: 1
-    startDelay: 0
-    timeBetweenWaves: 2
-    enemyGroups:
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
-        count: 5
-        spawnPointIndex: 0
-        health: 15
-      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 15
-      - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
-        count: 3
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
-        count: 3
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 15
-      spawnTime: 0
-  - waveStartMode: 1
-    startDelay: 0
-    timeBetweenWaves: 15
-    enemyGroups:
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 15
-        spawnPointIndex: -1
-        health: 15
-      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
-        count: 3
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
-        count: 3
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      spawnTime: 0
-  - waveStartMode: 1
-    startDelay: 0
-    timeBetweenWaves: 15
-    enemyGroups:
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 15
-        spawnPointIndex: -1
-        health: 15
-      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
-        count: 10
-        spawnPointIndex: 0
-        health: 20
-      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 10
-      spawnTime: 0
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 40
-      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
-        count: 10
-        spawnPointIndex: 0
-        health: 45
-      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 45
-      - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      spawnTime: 60
-  - waveStartMode: 1
-    startDelay: 0
-    timeBetweenWaves: 5
-    enemyGroups:
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 15
-      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
-        count: 10
-        spawnPointIndex: 0
-        health: 45
-      - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
-        count: 5
-        spawnPointIndex: -1
-        health: 20
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 40
-      spawnTime: 0
-  - waveStartMode: 1
-    startDelay: 0
-    timeBetweenWaves: 10
-    enemyGroups:
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: f5928a43efcab214696c5ca9f7f65518, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      spawnTime: 0
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      spawnTime: 10
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
         count: 1
         spawnPointIndex: -1
-        health: 100
-      spawnTime: 30
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
+        count: 7
         spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: f5928a43efcab214696c5ca9f7f65518, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      spawnTime: 15
-    - enemies:
-      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
-        count: 10
-        spawnPointIndex: -1
-        health: 10
-      spawnTime: 15
+        health: 5
+      spawnTime: 0
   waveText: {fileID: 1520706029893915383}
 --- !u!1001 &1300343079
 PrefabInstance:
@@ -1501,6 +1365,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e89bf44296da6498cbb6e213160a46, type: 3}
+--- !u!1001 &1376751069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_Name
+      value: BasicEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.916025
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.935732
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901769250439116542, guid: 013b666965ed07e40afd35484f981390, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 013b666965ed07e40afd35484f981390, type: 3}
 --- !u!1001 &1402991080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2797,3 +2718,5 @@ SceneRoots:
   - {fileID: 440593119}
   - {fileID: 1358903124}
   - {fileID: 1520706029893915382}
+  - {fileID: 1376751069}
+  - {fileID: 252602970}
