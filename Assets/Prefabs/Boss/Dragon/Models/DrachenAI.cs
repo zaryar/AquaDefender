@@ -302,11 +302,7 @@ public class DragonAI : MonoBehaviour
         HealthBar3D healthBar = GetComponentInChildren<HealthBar3D>();
         if (healthBar != null)
         {
-<<<<<<< Updated upstream
-            healthBar.update_healthbar(maxHealth*1.5f, dmg*1f);
-=======
             healthBar.update_healthbar(maxHealth*2, dmg);
->>>>>>> Stashed changes
         }
         Debug.Log("Drache ist besiegt!"+ health);
     }
