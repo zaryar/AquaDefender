@@ -28,11 +28,15 @@ public class WaterProjectile : WeaponTemplate
             {
             collision.gameObject.GetComponent<Health>().TakeDamage(Damage);
             }
+            else if (collision.gameObject.GetComponent<DragonAI>() != null)
+            {
+                collision.gameObject.GetComponent<DragonAI>().TakeDamage(Damage);
+            }
 
         }
         Instantiate(WaterDust, transform.position, Quaternion.identity);
         _collided = true;
         Destroy(gameObject);
-    }
+    } 
 
 }
