@@ -19,11 +19,12 @@ public class HiddenEnemy : BasicEnemy
     // Update is called once per frame
     void Update()
     { 
-        if(_target == null)
+        
+       if (_target == _player)
+            StartCoroutine(PlayerVisible());
+        
+        if (_target == null)
             return;
-
-        //if(_target == _player)
-          //  StartCoroutine(PlayerVisible());
             
         orient_player();
         Vector3 direction = transform.position - _target.position;
