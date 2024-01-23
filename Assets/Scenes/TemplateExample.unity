@@ -1144,8 +1144,19 @@ MonoBehaviour:
   - {fileID: 1536026407}
   - {fileID: 494366691}
   - {fileID: 2043720475}
-  waves: []
+  waves:
+  - waveStartMode: 0
+    startDelay: 0
+    timeBetweenWaves: 0
+    enemyGroups:
+    - enemies:
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 1
+        spawnPointIndex: 0
+        health: 1
+      spawnTime: 0
   waveText: {fileID: 1520706029893915383}
+  dragonPrefab: {fileID: 1066957953389994794, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
 --- !u!1001 &1300343079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,63 +1921,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2136012851
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 28.41782
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7462864
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 32.53734
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 397803545579420048, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1066957953389994794, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
-      propertyPath: m_Name
-      value: Drachen
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
 --- !u!1001 &1520706029893915382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2885,4 +2839,3 @@ SceneRoots:
   - {fileID: 440593119}
   - {fileID: 373960146}
   - {fileID: 1520706029893915382}
-  - {fileID: 2136012851}
