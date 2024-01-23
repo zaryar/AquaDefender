@@ -1177,12 +1177,16 @@ MonoBehaviour:
         spawnPointIndex: 1
         health: 10
       - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
-        count: 3
+        count: 1
         spawnPointIndex: 3
         health: 5
       - prefab: {fileID: 6370825254231925180, guid: f5928a43efcab214696c5ca9f7f65518, type: 3}
         count: 2
-        spawnPointIndex: 4
+        spawnPointIndex: 2
+        health: 5
+      - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
+        count: 2
+        spawnPointIndex: 0
         health: 5
       spawnTime: 0
   - waveStartMode: 1
@@ -1192,27 +1196,27 @@ MonoBehaviour:
     - enemies:
       - prefab: {fileID: 18896943580370572, guid: d791048146386a54f82ba8068aff0926, type: 3}
         count: 10
-        spawnPointIndex: -1
+        spawnPointIndex: 0
         health: 10
       - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
         count: 5
-        spawnPointIndex: 0
+        spawnPointIndex: 1
         health: 15
       - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
         count: 5
-        spawnPointIndex: -1
+        spawnPointIndex: 2
         health: 15
       - prefab: {fileID: 4396726380069856030, guid: e94dd46d6b1afc24f9ff3a6d98b48e58, type: 3}
         count: 3
-        spawnPointIndex: -1
+        spawnPointIndex: 3
         health: 10
       - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
         count: 3
-        spawnPointIndex: -1
+        spawnPointIndex: 0
         health: 10
       - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
         count: 5
-        spawnPointIndex: -1
+        spawnPointIndex: 1
         health: 15
       spawnTime: 0
   - waveStartMode: 1
@@ -1308,7 +1312,7 @@ MonoBehaviour:
         health: 15
       - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
         count: 10
-        spawnPointIndex: 1
+        spawnPointIndex: 2
         health: 45
       - prefab: {fileID: 4396726380069856030, guid: 04e4e3d26fbaf9147b1674f396fa4ce1, type: 3}
         count: 5
@@ -1318,13 +1322,13 @@ MonoBehaviour:
         count: 5
         spawnPointIndex: 3
         health: 20
-      - prefab: {fileID: 18896943580370572, guid: d12a1d99dc3683a4698140c18129fdee, type: 3}
+      - prefab: {fileID: 18896943580370572, guid: d791048146386a54f82ba8068aff0926, type: 3}
         count: 6
         spawnPointIndex: 3
         health: 40
-      - prefab: {fileID: 18896943580370572, guid: d12a1d99dc3683a4698140c18129fdee, type: 3}
+      - prefab: {fileID: 18896943580370572, guid: d791048146386a54f82ba8068aff0926, type: 3}
         count: 4
-        spawnPointIndex: 0
+        spawnPointIndex: 3
         health: 40
       spawnTime: 0
   - waveStartMode: 1
