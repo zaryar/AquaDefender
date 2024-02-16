@@ -6,6 +6,8 @@ public class HealthBar3D : MonoBehaviour
 {
     Transform _barLife;
     Transform _barBG;
+    private float startSizeHealthBar = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,7 @@ public class HealthBar3D : MonoBehaviour
         gameObject.transform.Find("HealthBar_Background").GetComponent<Renderer>().material.color = Color.red;
         _barLife = gameObject.transform.Find("HealthBar_Life");
         _barBG = gameObject.transform.Find("HealthBar_Background");
+        startSizeHealthBar = _barLife.localScale.x;
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class HealthBar3D : MonoBehaviour
 
     public void update_healthbar(int maxHealth, int dmg)
     {
-        float substract = (float)dmg / (float)maxHealth;
+        float substract = ((float)dmg / (float)maxHealth)* startSizeHealthBar;
         adapt_bar(_barLife, -substract);
         adapt_bar(_barBG, substract);
     }
