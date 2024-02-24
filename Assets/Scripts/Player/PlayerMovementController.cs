@@ -18,6 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     // special skill
     [SerializeField] float invisibleTime = 5f;
     public bool invisible = false;
+    public bool gotInvisibility = false;
     public bool reloadingInvisibility = false;
     [SerializeField] Material invisibleMaterial;
     [SerializeField] SkinnedMeshRenderer PlayerRenderer;
@@ -232,7 +233,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public IEnumerator makeInvisible()
     {
-        if (!reloadingInvisibility)
+        if (!reloadingInvisibility && gotInvisibility)
         {
             Material[] originalArr = new Material[PlayerRenderer.materials.Length];
             Array.Copy(PlayerRenderer.materials, originalArr, PlayerRenderer.materials.Length);
