@@ -2879,6 +2879,10 @@ PrefabInstance:
       propertyPath: chestOpen
       value: 
       objectReference: {fileID: 8300000, guid: 6aa5a6d5ac089e44ea9120a9e37eff41, type: 3}
+    - target: {fileID: 1926370755167527169, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4983254570519090434, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
