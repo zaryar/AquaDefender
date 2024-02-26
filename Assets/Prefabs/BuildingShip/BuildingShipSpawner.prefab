@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6920809920752128701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2677425056685392294}
+  - component: {fileID: 5704945002590962951}
+  m_Layer: 0
+  m_Name: BuildingShipSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2677425056685392294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920809920752128701}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 40, y: 1, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5704945002590962951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920809920752128701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcfa40c94b2b47428e9c86630de57d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipPart0: {fileID: 2932595909507152581, guid: e2517f63cb2944fda9a8642d728ddb2c, type: 3}
+  ShipPart1: {fileID: 6908628370251880275, guid: f09b3f9fce9924d8eb25bf059783defc, type: 3}
+  ShipPart2: {fileID: 5334133817641223714, guid: 8b72065f63e694d5fb6c6c4ba0db0b0e, type: 3}
+  ShipPart3: {fileID: 8986218030561937676, guid: 974f7e53324ef431c903b3d53f768572, type: 3}
+  ShipPart4: {fileID: 319643343618552186, guid: 73b875bd864c24bbdbdc957f16c1b24d, type: 3}
+  ShipPart5: {fileID: 1833826257543136717, guid: 45b2c251be8824d88bf0d9d693a1da3a, type: 3}
+  ShipPart6: {fileID: 3202182073813795292, guid: b9a928b208fe04550a3ee002d2f62683, type: 3}

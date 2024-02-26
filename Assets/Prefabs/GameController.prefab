@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ad0d3e76854b64fbbb5587c0897469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camper_player_id: 0
+  patrol_player_id: 0
+  PlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
