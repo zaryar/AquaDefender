@@ -13,6 +13,9 @@ public class WaveManager : MonoBehaviour
     private bool isSpawningWave = false;
     public TMP_Text waveText; // Reference to the text component
 
+    public GameObject dragonPrefab; // Reference to the dragon prefab
+    private bool dragonSpawned = false; // To ensure the dragon is only spawned once
+
     void Start()
     {
         spawner = GetComponent<EnemySpawner>(); // Initialize the spawner
@@ -47,11 +50,16 @@ public class WaveManager : MonoBehaviour
                 StartNextWave();
             }
         }
+        else if (!dragonSpawned && activeEnemies.Count == 0)
+        {
+            // All waves are completed and no active enemies are left
+            SpawnDragon();
+            dragonSpawned = true;
+        }
 
         // Update wave information display
         waveText.text = "Wave: " + (currentWaveIndex) + " | Remaining Enemies: " + activeEnemies.Count;
     }
-
 
     private void StartNextWave()
     {
@@ -92,6 +100,13 @@ public class WaveManager : MonoBehaviour
 
         currentWaveIndex++;
         isSpawningWave = false;
+    }
+
+    private void SpawnDragon()
+    {
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        GameObject dragon = Instantiate(dragonPrefab, spawnPoint.position, spawnPoint.rotation);
+        // Set up any additional properties for the dragon if needed
     }
 
     private void OnEnemyDeath(GameObject enemy)
