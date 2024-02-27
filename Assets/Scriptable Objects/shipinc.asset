@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: one step closer
   itemAmount: +1 part of the ship
-  itemCost: 100
+  itemCost: 50
