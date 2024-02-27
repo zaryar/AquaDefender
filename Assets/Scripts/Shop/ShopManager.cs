@@ -24,7 +24,7 @@ public class ShopManager : MonoBehaviour
     public Health healthScript; // Referenz to Health.cs
     public PlayerMovementController playerMovementControllerScript; // Referenz to playerMovementControllerScript.cs
     public BarrelCounter barrelCounterScript; //yea still the same
-    public PlayerEscapeShip playerEscapeShipScript; //idk what to write at this point
+    public BuildEscapeShip buildEscapeShipScript; //idk what to write at this point
 
 
     void Start()
@@ -39,6 +39,7 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         CheckPurchasable();
+        deactivateBuildingShip();
     }
 
     public void initializeShopItemVisibility()
@@ -105,7 +106,7 @@ public class ShopManager : MonoBehaviour
                 barrelCounterScript.plus1Barrel();
                 break;
             case "shipinc (ShopItem)":
-                playerEscapeShipScript.increaseShipLvl();
+                    buildEscapeShipScript.SpawnShipPart();
                 break;
             case "4 (ShopItem)":
                 //
@@ -155,7 +156,13 @@ public class ShopManager : MonoBehaviour
         audioSource.Play();
     }
 
-
+    void deactivateBuildingShip()
+    {
+        if (buildEscapeShipScript.currentShipLvl > 6)
+        {
+            PurchaseButtons[7].interactable = false;
+        }
+    }
    
 
 

@@ -46,6 +46,9 @@ public class SwordTemplate : WeaponTemplate
                         hit[i].gameObject.GetComponent<Health>().TakeDamage(swordDamage);
                     }
 
+                } else if (hit[i].GetComponent<Chest>()) {
+                    Chest chest = hit[i].GetComponent<Chest>();
+                    chest.openChest();
                 }
                 
             }

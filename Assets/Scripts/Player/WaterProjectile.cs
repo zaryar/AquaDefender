@@ -28,6 +28,10 @@ public class WaterProjectile : WeaponTemplate
             {
             collision.gameObject.GetComponent<Health>().TakeDamage(Damage);
             }
+            else if (collision.gameObject.GetComponent<DragonAI>() != null)
+            {
+                collision.gameObject.GetComponent<DragonAI>().TakeDamage(Damage);
+            }
 
         }
         if (collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "WaterBullet") {
@@ -40,5 +44,4 @@ public class WaterProjectile : WeaponTemplate
             Destroy(gameObject);
         }
     }
-
 }
