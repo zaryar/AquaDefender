@@ -8,8 +8,8 @@ public class GunTemplate : WeaponTemplate
     Transform bulletSpawnPoint;
     [SerializeField] GameObject ammunition;
     [SerializeField] GameObject waterAmmunition;
-    [SerializeField] float bulletSpeed = 10;
-    [SerializeField] float waterBulletSpeed = 10;
+    [SerializeField] float bulletSpeed = 20;
+    [SerializeField] float waterBulletSpeed = 20;
     [SerializeField] float reloadTime = .5f;
     [SerializeField] float waterCannonFireRate = 20f;
     public GameObject player; // Assign the player instance in the Unity Editor for the watergun
@@ -41,12 +41,14 @@ public class GunTemplate : WeaponTemplate
 
     public void WaterCannonShoot()
     {
-        if (player.GetComponent<WaterGun>().water > 0)
+        if (player.GetComponent<WaterGun>().water > 0 && !onCooldown)
         {
             var waterBullet = Instantiate(waterAmmunition, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             waterBullet.GetComponent<WeaponTemplate>().setOpposingFraction(opposingFraction);
             waterBullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * waterBulletSpeed;
             player.GetComponent<WaterGun>().removeWater();
+            onCooldown = true;
+            StartCoroutine(base.Cooldown((reloadTime*2)/waterCannonFireRate));
         }
     }
 

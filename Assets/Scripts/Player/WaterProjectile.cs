@@ -34,9 +34,14 @@ public class WaterProjectile : WeaponTemplate
             }
 
         }
-        Instantiate(WaterDust, transform.position, Quaternion.identity);
-        _collided = true;
-        Destroy(gameObject);
-    } 
-
+        if (collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "WaterBullet") {
+            Instantiate(WaterDust, transform.position, Quaternion.identity);
+            _collided = true;
+            Destroy(gameObject);
+        } else
+        {
+            _collided = true;
+            Destroy(gameObject);
+        }
+    }
 }
