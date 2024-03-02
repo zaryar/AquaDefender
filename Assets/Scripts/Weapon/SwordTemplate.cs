@@ -36,6 +36,10 @@ public class SwordTemplate : WeaponTemplate
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze(freezingTime, freezingMaterial));
                     }
+                    else if(freeze && hit[i].gameObject.GetComponent<EvilChest>()!= null){
+                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
+                        StartCoroutine(hit[i].gameObject.GetComponent<EvilChest>().freeze(freezingTime, freezingMaterial));
+                    }
 
                     else if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
                     {
@@ -46,7 +50,8 @@ public class SwordTemplate : WeaponTemplate
                         hit[i].gameObject.GetComponent<Health>().TakeDamage(swordDamage);
                     }
 
-                } else if (hit[i].GetComponent<Chest>()) {
+                } 
+                else if (hit[i].GetComponent<Chest>()) {
                     Chest chest = hit[i].GetComponent<Chest>();
                     chest.openChest();
                 }

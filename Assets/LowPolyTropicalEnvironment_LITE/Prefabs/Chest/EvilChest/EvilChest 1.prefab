@@ -52,7 +52,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &6596700361670699053
@@ -227,6 +227,7 @@ MonoBehaviour:
   hurt: 0
   _player: {fileID: 0}
   _agent: {fileID: 0}
+  _target: {fileID: 0}
   attackRange: 2
   biteCooldown: 3
 --- !u!4 &6631138659732017094 stripped
