@@ -90,7 +90,6 @@ public class EvilChest : EnemyTemplate
             yield break;
         isFreezed = true;
         animator.SetBool("freezed", true);
-        Debug.Log("true");
 
         Material[] originalMaterial = new Material[0];
         Renderer enemyRenderer = GetComponent<Renderer>();
@@ -130,7 +129,6 @@ public class EvilChest : EnemyTemplate
 
         isFreezed = false;
         animator.SetBool("freezed", false);
-        Debug.Log("false");
         _agent.speed = speed;
 
         if (enemyRenderer != null && originalMaterial.Length > 0)

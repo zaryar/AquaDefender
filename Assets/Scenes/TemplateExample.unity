@@ -2957,6 +2957,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4909714387595232164, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
+      propertyPath: m_BaseOffset
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6290783033773495676, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
       propertyPath: m_TagString
       value: Enemy
