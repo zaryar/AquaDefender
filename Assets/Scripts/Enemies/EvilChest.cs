@@ -26,7 +26,7 @@ public class EvilChest : EnemyTemplate
     {
         animator = GetComponent<Animator>();
         HealthInit();
-        _agent = GetComponent<NavMeshAgent>();
+        _agent = transform.parent.GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         lastBiteTime = -biteCooldown; // Initialize to allow the first attack immediately
     }
@@ -35,10 +35,11 @@ public class EvilChest : EnemyTemplate
     {
         if (_isDead || !hurt) return;
 
-        _agent.SetDestination(_player.position);
+        _agent.destination = _player.position;
 
         if(!isBiting && Vector3.Distance(transform.position, _player.position) <= attackRange)
             StartCoroutine(Bite());
+        
     }
 
     
