@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class EvilChest : EnemyTemplate
 {
@@ -15,7 +16,10 @@ public class EvilChest : EnemyTemplate
     [HideInInspector] public NavMeshAgent _agent;
     int damageAmount = 1;
     public float attackRange = 2f;
-    public float biteCooldown = 0.25f;
+    public float biteCooldown = 1f;
+
+    private bool isBiting = false;
+    private int count = 0;
     private float lastBiteTime;
 
     void Awake()
@@ -33,17 +37,21 @@ public class EvilChest : EnemyTemplate
 
         _agent.SetDestination(_player.position);
 
-        if (Time.time - lastBiteTime >= biteCooldown && Vector3.Distance(transform.position, _player.position) <= attackRange)
-        {   
-            Debug.Log("Attacking!");
-            Bite();
-            lastBiteTime = Time.time;
-        }
+        if(!isBiting && Vector3.Distance(transform.position, _player.position) <= attackRange)
+            StartCoroutine(Bite());
     }
 
-    public void Bite()
-    {
+    
+
+    IEnumerator Bite() {
+        //Debug.Log("Cooldown " + biteCooldown);
+        float time = Time.time;
+        isBiting = true;
         animator.SetBool("hurt", true);
         _player.GetComponent<Health>().TakeDamage(damageAmount);
+        yield return new WaitForSeconds(biteCooldown);
+        isBiting = false;
+        //Debug.Log(Time.time - time);
+        
     }
 }

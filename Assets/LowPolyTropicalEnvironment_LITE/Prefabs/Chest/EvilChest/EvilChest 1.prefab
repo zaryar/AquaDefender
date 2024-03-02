@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757796579212096345}
-  - component: {fileID: 1889053273156921919}
-  - component: {fileID: -7896858850595937985}
-  - component: {fileID: -8401174666856696160}
   m_Layer: 0
   m_Name: EvilChest 1
   m_TagString: Enemy
@@ -35,69 +32,6 @@ Transform:
   - {fileID: 6631138659732017094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1889053273156921919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175066842813666622}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e279d48e2d6b174d97c433c13bcdee0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  deathTimer: 0
-  HitParticle: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
-  healthbar: {fileID: 0}
-  hurt: 0
-  _target: {fileID: 0}
-  _player: {fileID: 0}
-  _agent: {fileID: 0}
---- !u!95 &-7896858850595937985
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175066842813666622}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab4e17fd810d5e04bb2c98c0c4f968f8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!195 &-8401174666856696160
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175066842813666622}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1001 &6596700361670699053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,9 +205,10 @@ MonoBehaviour:
   HitParticle: {fileID: 0}
   healthbar: {fileID: 0}
   hurt: 0
-  _target: {fileID: 0}
   _player: {fileID: 0}
   _agent: {fileID: 0}
+  attackRange: 2
+  biteCooldown: 3
 --- !u!195 &4100292493239013270
 NavMeshAgent:
   m_ObjectHideFlags: 0

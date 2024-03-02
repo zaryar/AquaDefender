@@ -2949,17 +2949,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6365942094280709867, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
+      propertyPath: biteCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8757796579212096345, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.220016
+      value: 34.46
       objectReference: {fileID: 0}
     - target: {fileID: 8757796579212096345, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.437
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 8757796579212096345, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 71.06028
+      value: 33.43
       objectReference: {fileID: 0}
     - target: {fileID: 8757796579212096345, guid: 6491f99f12fb23344a56b7aa371fd838, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2997,7 +3001,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
