@@ -40,6 +40,7 @@ public class ShopManager : MonoBehaviour
     {
         CheckPurchasable();
         deactivateBuildingShip();
+        deactivateBarrelUp();
     }
 
     public void initializeShopItemVisibility()
@@ -56,7 +57,7 @@ public class ShopManager : MonoBehaviour
 
     public void updateCoinCounterTxt()
     {
-        coinText.text = "Coins: " + CoinCounter.coins.ToString();
+        coinText.text = CoinCounter.coins.ToString();
     }
 
     public void CheckPurchasable()
@@ -163,7 +164,14 @@ public class ShopManager : MonoBehaviour
             PurchaseButtons[7].interactable = false;
         }
     }
-   
+    void deactivateBarrelUp()
+    {
+        if (barrelCounterScript.barrelCount == 5)
+        {
+            PurchaseButtons[1].interactable = false;
+        }
+    }
+
 
 
 }

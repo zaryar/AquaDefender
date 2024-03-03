@@ -5,9 +5,16 @@ using UnityEngine.UI;
 
 public class BarrelCounter : MonoBehaviour
 {
-    public Text barrelText;
+    public GameObject [] barrelImages = new GameObject[4];
     public int barrelCount = 0;
-    
+
+    private void Start()
+    {
+        for (int i = 1; i <= 5; i++) {
+            barrelImages[i-1].SetActive(false);
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("BarrelCoin"))
@@ -17,9 +24,11 @@ public class BarrelCounter : MonoBehaviour
             if (collectableItem != null)
             {
                 collectableItem.Collect();
-                barrelCount++;
-                barrelText.text = "Barrels: " + barrelCount.ToString();
-
+                if (barrelCount < 5)
+                {
+                    barrelCount++;
+                    barrelImages[barrelCount-1].SetActive(true);
+                }
             }
 
         }
@@ -28,13 +37,17 @@ public class BarrelCounter : MonoBehaviour
     public void DecreaseBarrelCount()
     {
         barrelCount--;
-        barrelText.text = "Barrels: " + barrelCount.ToString();
+        barrelImages[barrelCount].SetActive(false);
+
     }
 
     public void plus1Barrel()
     {
-        barrelCount++;
-        barrelText.text = "Barrels: " + barrelCount.ToString();
+        if (barrelCount < 5)
+        {
+            barrelCount++;
+            barrelImages[barrelCount-1].SetActive(true);
+        }
     }
 
 }
