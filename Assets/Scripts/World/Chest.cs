@@ -46,12 +46,13 @@ public class Chest : MonoBehaviour
 
     IEnumerator displayText()
     {
-        // Wait for 5 seconds
-        chestText.text = "invisibility unlocked";
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(5);
-        Time.timeScale = 1;
+        chestText.gameObject.SetActive(true);
+        chestText.text = "Invisibility unlocked!";
+
+        yield return new WaitForSeconds(3f); 
+
         chestText.text = "";
+        chestText.gameObject.SetActive(false);
     
     }
 }
