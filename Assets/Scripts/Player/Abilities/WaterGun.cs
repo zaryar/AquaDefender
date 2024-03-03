@@ -7,7 +7,8 @@ public class WaterGun : MonoBehaviour
 {
     public int water = 100;
     public AudioClip coinSound;
-    public Text waterText;
+    //public Text waterText;
+    public Slider slider;
     
     public GameObject player;
     private float waittime;
@@ -27,8 +28,7 @@ public class WaterGun : MonoBehaviour
                     water = 100;
                 else
                     water += 20;
-                if(waterText != null)
-                    waterText.text = "Water: " + water.ToString() + "%";
+                    slider.value = water;
             }
         }
     }
@@ -36,8 +36,7 @@ public class WaterGun : MonoBehaviour
     public void removeWater()
     {
         water--;
-        if (waterText != null)
-            waterText.text = "Water: " + water.ToString() + "%";
+        slider.value = water;
     }
 
     void Update()
@@ -48,9 +47,8 @@ public class WaterGun : MonoBehaviour
         {
             waittime = 0;
             water++;
-            if (waterText != null && water < 100)
-                waterText.text = "Water: " + water.ToString() + "%";
+            if (water < 100)
+                slider.value = water;
         }
     }
-
 }

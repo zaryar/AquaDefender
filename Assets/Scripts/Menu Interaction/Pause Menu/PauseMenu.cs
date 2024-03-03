@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject optionsMenu;
     public GameObject shopMenu;
+    public GameObject AbilityUI;
 
     void Start()
     {
@@ -50,6 +51,7 @@ public class PauseMenu : MonoBehaviour
     {
         // Pause game
         pauseMenu.SetActive(true);
+        AbilityUI.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -58,6 +60,7 @@ public class PauseMenu : MonoBehaviour
     {
         // Resume game
         this.pauseMenu.SetActive(false);
+        AbilityUI.SetActive(true);
         if (!shopMenu.activeSelf)
         { 
             Time.timeScale = 1f;
