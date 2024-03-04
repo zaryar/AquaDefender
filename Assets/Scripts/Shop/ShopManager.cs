@@ -135,7 +135,8 @@ public class ShopManager : MonoBehaviour
         {
             shopPanels[i].itemNameTxt.text = shopItem[i].itemName;
             shopPanels[i].itemAmountTxt.text = shopItem[i].itemAmount;
-            shopPanels[i].itemCostTxt.text = "$ " + shopItem[i].itemCost;
+            shopPanels[i].itemCostTxt.text = "" + shopItem[i].itemCost;
+            shopPanels[i].itemIcon.sprite = shopItem[i].itemIcon;
         }
     }
 

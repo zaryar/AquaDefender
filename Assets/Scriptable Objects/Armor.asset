@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Iron Hull
   itemAmount: +10 Armor
   itemCost: 5
+  itemIcon: {fileID: 21300000, guid: 4d74e2306f5866d4a9ce4cca62b269b4, type: 3}
