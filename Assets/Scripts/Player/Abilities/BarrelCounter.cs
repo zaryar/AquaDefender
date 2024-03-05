@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BarrelCounter : MonoBehaviour
 {
-    public GameObject [] barrelImages = new GameObject[4];
+    public GameObject [] barrelImages = new GameObject[5];
     public int barrelCount = 0;
 
     private void Start()
