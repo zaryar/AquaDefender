@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: ' Eternal Vigor'
   itemAmount: +5 max hp
   itemCost: 5
+  itemIcon: {fileID: 21300000, guid: 750184144d20375469ad76b4635b5971, type: 3}

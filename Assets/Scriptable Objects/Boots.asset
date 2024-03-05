@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: ' Sea Striders'
   itemAmount: +0.3 speed
   itemCost: 5
+  itemIcon: {fileID: 21300000, guid: a48ff128a5ab54b4098ea59c4939033d, type: 3}

@@ -11,6 +11,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject shopMenu;
     public GameObject AbilityUI;
 
+    //Referenz
+    public GameObject shopKeeperGO;
+
+
+    // Reference for script
+    private ShopKeeper shopKeeperScript;
+
     void Start()
     {
         // deactivate Pause-Menu by default
@@ -18,16 +25,31 @@ public class PauseMenu : MonoBehaviour
         {
             pauseMenu.SetActive(false);
         }
+
+        if (shopKeeperGO != null)
+        {
+            shopKeeperScript = shopKeeperGO.GetComponent<ShopKeeper>();
+        }
     }
 
     void Update()
     {
-        // Press P to pause game
+        // Press ESC to pause game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            optionsMenu.SetActive(false);
-            TogglePauseMenu();
+            if(shopKeeperScript != null && shopKeeperScript.shopMenu.activeSelf)
+            {
+                // Rufe die Methode im ShopKeeper-Skript auf, um das Shop-Menü zu schließen
+                shopKeeperScript.CloseShopMenu();
+            }
+            else
+            {
+                optionsMenu.SetActive(false);
+                TogglePauseMenu();
+            }
+            
         }
+
     }
 
     public void TogglePauseMenu ()

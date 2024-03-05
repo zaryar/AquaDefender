@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class EnemyTemplate : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100; // Standardwert für maximale Gesundheit
+    [SerializeField] private int maxHealth = 100; // Standardwert fï¿½r maximale Gesundheit
     private int Health; // Aktuelle Gesundheit
     [SerializeField] float deathTimer = 0f;
     [SerializeField] private GameObject HitParticle; // Trefferpartikel
     public HealthBar3D healthbar;               // Referenz auf eine 3D-Gesundheitsleiste, falls verwendet
     protected bool _isDead = false;
+    public bool hurt = false;
     private void Awake()
     {
         Health = maxHealth; // Setze die aktuelle Gesundheit auf die maximale Gesundheit
@@ -16,6 +17,7 @@ public class EnemyTemplate : MonoBehaviour
     public void Hurt(int dmg)
     {
         Health -= dmg;
+        hurt = true;
         if (Health <= 0)
         {
             if(healthbar != null && !_isDead)
@@ -38,7 +40,7 @@ public class EnemyTemplate : MonoBehaviour
 
     protected virtual void Die()
     {
-        // Logik für den Tod hier einfügen
+        // Logik fï¿½r den Tod hier einfï¿½gen
         _isDead= true;
         Destroy(gameObject, deathTimer);
     }
@@ -64,5 +66,9 @@ public class EnemyTemplate : MonoBehaviour
         {
             healthbar.update_healthbar(maxHealth, 0); // Setze den Schaden auf 0, da es sich um eine Initialisierung handelt
         }
+    }
+
+    public void HealthInit(){
+        Health = maxHealth;
     }
 }

@@ -5,11 +5,16 @@ using UnityEngine;
 public class ShopKeeper : MonoBehaviour
 {
 
+    public GameObject pauseMenuGO;
+    private PauseMenu pauseMenuScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (pauseMenuGO != null)
+        {
+            pauseMenuScript = pauseMenuGO.GetComponent<PauseMenu>();
+        }
     }
 
     // Update is called once per frame
@@ -17,11 +22,19 @@ public class ShopKeeper : MonoBehaviour
     {
         // check if Player is pressing key "F" + is in Radius of Shopkeeper
         if (Input.GetKeyDown(KeyCode.F) && IsPlayerInRadius())
-        {
-            ToggleShopMenu();
-        }
+            {
+                if (pauseMenuScript != null && pauseMenuScript.pauseMenu.activeSelf)
+                {
+                    //
+                }
+                else
+                {
+                    ToggleShopMenu();
+                }
+            
+            }
     }
-
+    
     public float interactionRadius = 0.2f;
     public GameObject shopMenu; // GO which represents the Shop-Menu
 
@@ -37,7 +50,7 @@ public class ShopKeeper : MonoBehaviour
         }
         return false;
     }
-
+    
     void ToggleShopMenu()
     {
         if (shopMenu.activeSelf)
@@ -50,14 +63,14 @@ public class ShopKeeper : MonoBehaviour
         }
     }
 
-    void OpenShopMenu()
+    public void OpenShopMenu()
     {
         // Activate Shop-Menu-GO
         shopMenu.SetActive(true);
         PauseGame();
     }
 
-    void CloseShopMenu()
+    public void CloseShopMenu()
     {
         // Deactivate Shop-Menu-GO
         shopMenu.SetActive(false);

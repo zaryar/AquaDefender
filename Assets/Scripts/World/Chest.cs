@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Chest : MonoBehaviour
 {
+
     [SerializeField] bool isOpen = false;
     GameObject player;
     private Animator animator;
     private AudioSource audioSource;
+    public Text chestText;
     // public AudioClip chestOpen; 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +26,14 @@ public class Chest : MonoBehaviour
 
         if (!isOpen)
         {
-            Debug.Log(audioSource, audioSource.clip);
+            //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
 
             animator.SetBool("isOpen", true);
             PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
             playerMovementController.gotInvisibility = true;
+
+            StartCoroutine(displayText());
         }
         isOpen = true;
     }
@@ -38,5 +43,18 @@ public class Chest : MonoBehaviour
         animator.SetBool("isOpen", false);
     }
 
+    
 
+    IEnumerator displayText()
+    {
+        chestText.gameObject.SetActive(true);
+        chestText.text = "Invisibility unlocked!";
+
+        yield return new WaitForSeconds(3f); 
+
+        chestText.text = "";
+        chestText.gameObject.SetActive(false);
+    
+    }
 }
+
