@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70881380}
   - component: {fileID: 70881379}
+  - component: {fileID: 70881381}
   m_Layer: 0
   m_Name: VirtualCamera
   m_TagString: Untagged
@@ -195,6 +196,19 @@ Transform:
   - {fileID: 488930112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
+--- !u!114 &70881381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70881378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636aa9aa300356043806592d287664c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSpeed: 10
 --- !u!1 &133216750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1487,7 @@ GameObject:
   - component: {fileID: 1524673274}
   - component: {fileID: 1524673277}
   - component: {fileID: 1524673278}
+  - component: {fileID: 1524673279}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -1553,7 +1568,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 89.96, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75.08, y: 0, z: 0}
 --- !u!114 &1524673277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,6 +1647,21 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1524673279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524673273}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de95b096b5e85e54cab0a605241bf478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSpeed: 10
+  maxHeight: 20
+  minHeight: 5
 --- !u!1 &1536026406
 GameObject:
   m_ObjectHideFlags: 0

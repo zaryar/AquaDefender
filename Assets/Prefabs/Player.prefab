@@ -200,6 +200,9 @@ MonoBehaviour:
   swordAttackRange: 2
   swordCooldown: 1
   swordDamage: 5
+  IceSwordDamage: 1
+  freezingTime: 10
+  freezingMaterial: {fileID: 0}
 --- !u!114 &5996568777664958275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,10 +700,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invisibleTime: 5
   invisible: 0
+  gotInvisibility: 0
   reloadingInvisibility: 0
   invisibleMaterial: {fileID: 2100000, guid: 951fca81110e1324a9c57269ca428db7, type: 2}
   PlayerRenderer: {fileID: 3780341078821077779}
+  freezed: 0
   movementSpeed: 4
+  speedModifier: 0.8
   PlayerAnimator: {fileID: 9136156785121580215}
   AimRig: {fileID: 4880855999972557228}
   groundMask:
@@ -727,7 +733,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.9
+  m_Radius: 1.21
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &6314615892335563190
 CharacterController:
@@ -845,6 +851,8 @@ MonoBehaviour:
   water: 100
   coinSound: {fileID: 0}
   waterText: {fileID: 0}
+  player: {fileID: 0}
+  reloadTime: 2
 --- !u!114 &308768894087997410
 MonoBehaviour:
   m_ObjectHideFlags: 0
