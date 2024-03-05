@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: ' Scurvy Cure'
   itemAmount: 10 hp
   itemCost: 5
+  itemIcon: {fileID: 21300000, guid: 0864a1c19772ba84894861c7b31862d2, type: 3}

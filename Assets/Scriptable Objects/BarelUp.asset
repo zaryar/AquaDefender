@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Rum Cask
   itemAmount: +1 Barrel
   itemCost: 5
+  itemIcon: {fileID: 21300000, guid: 168ba38c4e5551c4487612b56d0b05f1, type: 3}

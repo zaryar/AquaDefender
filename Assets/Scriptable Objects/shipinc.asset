@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: one step closer
   itemAmount: +1 part of the ship
   itemCost: 50
+  itemIcon: {fileID: 21300000, guid: 99f305f44841cbe40985bfac049094ab, type: 3}
