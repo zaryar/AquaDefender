@@ -22,14 +22,14 @@ public class CinemachineFOVController : MonoBehaviour
         composer.m_CameraDistance = Mathf.Clamp(composer.m_CameraDistance, minFOV, maxFOV);
 
         // Get the mouse position in viewport coordinates (0 to 1)
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.x /= Screen.width;
-        mousePosition.y /= Screen.height;
+        //Vector3 mousePosition = Input.mousePosition;
+        //mousePosition.x /= Screen.width;
+        //mousePosition.y /= Screen.height;
 
         // Subtract 0.5 so the offset is centered around the middle of the screen
-        mousePosition -= new Vector3(0.5f, 0.5f, 0);
+        //mousePosition -= new Vector3(0.5f, 0.5f, 0);
 
         // Apply the offset to the camera's position
-        composer.m_CameraOffset += mousePosition * mouseSensitivity;
+        //composer.m_CameraOffset += mousePosition * mouseSensitivity;
     }
 }
