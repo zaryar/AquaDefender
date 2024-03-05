@@ -412,6 +412,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 434211217}
     - target: {fileID: 7408408652412393690, guid: 7c2ecdb3894b6364ea9b2bd7987a0bbf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408408652412393690, guid: 7c2ecdb3894b6364ea9b2bd7987a0bbf, type: 3}
+      propertyPath: pauseMenuGO
+      value: 
+      objectReference: {fileID: 692287441}
+    - target: {fileID: 7408408652412393690, guid: 7c2ecdb3894b6364ea9b2bd7987a0bbf, type: 3}
       propertyPath: interactionRadius
       value: 1.8
       objectReference: {fileID: 0}
@@ -758,6 +766,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649cbadca8dd5e148a6656a524c94233, type: 3}
+--- !u!1 &692287441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1651645519039038428, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+  m_PrefabInstance: {fileID: 1520706029893915382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,6 +2273,14 @@ PrefabInstance:
       propertyPath: shopMenu
       value: 
       objectReference: {fileID: 434211217}
+    - target: {fileID: 4431888048588255293, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431888048588255293, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+      propertyPath: shopKeeperGO
+      value: 
+      objectReference: {fileID: 991931449}
     - target: {fileID: 4551042963423568071, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
