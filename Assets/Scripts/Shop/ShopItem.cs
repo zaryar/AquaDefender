@@ -9,5 +9,5 @@ public class ShopItem : ScriptableObject
     public string itemName;
     public string itemAmount;
     public int itemCost;
-
+    public Sprite itemIcon;
 }
