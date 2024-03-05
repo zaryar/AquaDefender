@@ -621,6 +621,7 @@ MonoBehaviour:
   optionsMenu: {fileID: 6463342261321904855}
   shopMenu: {fileID: 4797137679255357222}
   AbilityUI: {fileID: 0}
+  shopKeeperGO: {fileID: 0}
 --- !u!114 &869102205292178420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3404,7 +3405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -400, y: -6243.689}
+  m_AnchoredPosition: {x: -400, y: -6618.0435}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8861352629318136022
