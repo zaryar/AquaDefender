@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CoinCounter : MonoBehaviour
 {
-    public static int coins = 10;
+    public static int coins = 1000;
     public Text coinText;
 
     void OnTriggerEnter(Collider other)
