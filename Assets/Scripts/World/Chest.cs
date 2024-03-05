@@ -23,7 +23,7 @@ public class Chest : MonoBehaviour
 
         if (!isOpen)
         {
-            Debug.Log(audioSource, audioSource.clip);
+            //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
 
             animator.SetBool("isOpen", true);
@@ -38,5 +38,6 @@ public class Chest : MonoBehaviour
         animator.SetBool("isOpen", false);
     }
 
+    
 
 }
