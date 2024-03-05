@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 10
+  mouseSensitivity: 0.1
 --- !u!1 &133216750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,7 +1567,6 @@ GameObject:
   - component: {fileID: 1524673274}
   - component: {fileID: 1524673277}
   - component: {fileID: 1524673278}
-  - component: {fileID: 1524673279}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -1726,21 +1726,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &1524673279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524673273}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de95b096b5e85e54cab0a605241bf478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoomSpeed: 10
-  maxHeight: 20
-  minHeight: 5
 --- !u!1 &1536026406
 GameObject:
   m_ObjectHideFlags: 0
