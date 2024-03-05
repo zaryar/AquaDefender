@@ -1289,10 +1289,92 @@ MonoBehaviour:
     enemyGroups:
     - enemies:
       - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
-        count: 1
+        count: 12
         spawnPointIndex: 0
         health: 1
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 12
+        spawnPointIndex: 1
+        health: 1
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 12
+        spawnPointIndex: 2
+        health: 1
+      - prefab: {fileID: 4396726380069856030, guid: 013b666965ed07e40afd35484f981390, type: 3}
+        count: 12
+        spawnPointIndex: 3
+        health: 1
       spawnTime: 0
+    - enemies:
+      - prefab: {fileID: 18896943580370572, guid: b4949c2b3ad7fb54a9a4808c95f39edd, type: 3}
+        count: 12
+        spawnPointIndex: 0
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
+        count: 12
+        spawnPointIndex: 1
+        health: 5
+      - prefab: {fileID: 18896943580370572, guid: b4949c2b3ad7fb54a9a4808c95f39edd, type: 3}
+        count: 12
+        spawnPointIndex: 2
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
+        count: 6
+        spawnPointIndex: 3
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: f5928a43efcab214696c5ca9f7f65518, type: 3}
+        count: 6
+        spawnPointIndex: 3
+        health: 5
+      spawnTime: 15
+  - waveStartMode: 1
+    startDelay: 0
+    timeBetweenWaves: 0
+    enemyGroups:
+    - enemies:
+      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
+        count: 12
+        spawnPointIndex: 0
+        health: 10
+      - prefab: {fileID: 6370825254231925180, guid: f5928a43efcab214696c5ca9f7f65518, type: 3}
+        count: 12
+        spawnPointIndex: 0
+        health: 10
+      - prefab: {fileID: 6370825254231925180, guid: 6adb486fe8e592a4ca204901d2c1c61e, type: 3}
+        count: 12
+        spawnPointIndex: 0
+        health: 10
+      - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
+        count: 12
+        spawnPointIndex: 0
+        health: 10
+      - prefab: {fileID: 18896943580370572, guid: b4949c2b3ad7fb54a9a4808c95f39edd, type: 3}
+        count: 12
+        spawnPointIndex: 2
+        health: 10
+      spawnTime: 0
+    - enemies:
+      - prefab: {fileID: 18896943580370572, guid: b4949c2b3ad7fb54a9a4808c95f39edd, type: 3}
+        count: 12
+        spawnPointIndex: 0
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: 3a3af7e14ac97dc4495b55a545886d13, type: 3}
+        count: 12
+        spawnPointIndex: 1
+        health: 5
+      - prefab: {fileID: 18896943580370572, guid: b4949c2b3ad7fb54a9a4808c95f39edd, type: 3}
+        count: 12
+        spawnPointIndex: 2
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: b88f61eddc0ea544ca177d2167c03178, type: 3}
+        count: 6
+        spawnPointIndex: 3
+        health: 5
+      - prefab: {fileID: 6370825254231925180, guid: f5928a43efcab214696c5ca9f7f65518, type: 3}
+        count: 6
+        spawnPointIndex: 3
+        health: 5
+      spawnTime: 15
   waveText: {fileID: 1520706029893915383}
   dragonPrefab: {fileID: 1066957953389994794, guid: b37c530fbc198f84a93cd05d47458d87, type: 3}
 --- !u!1001 &1300343079
