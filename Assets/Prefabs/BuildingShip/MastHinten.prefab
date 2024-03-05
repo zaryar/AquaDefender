@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1216544222243243086}
   - component: {fileID: 526723369964706490}
   - component: {fileID: 98571201005384943}
-  - component: {fileID: 858151294168333197}
   m_Layer: 0
   m_Name: MastHinten
   m_TagString: Untagged
@@ -84,26 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &858151294168333197
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319643343618552186}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06024444
-  m_Height: 0.009085266
-  m_Direction: 1
-  m_Center: {x: -2.3283064e-10, y: 4.656612e-10, z: 0.028094446}
