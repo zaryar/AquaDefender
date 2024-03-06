@@ -245,17 +245,20 @@ public class PlayerMovementController : MonoBehaviour
             PlayerRenderer.materials = invisibleArr;
 
             invisible = true;
+            GetComponent<InvisibilityCountdown>().StartCountdown();
             yield return new WaitForSeconds(invisibleTime);
             invisible = false;
+            GetComponent<InvisibilityCountdown>().StopCountdown();
 
             PlayerRenderer.materials = originalArr;
             reloadingInvisibility = true;
-            StartCoroutine(Reload(invisibleTime * 3));
+            StartCoroutine(Reload(invisibleTime * 6));
         }
     }
 
     protected IEnumerator Reload(float time)
     {
+        GetComponent<InvisibilityCountdown>().StopReload();
         yield return new WaitForSeconds(time);
         reloadingInvisibility = false;
     }
