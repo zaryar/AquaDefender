@@ -3039,6 +3039,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5902127384443165416, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902127384443165416, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
@@ -3080,7 +3084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476689604326728265, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6476689604326728265, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: m_AnchoredPosition.x
