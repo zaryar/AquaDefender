@@ -50,14 +50,12 @@ public class InvisibilityCountdown : MonoBehaviour
         countdownActive = false;
         reloading = true;             //starts reload
         countdownTime = reloadingtime;
-        InvisibilitySlider.value = countdownTime;
     }
 
 
     public void StopReload()
     {
         StartCoroutine(Reload(countdownTime));
-        InvisibilitySlider.value = reloadingtime;
     }
 
     protected IEnumerator Reload(float time)
