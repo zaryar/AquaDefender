@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class BarrelCounter : MonoBehaviour
 {
-    public GameObject [] barrelImages = new GameObject[5];
+    public Graphic [] barrelImages = new Graphic[5];
     public int barrelCount = 0;
 
     private void Start()
     {
-        for (int i = 1; i <= 5; i++) {
-            barrelImages[i-1].SetActive(false);
+        for (int i = 1; i <= 5; i++) { 
+            barrelImages[i - 1].color = Color.black;
         }
     }
 
@@ -27,7 +27,7 @@ public class BarrelCounter : MonoBehaviour
                 if (barrelCount < 5)
                 {
                     barrelCount++;
-                    barrelImages[barrelCount-1].SetActive(true);
+                    barrelImages[barrelCount - 1].color = Color.white;
                 }
             }
 
@@ -37,7 +37,7 @@ public class BarrelCounter : MonoBehaviour
     public void DecreaseBarrelCount()
     {
         barrelCount--;
-        barrelImages[barrelCount].SetActive(false);
+        barrelImages[barrelCount].color = Color.black;
 
     }
 
@@ -46,7 +46,7 @@ public class BarrelCounter : MonoBehaviour
         if (barrelCount < 5)
         {
             barrelCount++;
-            barrelImages[barrelCount-1].SetActive(true);
+            barrelImages[barrelCount - 1].color = Color.white;
         }
     }
 

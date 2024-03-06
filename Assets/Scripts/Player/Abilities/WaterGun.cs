@@ -7,7 +7,6 @@ public class WaterGun : MonoBehaviour
 {
     public int water = 100;
     public AudioClip coinSound;
-    //public Text waterText;
     public Slider slider;
     
     public GameObject player;
