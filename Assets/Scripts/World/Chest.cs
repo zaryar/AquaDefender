@@ -14,6 +14,8 @@ public class Chest : MonoBehaviour
     public Text chestText;
     // public AudioClip chestOpen; 
     // Start is called before the first frame update
+    public InvisibilityCountdown InvisibilityScript;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -32,6 +34,8 @@ public class Chest : MonoBehaviour
             animator.SetBool("isOpen", true);
             PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
             playerMovementController.gotInvisibility = true;
+            InvisibilityScript.Invisibility.color = Color.white;
+            InvisibilityScript.Ghost.color = Color.white;
 
             StartCoroutine(displayText());
         }

@@ -6,18 +6,20 @@ using System;
 
 public class InvisibilityCountdown : MonoBehaviour
 {
-    //public Text invisibilityText;
+    public Graphic Ghost;
+    public Graphic Invisibility;
     public Slider InvisibilitySlider;
     float countdownTime;
     int invisibleTime = 5; // same as invisibleTime in PlayerMovementController
     bool countdownActive = false;
     bool reloading = false;
     private float reloadingtime;
-    //string state = "Invisibility: ";
 
     // Start is called before the first frame update
     void Start() 
     {
+        Ghost.color = Color.gray;
+        Invisibility.color = Color.grey;
         countdownTime = invisibleTime;
         reloadingtime = invisibleTime * 6;
         InvisibilitySlider.value = InvisibilitySlider.maxValue;
