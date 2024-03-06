@@ -320,6 +320,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &219122071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4719637391108689014, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+  m_PrefabInstance: {fileID: 1520706029893915382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &354544566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3535,7 +3546,7 @@ PrefabInstance:
     - target: {fileID: 1474606733341573372, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: chestText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 219122071}
     - target: {fileID: 1474606733341573372, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: InvisibilityScript
       value: 
