@@ -1072,6 +1072,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 401a5c629d74adc4eb91cd551f164d23, type: 3}
+--- !u!114 &828964985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5605286069540185849, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+  m_PrefabInstance: {fileID: 1520706029893915382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &968953217 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1925369025016618078, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
@@ -1150,6 +1161,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1108902767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8945193478667900632, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+  m_PrefabInstance: {fileID: 1520706029893915382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1200680219
@@ -1328,7 +1350,7 @@ PrefabInstance:
     - target: {fileID: -8076033203230728374, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: WaterSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 968953217}
     - target: {fileID: 308768894087997410, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: barrelText
       value: 
@@ -1360,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: 3257136062153203354, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1108902767}
     - target: {fileID: 4360251338314777236, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.91
@@ -2113,6 +2135,17 @@ MonoBehaviour:
   - {fileID: 1342164343}
   - {fileID: 1034166842}
   barrelCount: 0
+--- !u!114 &1957880146 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1429489112051751270, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
+  m_PrefabInstance: {fileID: 1300343079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720092294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba8b02e706224826a2020c22b32781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2008504017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4547933701539784019, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
@@ -2816,7 +2849,7 @@ PrefabInstance:
     - target: {fileID: 7059772770250239537, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: barrelCounterScript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1957880144}
     - target: {fileID: 7059772770250239537, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: buildEscapeShipScript
       value: 
@@ -3098,7 +3131,11 @@ PrefabInstance:
     - target: {fileID: 1474606733341573372, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: chestText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 828964985}
+    - target: {fileID: 1474606733341573372, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
+      propertyPath: InvisibilityScript
+      value: 
+      objectReference: {fileID: 1957880146}
     - target: {fileID: 1926370755167527169, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: m_Volume
       value: 0.3
