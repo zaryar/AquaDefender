@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: 6472865290712876987}
   - component: {fileID: 4867831489446879576}
   - component: {fileID: 1925369025016618078}
+  - component: {fileID: 1352017024978990264}
   m_Layer: 5
   m_Name: WaterBar
   m_TagString: Untagged
@@ -1069,6 +1070,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1352017024978990264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398367596211325837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba10b94e32f128408ba479fd55f453a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: 100
+  coinSound: {fileID: 0}
+  WaterSlider: {fileID: 1925369025016618078}
+  player: {fileID: 0}
+  reloadTime: 2
 --- !u!1 &3582762642583640855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6db14319f3d2764cae5d0884fe0e027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 0}
+  coinText: {fileID: 8945193478667900632}
   shopItem:
   - {fileID: 11400000, guid: 5369fcd28d7f2414380d245113a6f317, type: 2}
   - {fileID: 11400000, guid: 7eef18a7ad30f454c8ac42164c997ba6, type: 2}
@@ -2449,6 +2467,7 @@ GameObject:
   - component: {fileID: 6972526666066200301}
   - component: {fileID: 5267691754494918699}
   - component: {fileID: 4572393483118737736}
+  - component: {fileID: 6459410885265909008}
   m_Layer: 5
   m_Name: InvisibilityBar
   m_TagString: Untagged
@@ -2566,6 +2585,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6459410885265909008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873261988611178730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba8b02e706224826a2020c22b32781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ghost: {fileID: 3112089813969942844}
+  Invisibility: {fileID: 1351161523631362206}
+  InvisibilitySlider: {fileID: 4572393483118737736}
 --- !u!1 &5883558308680890562
 GameObject:
   m_ObjectHideFlags: 0
