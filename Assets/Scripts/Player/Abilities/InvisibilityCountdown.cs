@@ -6,17 +6,23 @@ using System;
 
 public class InvisibilityCountdown : MonoBehaviour
 {
-    public Text invisibilityText;
+    public Graphic Ghost;
+    public Graphic Invisibility;
+    public Slider InvisibilitySlider;
     float countdownTime;
     int invisibleTime = 5; // same as invisibleTime in PlayerMovementController
     bool countdownActive = false;
     bool reloading = false;
-    string state = "Invisibility: ";
+    private float reloadingtime;
 
     // Start is called before the first frame update
-    void Start() 
+    void Start()
     {
-        countdownTime = invisibleTime; 
+        Ghost.color = Color.gray;
+        Invisibility.color = Color.grey;
+        countdownTime = invisibleTime;
+        reloadingtime = invisibleTime * 6;
+        InvisibilitySlider.value = InvisibilitySlider.maxValue;
     }
 
     // Update is called once per frame
@@ -25,18 +31,15 @@ public class InvisibilityCountdown : MonoBehaviour
         if (countdownActive)
         {
             countdownTime = countdownTime - Time.deltaTime;
-            state = "Invisible: ";
+            InvisibilitySlider.value = countdownTime * 6;
         }
-        else if (reloading)
+        if (reloading)
         {
             countdownTime = countdownTime - Time.deltaTime;
-            invisibilityText.color = Color.red;
-            state = "Reload: ";
-            
-            
+            InvisibilitySlider.value = reloadingtime - countdownTime;
+
+
         }
-        TimeSpan time = TimeSpan.FromSeconds(countdownTime);
-        invisibilityText.text = state + time.Seconds.ToString() + "s";
     }
 
     public void StartCountdown()
@@ -48,14 +51,13 @@ public class InvisibilityCountdown : MonoBehaviour
     {
         countdownActive = false;
         reloading = true;             //starts reload
-        countdownTime = invisibleTime * 6;
+        countdownTime = reloadingtime;
     }
 
 
     public void StopReload()
     {
         StartCoroutine(Reload(countdownTime));
-        invisibilityText.text = "Invisibility" + countdownTime.ToString() + "s";
     }
 
     protected IEnumerator Reload(float time)
@@ -63,8 +65,6 @@ public class InvisibilityCountdown : MonoBehaviour
         yield return new WaitForSeconds(time);
         reloading = false;
         countdownTime = invisibleTime;
-        invisibilityText.color = Color.white;
-        state = "Invisibility: ";
     }
-}
 
+}
