@@ -172,16 +172,12 @@ public class BasicEnemy : EnemyTemplate
         {
             _target = null;
 
-            _player.GetComponent<InvisibilityCountdown>().StartCountdown();
             StartCoroutine(huhSounds());
             while (_player.GetComponent<PlayerMovementController>().invisible)
             {
                 yield return new WaitForSeconds(0.5f);
             }
             _target = _player;
-
-            _player.GetComponent<InvisibilityCountdown>().StopCountdown();
-            _player.GetComponent<InvisibilityCountdown>().StopReload();
         }
     }
 
