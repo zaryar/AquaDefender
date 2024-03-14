@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class BuildEscapeShip : MonoBehaviour
 {
@@ -12,11 +13,59 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] public GameObject MastHinten;
     [SerializeField] public GameObject SegelVorne;
     [SerializeField] public GameObject SegelHinten;
+    [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
+
+    private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
+
     public int currentShipLvl = 0;
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && currentShipLvl == 7)
+        {
+            if (Input.GetKeyDown(KeyCode.F) && !hasDrivenAway)
+            {
+                DriveAway();
+            }
+        }
+    }
 
 
-    
+    void DriveAway()
+    {
+        // Get a reference to the player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        // Make the player invisible by disabling all their Renderer components
+        Renderer[] playerRenderers = player.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in playerRenderers)
+        {
+            renderer.enabled = false;
+        }
+
+        // Parent the player to the ship so the player moves with the ship
+        player.transform.SetParent(transform);
+
+        // Play the drive away animation
+        shipAnimator.Play("DriveAway");
+
+        Debug.Log("You won!");
+
+        // Set the flag to true to prevent the animation from playing again
+        hasDrivenAway = true;
+        StartCoroutine(LoadVictoryScene());
+    }
+
+    IEnumerator LoadVictoryScene()
+    {
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(2);
+
+        // Load the victory scene
+        SceneManager.LoadScene(2);
+    }
+
+
 
     private void Awake()
     {
@@ -27,43 +76,51 @@ public class BuildEscapeShip : MonoBehaviour
 
     public void SpawnShipPart()
     {
+        GameObject newPart;
+
         switch (currentShipLvl)
         {
             case 0:
-                Instantiate(Gerippe, transform.position + (0.85f * new Vector3(0, 1, 0)) , shipSpawner.rotation);
+                newPart = Instantiate(Gerippe, transform.position + (0.85f * new Vector3(0, 1, 0)), shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
 
             case 1:
-                Instantiate(Planken, transform.position, shipSpawner.rotation);
+                newPart = Instantiate(Planken, transform.position, shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
 
             case 2:
-                Instantiate(Deck, transform.position + (0.85f * (new Vector3(4.191336f, 4.130383f, 0))) , shipSpawner.rotation);
+                newPart = Instantiate(Deck, transform.position + (0.85f * (new Vector3(4.191336f, 4.130383f, 0))), shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
 
             case 3:
-                Instantiate(MastVorne, transform.position + (0.85f * new Vector3(-2.654286f, 3.585259f, 0)) , shipSpawner.rotation);
+                newPart = Instantiate(MastVorne, transform.position + (0.85f * new Vector3(-2.654286f, 3.585259f, 0)), shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
 
             case 4:
-                Instantiate(MastHinten, transform.position + (0.85f * new Vector3(1.726996f, 3.188487f, 0)), shipSpawner.rotation);
+                newPart = Instantiate(MastHinten, transform.position + (0.85f * new Vector3(1.726996f, 3.188487f, 0)), shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
 
             case 5:
-                Instantiate(SegelVorne, transform.position + (0.85f * new Vector3(-2.310965f, -0.7652126f, 0)), shipSpawner.rotation);
+                newPart = Instantiate(SegelVorne, transform.position + (0.85f * new Vector3(-2.310965f, -0.7652126f, 0)), shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
 
             case 6:
-                Instantiate(SegelHinten, transform.position + (0.85f * new Vector3(2.051623f, 0, 0)), shipSpawner.rotation);
+                newPart = Instantiate(SegelHinten, transform.position + (0.85f * new Vector3(2.051623f, 0, 0)), shipSpawner.rotation);
+                newPart.transform.SetParent(transform);
                 currentShipLvl++;
                 break;
-
         }
     }
 
