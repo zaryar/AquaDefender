@@ -47,7 +47,7 @@ public class EnemyTemplate : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision != null && collision.gameObject.tag != "WaterDrop" &&
+        if (collision != null &&
             collision.gameObject.tag == "Bullet" &&
             HitParticle != null)
         {
