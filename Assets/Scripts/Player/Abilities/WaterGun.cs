@@ -45,7 +45,7 @@ public class WaterGun : MonoBehaviour
         if (player.transform.position.y < 1 && waittime >= reloadTime)
         {
             waittime = 0;
-            water++;
+            water  += 5;
             if (water < 100)
             {
                 WaterSlider.value = water;
