@@ -21,7 +21,7 @@ public class BuildEscapeShip : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && currentShipLvl == 7)
+        if (other.gameObject.CompareTag("Player") && currentShipLvl == 8)
         {
             if (Input.GetKeyDown(KeyCode.F) && !hasDrivenAway)
             {
