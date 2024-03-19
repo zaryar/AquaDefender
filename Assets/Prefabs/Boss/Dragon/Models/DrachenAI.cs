@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class DragonAI : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DragonAI : MonoBehaviour
     private int attacksDuringFlight = 0;
     private const int MaxAttacksDuringFlight = 2;
     private bool isPreparingWaterBomb = false;
+    public static event Action OnBossDeath;
 
     private float stopDistance = 1.0f; // Radius, innerhalb dessen der Drache nicht näher zum Spieler geht
     private Animator animator;
@@ -293,16 +295,18 @@ public class DragonAI : MonoBehaviour
             Die();
         }
     }
+    public HealthBar3D healthBar;
+
 
     private void UpdateHealthBar(int dmg)
     {   
 
         // Angenommen, deine HealthBar3D-Instanz ist zugänglich
         // Du musst vielleicht einen Weg finden, darauf zu verweisen
-        HealthBar3D healthBar = GetComponentInChildren<HealthBar3D>();
+        
         if (healthBar != null)
         {
-            healthBar.update_healthbar((int)(maxHealth * 1.5f), dmg);
+            healthBar.update_healthbar(maxHealth, dmg);
         }
         Debug.Log("Drache ist besiegt!"+ health);
     }
@@ -311,6 +315,7 @@ public class DragonAI : MonoBehaviour
     {
         // Führe Aktionen aus, wenn der Drache stirbt (z. B. Animationen, Zerstörung des Objekts usw.)
         Destroy(gameObject);
+        OnBossDeath?.Invoke();
         Debug.Log("Drache ist besiegt!");
     }
 

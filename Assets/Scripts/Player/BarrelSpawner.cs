@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using System; // Für das Action-Event
 
 public class BarrelSpawner : MonoBehaviour
 {
     Transform barrelSpawnPoint;
+    public static event Action OnBarrelSpawned;
     [SerializeField] public GameObject barrel;
     [SerializeField] Vector3 spawnCheckSize = new Vector3(1.0f, 0.1f, 1.0f); // Gr??e der ?berpr?fungsbox
 
@@ -24,6 +26,9 @@ public class BarrelSpawner : MonoBehaviour
         {
             Instantiate(barrel, transform.position, barrelSpawnPoint.rotation);
             player.GetComponent<BarrelCounter>().DecreaseBarrelCount();
+
+            // Löse das Event aus, nachdem ein Fass gespawnt wurde
+            OnBarrelSpawned?.Invoke();
         }
     }
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -9,6 +10,7 @@ public class Chest : MonoBehaviour
 
     [SerializeField] bool isOpen = false;
     GameObject player;
+    public static event Action OnChestOpened;
     private Animator animator;
     private AudioSource audioSource;
     public Text chestText;
@@ -35,6 +37,8 @@ public class Chest : MonoBehaviour
             playerMovementController.gotInvisibility = true;
             InvisibilityScript.Invisibility.color = Color.white;
             InvisibilityScript.Ghost.color = Color.white;
+            // Löse das Event aus, wenn die Kiste geöffnet wird
+            OnChestOpened?.Invoke();
 
             StartCoroutine(displayText());
         }
