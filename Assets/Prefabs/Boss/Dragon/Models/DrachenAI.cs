@@ -295,16 +295,18 @@ public class DragonAI : MonoBehaviour
             Die();
         }
     }
+    public HealthBar3D healthBar;
+
 
     private void UpdateHealthBar(int dmg)
     {   
 
         // Angenommen, deine HealthBar3D-Instanz ist zugänglich
         // Du musst vielleicht einen Weg finden, darauf zu verweisen
-        HealthBar3D healthBar = GetComponentInChildren<HealthBar3D>();
+        
         if (healthBar != null)
         {
-            healthBar.update_healthbar((int)(maxHealth * 1.5f), dmg);
+            healthBar.update_healthbar(maxHealth, dmg);
         }
         Debug.Log("Drache ist besiegt!"+ health);
     }
