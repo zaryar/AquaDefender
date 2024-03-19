@@ -16,12 +16,13 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
 
     private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
+    private bool isBossDead = false;
 
     public int currentShipLvl = 0;
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && currentShipLvl == 8)
+        if (other.gameObject.CompareTag("Player") && currentShipLvl == 7 && isBossDead)
         {
             if (Input.GetKeyDown(KeyCode.F) && !hasDrivenAway)
             {
@@ -122,6 +123,20 @@ public class BuildEscapeShip : MonoBehaviour
                 currentShipLvl++;
                 break;
         }
+    }
+    private void OnEnable()
+    {
+        DragonAI.OnBossDeath += HandleBossDeath;
+    }
+
+    private void OnDisable()
+    {
+        DragonAI.OnBossDeath -= HandleBossDeath;
+    }
+
+    private void HandleBossDeath()
+    {
+        isBossDead = true;
     }
 
 
