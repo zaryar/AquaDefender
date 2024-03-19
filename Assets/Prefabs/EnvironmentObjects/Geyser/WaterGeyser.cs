@@ -38,7 +38,7 @@ public class WaterGeyser : MonoBehaviour
             collision.gameObject.GetComponent<Health>().TakeDamage(damage*3);
             Destroy(gameObject);
         }
-        if(collision.gameObject.GetComponent<BasicEnemy>())
+        if (collision.gameObject.GetComponent<BasicEnemy>())
         {
             collision.gameObject.GetComponent<BasicEnemy>().Hurt(damage);
             Destroy(gameObject);
@@ -47,7 +47,7 @@ public class WaterGeyser : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(collision.gameObject.tag != "WaterDrop")
+        if (collision.gameObject.tag != "WaterDrop")
         {
             Destroy(gameObject);
         }
