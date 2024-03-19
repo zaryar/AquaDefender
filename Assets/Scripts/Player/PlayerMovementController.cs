@@ -43,7 +43,7 @@ public class PlayerMovementController : MonoBehaviour
     Vector3 _Movement;
 
     public float movementSpeed = 4.0f;
-    public float speedModifier = .8f;
+    public float speedModifier = .4f;
     GameObject player;
 
     //for Animations
