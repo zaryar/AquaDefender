@@ -1,4 +1,5 @@
 using System.Collections;
+using System; // Für das Action-Event
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -12,6 +13,8 @@ public class WaveManager : MonoBehaviour
     private List<GameObject> activeEnemies = new List<GameObject>(); // List of active enemies
     private bool isSpawningWave = false;
     public TMP_Text waveText; // Reference to the text component
+    // Füge ein Event hinzu, das ausgelöst wird, wenn alle Gegner einer Welle besiegt wurden
+    public static event Action OnWaveCompleted;
 
     public GameObject dragonPrefab; // Reference to the dragon prefab
     private bool dragonSpawned = false; // To ensure the dragon is only spawned once
@@ -73,6 +76,18 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    private void OnEnemyDeath(GameObject enemy)
+    {
+        activeEnemies.Remove(enemy);
+
+        // Überprüfe, ob alle Gegner der aktuellen Welle besiegt wurden
+        if (activeEnemies.Count == 0 && currentWaveIndex <= waves.Length)
+        {
+            // Event auslösen, wenn alle Gegner einer Welle getötet wurden
+            OnWaveCompleted?.Invoke();
+        }
+    }
+
     IEnumerator SpawnWave(EnemyWave wave)
     {
         isSpawningWave = true;
@@ -87,7 +102,7 @@ public class WaveManager : MonoBehaviour
                 for (int i = 0; i < enemyType.count; i++)
                 {
                     Transform spawnPoint = enemyType.spawnPointIndex == -1 ?
-                        spawnPoints[Random.Range(0, spawnPoints.Length)] :
+                        spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)] :
                         spawnPoints[Mathf.Clamp(enemyType.spawnPointIndex, 0, spawnPoints.Length - 1)];
 
                     GameObject enemy = spawner.SpawnEnemy(enemyType.prefab, spawnPoint);
@@ -104,13 +119,9 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnDragon()
     {
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
         GameObject dragon = Instantiate(dragonPrefab, spawnPoint.position, spawnPoint.rotation);
         // Set up any additional properties for the dragon if needed
     }
 
-    private void OnEnemyDeath(GameObject enemy)
-    {
-        activeEnemies.Remove(enemy);
-    }
 }

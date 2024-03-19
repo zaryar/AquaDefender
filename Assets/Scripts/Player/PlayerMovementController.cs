@@ -3,17 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+//using UnityEngine.UI; // Für den Zugriff auf UI-Komponenten
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    // Referenzen auf die UI-Images für die Inventar-Slots
+    [SerializeField] private UnityEngine.UI.Image invSlot1Image;
+
+    // Sprites für jede Waffe
+    [SerializeField] private Sprite gunSprite;
+    [SerializeField] private Sprite swordSprite;
+
     /*
      This script handles Player Control Input and Player Movement+Animations.
      Anything else should be put in different scripts to avoid cluttering.
      */
     PlayerControls _playerControls;
+
+    public static event Action OnSwordSwitched;
+    public static event Action OnGunSwitched;
 
     // special skill
     [SerializeField] float invisibleTime = 5f;
@@ -163,6 +174,8 @@ public class PlayerMovementController : MonoBehaviour
                 GunModel.GetComponent<MeshRenderer>().enabled = false;
                 swordModelSwapper.enableRenderer();
                 AimRig.weight= 0f;
+                UpdateWeaponUI(swordSprite);
+                OnSwordSwitched?.Invoke(); // Löse das Event für den Wechsel zum Schwert aus
             }
             else if (weapon == 1)
             {
@@ -170,6 +183,8 @@ public class PlayerMovementController : MonoBehaviour
                 GunModel.GetComponent<MeshRenderer>().enabled = true;
                 swordModelSwapper.disableRenderer();
                 AimRig.weight = 1f;
+                UpdateWeaponUI(gunSprite);
+                OnGunSwitched?.Invoke(); // Löse das Event für den Wechsel zur Gun aus
             }
         };
         _playerControls.CharacterControls.WaterCannon.started += context =>
@@ -278,6 +293,11 @@ public class PlayerMovementController : MonoBehaviour
         {
             StopCoroutine(waterCannonCoroutine);
         }
+    }
+    private void UpdateWeaponUI(Sprite weaponSprite)
+    {
+        // Setze das Bild des Inventar-Slots auf das Sprite der aktuellen Waffe
+        invSlot1Image.sprite = weaponSprite;
     }
 }
 
