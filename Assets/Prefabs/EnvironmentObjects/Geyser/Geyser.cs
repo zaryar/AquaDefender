@@ -31,7 +31,8 @@ public class Geyser : MonoBehaviour
 
         if (setVector >= restTime)
         {
-            index = Random.Range(1, SpawnPoints.Length - 2); 
+            index = Random.Range(1, SpawnPoints.Length - 2);
+
             ActiveGeysers[0] = SpawnPoints[index];
             ActiveGeysers[1] = SpawnPoints[index-1];
             ActiveGeysers[2] = SpawnPoints[index+1];
