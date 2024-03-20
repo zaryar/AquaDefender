@@ -63,7 +63,7 @@ public class BuildEscapeShip : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         // Load the victory scene
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync("victory");
     }
 
 

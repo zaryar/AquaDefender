@@ -38,7 +38,7 @@ public class PauseMenu : MonoBehaviour
         {
             if(shopKeeperScript != null && shopKeeperScript.shopMenu.activeSelf)
             {
-                // Rufe die Methode im ShopKeeper-Skript auf, um das Shop-Menü zu schließen
+                // Rufe die Methode im ShopKeeper-Skript auf, um das Shop-Menï¿½ zu schlieï¿½en
                 shopKeeperScript.CloseShopMenu();
             }
             else
@@ -89,7 +89,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("Level1");
     }
 
     public void LoadOptionsMenu()
@@ -99,6 +99,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitGame()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync("Mainmenu");
     }
 }

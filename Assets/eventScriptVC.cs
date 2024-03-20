@@ -6,6 +6,6 @@ public class MainMenuLoader : MonoBehaviour
     public void LoadMainMenu()
     {
         // Load the main menu scene
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }

@@ -22,32 +22,45 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private bool canTakeDamage = true;
+
+    public IEnumerator DamageCooldown()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(0.3f);
+        canTakeDamage = true;
+    }
+
     public void TakeDamage(int damage, bool isSpecialAttack = false)
     {
-        /*if (UnityEngine.Random.value < criticalHitChance) 
+        if (canTakeDamage)
         {
-            damage *= criticalHitMultiplier;
-            UnityEngine.Debug.Log("Crit");
-        }*/
+            /*if (UnityEngine.Random.value < criticalHitChance) 
+            {
+                damage *= criticalHitMultiplier;
+                UnityEngine.Debug.Log("Crit");
+            }*/
 
-        damage = damage * (100/(100+armor));
-        if (damage <= 1)
-        {
-            damage = 1;
-        }
-        //UnityEngine.Debug.Log(damage);
-        currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            Die();
+            damage = damage * (100 / (100 + armor));
+            if (damage <= 1)
+            {
+                damage = 1;
+            }
+            //UnityEngine.Debug.Log(damage);
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+            StartCoroutine(DamageCooldown());
         }
     }
 
     void Die()
     {
         StartCoroutine(DieCoroutine());
-        
-        
+
+
     }
 
     IEnumerator DieCoroutine()
@@ -59,7 +72,7 @@ public class Health : MonoBehaviour
         yield return new WaitForSecondsRealtime(5);
         Time.timeScale = 1;
         deathText.text = "";
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
 

@@ -43,7 +43,7 @@ public class PlayerMovementController : MonoBehaviour
     Vector3 _Movement;
 
     public float movementSpeed = 4.0f;
-    public float speedModifier = .4f;
+    public float speedModifier = 0.4f;
     GameObject player;
 
     //for Animations
@@ -214,6 +214,7 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void Start()
     {
+        speedModifier = 0.4f;
         GameController.instance.PlayerDeath.AddListener(playerDeath);
         swordModelSwapper = GetComponentInChildren<SwordModelSwapper>();
         if(swordModelSwapper == null) { Debug.LogError("Failed to load SwordModelSwapper for Player."); }
