@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class InvisibilityChest : Chest
 {
 
     GameObject player;
     //public static event Action OnChestOpened;
-    private Animator animator;
     private AudioSource audioSource;
     public Text chestText;
     public InvisibilityCountdown InvisibilityScript;
@@ -20,17 +20,19 @@ public class InvisibilityChest : Chest
     {
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
+        
     }
+
+    
 
     public void unlockFeature()
     {
-
+        
         if (base.isOpen)
         {
+            Debug.Log("Offen?"+isOpen);
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
-
-            animator.SetBool("isOpen", true);
             PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
             playerMovementController.gotInvisibility = true;
             InvisibilityScript.Invisibility.color = Color.white;

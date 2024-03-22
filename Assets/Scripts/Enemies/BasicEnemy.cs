@@ -63,6 +63,7 @@ public class BasicEnemy : EnemyTemplate
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = true; 
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         _target = _player;
         _sword = gameObject.transform.Find("Sword").GetComponent<SwordTemplate>();

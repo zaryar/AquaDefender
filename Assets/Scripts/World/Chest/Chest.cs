@@ -33,8 +33,16 @@ public class Chest : MonoBehaviour
 
         }
         isOpen = true;
+
+        if (this is InvisibilityChest)
+        {
+            InvisibilityChest invisibilityChestInstance = this as InvisibilityChest;
+            invisibilityChestInstance.unlockFeature();
+        }
         
     }
+
+    
 
     public void closeChest()
     {
