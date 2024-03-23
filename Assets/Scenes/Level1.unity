@@ -2802,7 +2802,7 @@ PrefabInstance:
     - target: {fileID: -7784686791245435630, guid: c4cbf31bc38beb045bf9ac4b601858cb, type: 3}
       propertyPath: WaterGeyser
       value: 
-      objectReference: {fileID: 83980712087269186, guid: 604c8fd48371f4143a094d1569d8cf39, type: 3}
+      objectReference: {fileID: 83980712087269186, guid: 0b0ebecc1906a7a4281d4f875fe051af, type: 3}
     - target: {fileID: -7784686791245435630, guid: c4cbf31bc38beb045bf9ac4b601858cb, type: 3}
       propertyPath: geyserSpawnPoint.x
       value: 14

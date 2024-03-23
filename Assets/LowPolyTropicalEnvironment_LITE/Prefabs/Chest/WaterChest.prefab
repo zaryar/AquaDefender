@@ -468,10 +468,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   geyserSpawnPoint: {x: 0, y: 0, z: 0}
-  WaterGeyser: {fileID: 0}
+  WaterGeyser: {fileID: 83980712087269186, guid: 0b0ebecc1906a7a4281d4f875fe051af, type: 3}
   timeBeweenWater: 0.006
   restTime: 3.5
   activeTime: 3.5
+  canUpdate: 0
 --- !u!1001 &2936179346390468512
 PrefabInstance:
   m_ObjectHideFlags: 0

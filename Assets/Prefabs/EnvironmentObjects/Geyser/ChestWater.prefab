@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5298746530388586681}
   - component: {fileID: 4486208460908927069}
   - component: {fileID: 303807899543619691}
+  - component: {fileID: -7782957769329602879}
   m_Layer: 0
   m_Name: ChestWater
   m_TagString: WaterDrop
@@ -101,9 +102,9 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -141,9 +142,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83980712087269186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800e29584ce9f427a89d150afddfd508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 14
+  lifetime: 8
+  damage: 1
+  maxDeviationAngle: 5
+--- !u!114 &-7782957769329602879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83980712087269186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6cfb7021d0a8841a86e11b4e40ff3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14

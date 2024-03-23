@@ -41,7 +41,6 @@ public class WaterChest : Chest
 
             if (geyserOn)//waittime >= timeBeweenWater && geyserOn)
             {
-                Debug.Log("Wasser");
                 waittime = 0;
                 InstantiateWaterGeyser();
             }
