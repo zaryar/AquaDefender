@@ -36,11 +36,9 @@ public class Chest : MonoBehaviour
 
         if (this is InvisibilityChest)
         {
-            Debug.Log("Hi");
             InvisibilityChest invisibilityChestInstance = this as InvisibilityChest;
             invisibilityChestInstance.unlockFeature();
         }
-        Debug.Log(this is InvisibilityChest);
         
     }
 

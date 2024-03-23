@@ -30,7 +30,7 @@ public class InvisibilityChest : Chest
         
         if (base.isOpen)
         {
-            Debug.Log("Offen?"+isOpen);
+            //Debug.Log("Offen?"+isOpen);
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
             PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
