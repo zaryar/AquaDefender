@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-//using UnityEngine.UI; // Für den Zugriff auf UI-Komponenten
+//using UnityEngine.UI; // Fï¿½r den Zugriff auf UI-Komponenten
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    // Referenzen auf die UI-Images für die Inventar-Slots
+    // Referenzen auf die UI-Images fï¿½r die Inventar-Slots
     [SerializeField] private UnityEngine.UI.Image invSlot1Image;
 
-    // Sprites für jede Waffe
+    // Sprites fï¿½r jede Waffe
     [SerializeField] private Sprite gunSprite;
     [SerializeField] private Sprite swordSprite;
 
@@ -75,6 +75,7 @@ public class PlayerMovementController : MonoBehaviour
     SwordTemplate _sword;
     Transform _swordTransform;
     SwordModelSwapper swordModelSwapper;
+    public IceChest iceChest;
 
     //for Weapon Switching, 0 is Gun and 1 is Sword
     int weapon = 0;
@@ -145,6 +146,7 @@ public class PlayerMovementController : MonoBehaviour
         _sword = _swordTransform.GetComponent<SwordTemplate>();
         _barrelSpawnTransform = transform.Find("BarrelSpawn");
         _barrelSpawn = _barrelSpawnTransform.GetComponent<BarrelSpawner>();
+        iceChest = FindObjectOfType<IceChest>();
 
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
@@ -175,7 +177,7 @@ public class PlayerMovementController : MonoBehaviour
                 swordModelSwapper.enableRenderer();
                 AimRig.weight= 0f;
                 UpdateWeaponUI(swordSprite);
-                OnSwordSwitched?.Invoke(); // Löse das Event für den Wechsel zum Schwert aus
+                OnSwordSwitched?.Invoke(); // Lï¿½se das Event fï¿½r den Wechsel zum Schwert aus
             }
             else if (weapon == 1)
             {
@@ -184,7 +186,7 @@ public class PlayerMovementController : MonoBehaviour
                 swordModelSwapper.disableRenderer();
                 AimRig.weight = 1f;
                 UpdateWeaponUI(gunSprite);
-                OnGunSwitched?.Invoke(); // Löse das Event für den Wechsel zur Gun aus
+                OnGunSwitched?.Invoke(); // Lï¿½se das Event fï¿½r den Wechsel zur Gun aus
             }
         };
         _playerControls.CharacterControls.WaterCannon.started += context =>
@@ -205,7 +207,7 @@ public class PlayerMovementController : MonoBehaviour
         };
         _playerControls.CharacterControls.IceSword.started += context =>
         {   
-            if(weapon == 1) {
+            if(weapon == 1 && iceChest.swordUnlocked) {
                 bool _isStriking= true;
                 _sword.Attack(true);
                 if (_isStriking) { PlayerAnimator.SetTrigger("Attack"); }

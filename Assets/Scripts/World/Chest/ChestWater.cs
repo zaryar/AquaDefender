@@ -37,7 +37,6 @@ public class ChestWater : MonoBehaviour
             // Spieler Schaden zufügen
             other.gameObject.GetComponent<Health>().TakeDamage(damage * 3);
             Destroy(gameObject);
-            Debug.Log("Aua");
         }
         
     }
