@@ -31,13 +31,19 @@ public class Chest : MonoBehaviour
             animator.SetBool("isOpen", true);
             OnChestOpened?.Invoke();
 
-        }
-        isOpen = true;
+        
+            isOpen = true;
 
-        if (this is InvisibilityChest)
-        {
-            InvisibilityChest invisibilityChestInstance = this as InvisibilityChest;
-            invisibilityChestInstance.unlockFeature();
+            if (this is InvisibilityChest)
+            {
+                InvisibilityChest invisibilityChestInstance = this as InvisibilityChest;
+                invisibilityChestInstance.unlockFeature();
+            }
+
+            if (this is WaterChest){
+                WaterChest waterChest = this as WaterChest;
+                waterChest.canUpdate = true;
+            }
         }
         
     }

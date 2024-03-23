@@ -28,8 +28,8 @@ public class InvisibilityChest : Chest
     public void unlockFeature()
     {
         
-        if (base.isOpen)
-        {
+        //if (base.isOpen)
+        
             //Debug.Log("Offen?"+isOpen);
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
@@ -41,7 +41,7 @@ public class InvisibilityChest : Chest
             //OnChestOpened?.Invoke();
 
             StartCoroutine(displayText());
-        }
+        
         
     }
 
