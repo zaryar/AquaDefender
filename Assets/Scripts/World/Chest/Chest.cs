@@ -43,11 +43,13 @@ public class Chest : MonoBehaviour
             if (this is WaterChest){
                 WaterChest waterChest = this as WaterChest;
                 waterChest.canUpdate = true;
+                waterChest.unlockFeature();
             }
 
             if (this is IceChest){
                 IceChest iceChest = this as IceChest;
                 iceChest.swordUnlocked = true;
+                iceChest.unlockFeature();
             }
         }
         

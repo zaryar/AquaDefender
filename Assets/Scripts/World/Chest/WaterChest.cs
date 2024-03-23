@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaterChest : Chest
 {
@@ -14,11 +15,14 @@ public class WaterChest : Chest
     private bool geyserOn = false;
     public float activeTime = 3.5f;
     public bool canUpdate = false;
+    private AudioSource audioSource;
     
     private void Awake()
     {
         // Setze den Spawnpoint des Geysirs auf die Position dieses GameObjects
         geyserSpawnPoint = transform.position;
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     
@@ -53,4 +57,16 @@ public class WaterChest : Chest
         WaterGeyser water = waterOn.GetComponent<WaterGeyser>();
         water.InitializeWater(geyserSpawnPoint + new Vector3(0,1,0));
     }
+
+     public void unlockFeature()
+    {
+        
+            audioSource.Play();
+
+            //StartCoroutine(displayText());
+        
+        
+    }
+
+
 }
