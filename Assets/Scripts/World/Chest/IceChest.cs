@@ -23,9 +23,21 @@ public class IceChest : Chest
             audioSource.Play();
             
 
-            //StartCoroutine(displayText());
+            StartCoroutine(displayText());
         
         
+    }
+
+    IEnumerator displayText()
+    {
+        swordText.gameObject.SetActive(true);
+        swordText.text = "New sword unlocked!";
+
+        yield return new WaitForSeconds(3f); 
+
+        swordText.text = "";
+        swordText.gameObject.SetActive(false);
+    
     }
 
  }
