@@ -17,7 +17,7 @@ public class EvilChest : EnemyTemplate
     [HideInInspector] public Transform _target;
     private bool isFreezed = false;
     int damageAmount = 1;
-    public float attackRange = 2f;
+    public float attackRange = 1f;
     public float biteCooldown = 1f;
 
     private bool isBiting = false;
