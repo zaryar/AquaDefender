@@ -45,7 +45,7 @@ public class IceChest : Chest
     // Überprüfen Sie die Kollision mit dem Spieler
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")&& swordUnlocked)
         {
                 isPlayerInRange = true;
                 //Debug.Log("In Range"+isPlayerInRange);
