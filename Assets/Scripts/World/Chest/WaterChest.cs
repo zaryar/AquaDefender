@@ -16,7 +16,8 @@ public class WaterChest : Chest
     public float activeTime = 3.5f;
     public bool canUpdate = false;
     private AudioSource audioSource;
-    
+    public bool gunUnlocked = false;
+    public Text gunText;
     private void Awake()
     {
         // Setze den Spawnpoint des Geysirs auf die Position dieses GameObjects
@@ -62,10 +63,23 @@ public class WaterChest : Chest
     {
         
             audioSource.Play();
+            StartCoroutine(displayText());
 
             //StartCoroutine(displayText());
         
         
+    }
+
+    IEnumerator displayText()
+    {
+        gunText.gameObject.SetActive(true);
+        gunText.text = "New gun unlocked! [click right]";
+
+        yield return new WaitForSeconds(3f); 
+
+        gunText.text = "";
+        gunText.gameObject.SetActive(false);
+    
     }
 
 

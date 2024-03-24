@@ -33,7 +33,7 @@ public class IceChest : Chest
     IEnumerator displayText()
     {
         swordText.gameObject.SetActive(true);
-        swordText.text = "New sword unlocked!";
+        swordText.text = "New sword unlocked! [click right]";
 
         yield return new WaitForSeconds(3f); 
 

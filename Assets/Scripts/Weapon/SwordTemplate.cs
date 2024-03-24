@@ -81,7 +81,7 @@ public class SwordTemplate : WeaponTemplate
     public IEnumerator ChargeEnergy(float amount)
     {
         while(iceChest.isPlayerInRange){
-        currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); // Lade die Energie auf, begrenzt auf das Maximum
+        currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); 
         Debug.Log("Charging"+currentEnergy);
         yield return new WaitForSeconds(1f); 
         }

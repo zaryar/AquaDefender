@@ -43,6 +43,7 @@ public class Chest : MonoBehaviour
             if (this is WaterChest){
                 WaterChest waterChest = this as WaterChest;
                 waterChest.canUpdate = true;
+                waterChest.gunUnlocked = true;
                 waterChest.unlockFeature();
             }
 

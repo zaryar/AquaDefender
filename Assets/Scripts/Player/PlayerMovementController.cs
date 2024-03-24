@@ -66,6 +66,7 @@ public class PlayerMovementController : MonoBehaviour
 
     //WaterCannon
     Coroutine waterCannonCoroutine;
+    WaterChest waterChest;
 
     //SpawnBarrel
     BarrelSpawner _barrelSpawn;
@@ -147,6 +148,7 @@ public class PlayerMovementController : MonoBehaviour
         _barrelSpawnTransform = transform.Find("BarrelSpawn");
         _barrelSpawn = _barrelSpawnTransform.GetComponent<BarrelSpawner>();
         iceChest = FindObjectOfType<IceChest>();
+        waterChest = FindObjectOfType<WaterChest>();
 
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
@@ -191,7 +193,7 @@ public class PlayerMovementController : MonoBehaviour
         };
         _playerControls.CharacterControls.WaterCannon.started += context =>
         {
-            if(weapon == 0) StartWaterCannon();
+            if(weapon == 0 && waterChest.gunUnlocked) StartWaterCannon();
         };
         _playerControls.CharacterControls.WaterCannon.canceled += context =>
         {
