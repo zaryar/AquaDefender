@@ -16,10 +16,12 @@ public class SwordTemplate : WeaponTemplate
     [SerializeField] private float energyMax = 100f; // Maximale Energiemenge des Ice Swords
     private float currentEnergy; // Aktuelle Energiemenge des Ice Swords
     private float energyCost = 5f;
+    IceChest iceChest;
     
     public void Start()
     {
         currentEnergy = energyMax;
+        iceChest = FindObjectOfType<IceChest>();
     }
 
     public float GetswordAttackRange()
@@ -76,9 +78,14 @@ public class SwordTemplate : WeaponTemplate
         
     }
 
-    public void ChargeEnergy(float amount)
+    public IEnumerator ChargeEnergy(float amount)
     {
+        while(iceChest.isPlayerInRange){
         currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); // Lade die Energie auf, begrenzt auf das Maximum
+        Debug.Log("Charging"+currentEnergy);
+        yield return new WaitForSeconds(1f); 
+        }
+        
     }
 
     

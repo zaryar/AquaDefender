@@ -8,8 +8,8 @@ public class IceChest : Chest
     public bool swordUnlocked = false;
     private AudioSource audioSource;
     public Text swordText;
-    public float playerDetectionRadius = 5f;
     public float energyAmountToCharge = 5f;
+    public bool isPlayerInRange = false;
 
     void Awake()
     {
@@ -42,18 +42,29 @@ public class IceChest : Chest
     
     }
 
+    // Überprüfen Sie die Kollision mit dem Spieler
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Holen Sie sich den SwordTemplate des Spielers
-            SwordTemplate swordTemplate = other.GetComponentInChildren<SwordTemplate>();
-            if (swordTemplate != null)
-            {
-                // Lade die Energie des Ice Swords auf
-                swordTemplate.ChargeEnergy(energyAmountToCharge);
-            }
+                isPlayerInRange = true;
+                //Debug.Log("In Range"+isPlayerInRange);
+                SwordTemplate swordTemplate = other.GetComponentInChildren<SwordTemplate>();
+                if (swordTemplate != null)
+                {
+                    StartCoroutine(swordTemplate.ChargeEnergy(energyAmountToCharge));
+                }
+           
         }
     }
+
+    private void OnTriggerExit(Collider other)
+{
+    if (other.CompareTag("Player"))
+    {
+        isPlayerInRange = false; 
+    }
+}
+
 
  }
