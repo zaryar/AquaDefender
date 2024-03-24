@@ -13,7 +13,14 @@ public class SwordTemplate : WeaponTemplate
     [SerializeField] private int IceSwordDamage = 1;
     [SerializeField] float freezingTime = 10f;
     [SerializeField] Material freezingMaterial;
+    [SerializeField] private float energyMax = 100f; // Maximale Energiemenge des Ice Swords
+    private float currentEnergy; // Aktuelle Energiemenge des Ice Swords
+    private float energyCost = 5f;
     
+    public void Start()
+    {
+        currentEnergy = energyMax;
+    }
 
     public float GetswordAttackRange()
     {
@@ -32,13 +39,15 @@ public class SwordTemplate : WeaponTemplate
                 tag = hit[i].tag;
                 if (opposingFraction.Contains(tag))
                 {
-                    if(freeze && hit[i].gameObject.GetComponent<BasicEnemy>()!= null){
+                    if(freeze && hit[i].gameObject.GetComponent<BasicEnemy>()!= null && currentEnergy >= energyCost){
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze(freezingTime, freezingMaterial));
+                        currentEnergy -= energyCost;
                     }
-                    else if(freeze && hit[i].gameObject.GetComponent<EvilChest>()!= null){
+                    else if(freeze && hit[i].gameObject.GetComponent<EvilChest>()!= null && currentEnergy >= energyCost){
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<EvilChest>().freeze(freezingTime, freezingMaterial));
+                        currentEnergy -= energyCost;
                     }
 
                     else if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
@@ -65,6 +74,11 @@ public class SwordTemplate : WeaponTemplate
         }
         return false;
         
+    }
+
+    public void ChargeEnergy(float amount)
+    {
+        currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); // Lade die Energie auf, begrenzt auf das Maximum
     }
 
     

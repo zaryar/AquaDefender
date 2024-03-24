@@ -21,6 +21,7 @@ public class WeaponTemplate : MonoBehaviour {
     {
         attackTransform = gameObject.transform.parent.Find("Gun/Muzzle");   
         checkOpposingFraction();
+        
     }
 
     
