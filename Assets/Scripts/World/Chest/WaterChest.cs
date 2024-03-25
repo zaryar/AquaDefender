@@ -67,6 +67,7 @@ public class WaterChest : Chest
             audioSource.Play();
             StartCoroutine(displayText());
             Bar.Water.color = Bar.Blue;
+            Bar.DropImage.color = Bar.Blue;
         
     }
 

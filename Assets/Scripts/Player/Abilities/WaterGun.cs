@@ -15,12 +15,13 @@ public class WaterGun : MonoBehaviour
 
     public Graphic Water;
     public Color Blue;
+    public Graphic DropImage;
 
     public void Start(){
 
         Blue = Water.color;
-
         Water.color = Color.grey;
+        DropImage.color = Color.grey;
     }
 
 

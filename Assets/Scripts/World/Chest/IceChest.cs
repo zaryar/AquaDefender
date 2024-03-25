@@ -27,6 +27,7 @@ public class IceChest : Chest
             StartCoroutine(displayText());
 
             Bar.Ice.color = Bar.lightBlue;
+            Bar.Snowflake.color = Bar.lightBlue;
     }
 
     IEnumerator displayText()

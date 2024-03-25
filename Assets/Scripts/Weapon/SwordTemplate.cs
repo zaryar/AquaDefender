@@ -18,6 +18,7 @@ public class SwordTemplate : WeaponTemplate
     private float energyCost = 5f;
     IceChest iceChest;
     public IceBar iceBar;
+
     public void Start()
     {
         iceBar = FindObjectOfType<IceBar>();
@@ -86,7 +87,6 @@ public class SwordTemplate : WeaponTemplate
     {
         while(iceChest.isPlayerInRange){
         currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); 
-        Debug.Log("Charging"+currentEnergy);
         iceBar.SetEnergy(currentEnergy);
         yield return new WaitForSeconds(1f); 
         }
