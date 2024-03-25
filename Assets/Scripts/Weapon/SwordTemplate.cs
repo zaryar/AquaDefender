@@ -14,13 +14,15 @@ public class SwordTemplate : WeaponTemplate
     [SerializeField] float freezingTime = 10f;
     [SerializeField] Material freezingMaterial;
     [SerializeField] private float energyMax = 100f; // Maximale Energiemenge des Ice Swords
-    private float currentEnergy; // Aktuelle Energiemenge des Ice Swords
+    public float currentEnergy; // Aktuelle Energiemenge des Ice Swords
     private float energyCost = 5f;
     IceChest iceChest;
-    
+    public IceBar iceBar;
     public void Start()
     {
+        iceBar = FindObjectOfType<IceBar>();
         currentEnergy = energyMax;
+        iceBar.SetMaxEnergy(energyMax);
         iceChest = FindObjectOfType<IceChest>();
     }
 
@@ -45,11 +47,13 @@ public class SwordTemplate : WeaponTemplate
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
+                        iceBar.SetEnergy(currentEnergy);
                     }
                     else if(freeze && hit[i].gameObject.GetComponent<EvilChest>()!= null && currentEnergy >= energyCost){
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<EvilChest>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
+                        iceBar.SetEnergy(currentEnergy);
                     }
 
                     else if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
@@ -83,6 +87,7 @@ public class SwordTemplate : WeaponTemplate
         while(iceChest.isPlayerInRange){
         currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); 
         Debug.Log("Charging"+currentEnergy);
+        iceBar.SetEnergy(currentEnergy);
         yield return new WaitForSeconds(1f); 
         }
         

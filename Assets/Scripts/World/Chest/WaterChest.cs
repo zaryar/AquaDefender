@@ -18,6 +18,8 @@ public class WaterChest : Chest
     private AudioSource audioSource;
     public bool gunUnlocked = false;
     public Text gunText;
+    public WaterGun Bar;
+
     private void Awake()
     {
         // Setze den Spawnpoint des Geysirs auf die Position dieses GameObjects
@@ -64,9 +66,7 @@ public class WaterChest : Chest
         
             audioSource.Play();
             StartCoroutine(displayText());
-
-            //StartCoroutine(displayText());
-        
+            Bar.Water.color = Bar.Blue;
         
     }
 

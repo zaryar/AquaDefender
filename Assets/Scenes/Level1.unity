@@ -3065,6 +3065,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7784686791245435630, guid: c4cbf31bc38beb045bf9ac4b601858cb, type: 3}
+      propertyPath: gunText
+      value: 
+      objectReference: {fileID: 1839263675}
+    - target: {fileID: -7784686791245435630, guid: c4cbf31bc38beb045bf9ac4b601858cb, type: 3}
       propertyPath: restTime
       value: 1
       objectReference: {fileID: 0}
@@ -4355,6 +4359,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1839263675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2848194789552582264, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+  m_PrefabInstance: {fileID: 1520706029893915382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1854877126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2339982916574273346, guid: e548d75c8014f8149aaf5b2e7c9a0758, type: 3}
@@ -5385,6 +5400,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6849608422647326076, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976731727926621572, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976731727926621572, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7056953188571666439, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}

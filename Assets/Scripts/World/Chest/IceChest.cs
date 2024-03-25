@@ -10,6 +10,7 @@ public class IceChest : Chest
     public Text swordText;
     public float energyAmountToCharge = 5f;
     public bool isPlayerInRange = false;
+    public IceBar Bar;
 
     void Awake()
     {
@@ -20,14 +21,12 @@ public class IceChest : Chest
 
     public void unlockFeature()
     {
-        
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
             
-
             StartCoroutine(displayText());
-        
-        
+
+            Bar.Ice.color = Bar.lightBlue;
     }
 
     IEnumerator displayText()

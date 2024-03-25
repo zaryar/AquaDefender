@@ -13,6 +13,16 @@ public class WaterGun : MonoBehaviour
     private float waittime;
     public float reloadTime = 2;
 
+    public Graphic Water;
+    public Color Blue;
+
+    public void Start(){
+
+        Blue = Water.color;
+
+        Water.color = Color.grey;
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
