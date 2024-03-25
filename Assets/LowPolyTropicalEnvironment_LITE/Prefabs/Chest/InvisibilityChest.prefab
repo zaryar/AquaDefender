@@ -261,10 +261,10 @@ GameObject:
   - component: {fileID: 2791971630962443440}
   - component: {fileID: 5732511244249359010}
   - component: {fileID: 1784109106223323224}
-  - component: {fileID: 7696511190952212233}
   - component: {fileID: -2016894813268797708}
+  - component: {fileID: -5828705947329623654}
   m_Layer: 0
-  m_Name: Chest_01
+  m_Name: InvisibilityChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,19 +358,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9671867, y: 0.68594646, z: 0.6079207}
   m_Center: {x: -0.0000078082085, y: 0.34248984, z: 0.002952069}
---- !u!114 &7696511190952212233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7759381522125351291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3d07ba5b2bfda429b491af8fe49809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOpen: 0
 --- !u!82 &-2016894813268797708
 AudioSource:
   m_ObjectHideFlags: 0
@@ -378,7 +365,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7759381522125351291}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6aa5a6d5ac089e44ea9120a9e37eff41, type: 3}
@@ -467,6 +454,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5828705947329623654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759381522125351291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01869637f9acf747aeb979dbea53e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  chestText: {fileID: 0}
+  InvisibilityScript: {fileID: 0}
 --- !u!1001 &2936179346390468512
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
-
-using UnityEngine;
-using System.Collections;
 using TMPro;
 
 public class EvilChest : EnemyTemplate
@@ -15,18 +12,21 @@ public class EvilChest : EnemyTemplate
     [HideInInspector] public Transform _player;
     [HideInInspector] public NavMeshAgent _agent;
     [HideInInspector] public Transform _target;
+    private AudioSource audioSource;
     private bool isFreezed = false;
     int damageAmount = 1;
-    public float attackRange = 2f;
+    public float attackRange = 1f;
     public float biteCooldown = 1f;
 
     private bool isBiting = false;
     private int count = 0;
     private float lastBiteTime;
+    public bool firstTime = true;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         HealthInit();
         _agent = transform.parent.GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
@@ -52,6 +52,10 @@ public class EvilChest : EnemyTemplate
     
 
     IEnumerator Bite() {
+    if(firstTime){
+        firstTime = false;
+        audioSource.Play();
+    }
 
     if(!isFreezed){
         float time = Time.time;

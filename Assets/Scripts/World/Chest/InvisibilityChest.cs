@@ -4,50 +4,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
-public class Chest : MonoBehaviour
+public class InvisibilityChest : Chest
 {
 
-    [SerializeField] bool isOpen = false;
     GameObject player;
-    public static event Action OnChestOpened;
-    private Animator animator;
+    //public static event Action OnChestOpened;
     private AudioSource audioSource;
     public Text chestText;
     public InvisibilityCountdown InvisibilityScript;
     // public AudioClip chestOpen; 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
+        
     }
 
-    public void openChest()
-    {
+    
 
-        if (!isOpen)
-        {
+    public void unlockFeature()
+    {
+        
+        //if (base.isOpen)
+        
+            //Debug.Log("Offen?"+isOpen);
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
-
-            animator.SetBool("isOpen", true);
             PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
             playerMovementController.gotInvisibility = true;
             InvisibilityScript.Invisibility.color = Color.white;
             InvisibilityScript.Ghost.color = Color.white;
-            // Löse das Event aus, wenn die Kiste geöffnet wird
-            OnChestOpened?.Invoke();
+            // Lï¿½se das Event aus, wenn die Kiste geï¿½ffnet wird
+            //OnChestOpened?.Invoke();
 
             StartCoroutine(displayText());
-        }
-        isOpen = true;
-    }
-
-    public void closeChest()
-    {
-        animator.SetBool("isOpen", false);
+        
+        
     }
 
     
