@@ -16,7 +16,7 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
 
     private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
-    private bool isBossDead = false;
+    private bool isBossDead = true;
 
     public int currentShipLvl = 0;
 
@@ -54,6 +54,7 @@ public class BuildEscapeShip : MonoBehaviour
 
         // Set the flag to true to prevent the animation from playing again
         hasDrivenAway = true;
+        PlayerPrefs.SetInt("Lvl2", 1);
         StartCoroutine(LoadVictoryScene());
     }
 
