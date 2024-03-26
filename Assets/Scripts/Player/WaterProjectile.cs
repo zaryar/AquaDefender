@@ -22,7 +22,7 @@ public class WaterProjectile : WeaponTemplate
         {   
             if (collision.gameObject.GetComponent<EnemyTemplate>()!= null)
             {
-            collision.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
+            collision.gameObject.GetComponent<EnemyTemplate>().Hurt((int)(Damage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
             }
             else if (collision.gameObject.GetComponent<Health>()!= null)
             {
@@ -30,7 +30,7 @@ public class WaterProjectile : WeaponTemplate
             }
             else if (collision.gameObject.GetComponent<DragonAI>() != null)
             {
-                collision.gameObject.GetComponent<DragonAI>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<DragonAI>().TakeDamage((int)(Damage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
             }
 
         }

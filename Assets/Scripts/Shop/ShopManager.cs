@@ -96,12 +96,14 @@ public class ShopManager : MonoBehaviour
                 break;
             case "PermHealth (ShopItem)":
                 healthScript.maxHealth += 5;
+                GameController.instance.BonusHealth += 5;
                 break;
             case "Armor (ShopItem)":
                 healthScript.armor += 10;
+                GameController.instance.Armor += 10;
                 break;
             case "Boots (ShopItem)":
-                playerMovementControllerScript.movementSpeed += 0.3f;
+                GameController.instance.MovespeedFactor += 0.1f;
                 break;
             case "BarelUp (ShopItem)":
                 barrelCounterScript.plus1Barrel();

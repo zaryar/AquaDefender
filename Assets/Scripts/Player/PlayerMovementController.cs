@@ -241,14 +241,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         Aim();
         player = GameObject.FindWithTag("Player");
-        if (player.transform.position.y < 1) 
-        {
-            _characterController.SimpleMove(_Movement * movementSpeed * speedModifier);
-        }
-        else
-        {
-            _characterController.SimpleMove(_Movement * movementSpeed);
-        }
+        _characterController.SimpleMove(_Movement * (movementSpeed + GameController.instance.MovespeedFactor) * (player.transform.position.y < 1 ? speedModifier : 1));
     }
 
     public IEnumerator makeInvisible()

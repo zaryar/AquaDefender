@@ -32,7 +32,7 @@ public class ExplosiveBarrel : EnemyTemplate
                c.gameObject.GetComponent<EnemyTemplate>().getHealth() > 0)
             {
 
-                c.gameObject.GetComponent<EnemyTemplate>().Hurt(Damage);
+                c.gameObject.GetComponent<EnemyTemplate>().Hurt((int)(Damage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
             }
         }
         Destroy(fire);
