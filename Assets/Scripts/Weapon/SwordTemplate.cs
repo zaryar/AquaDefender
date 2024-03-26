@@ -42,23 +42,23 @@ public class SwordTemplate : WeaponTemplate
                 if (opposingFraction.Contains(tag))
                 {
                     if(freeze && hit[i].gameObject.GetComponent<BasicEnemy>()!= null && currentEnergy >= energyCost){
-                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
+                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt((int)(IceSwordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
                         StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
                     }
                     else if(freeze && hit[i].gameObject.GetComponent<EvilChest>()!= null && currentEnergy >= energyCost){
-                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
+                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt((int)(IceSwordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
                         StartCoroutine(hit[i].gameObject.GetComponent<EvilChest>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
                     }
 
                     else if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
                     {
-                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(swordDamage);
+                        hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt((int)(swordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
                     }
                     else if(hit[i].gameObject.GetComponent<Health>()!= null)
                     {
-                        hit[i].gameObject.GetComponent<Health>().TakeDamage(swordDamage);
+                        hit[i].gameObject.GetComponent<Health>().TakeDamage((int)(swordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
                     }
 
                 } 
