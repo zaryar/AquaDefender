@@ -19,9 +19,14 @@ public class WaterGun : MonoBehaviour
 
     public void Start(){
 
-        Blue = Water.color;
+         
+       if (WaterSlider != null && Water != null)
+    {
+        WaterSlider.value = water;
         Water.color = Color.grey;
         DropImage.color = Color.grey;
+    }
+
     }
 
 
