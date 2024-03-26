@@ -17,7 +17,7 @@ public class WaterChest : Chest
     public bool canUpdate = false;
     private AudioSource audioSource;
     public bool gunUnlocked = false;
-    public Text gunText;
+    [HideInInspector] public Text gunText;
     public WaterGun Bar;
 
     private void Awake()
@@ -25,6 +25,7 @@ public class WaterChest : Chest
         // Setze den Spawnpoint des Geysirs auf die Position dieses GameObjects
         geyserSpawnPoint = transform.position;
         audioSource = GetComponent<AudioSource>();
+        gunText =  GameObject.Find("gunText").GetComponent<Text>();
 
     }
 

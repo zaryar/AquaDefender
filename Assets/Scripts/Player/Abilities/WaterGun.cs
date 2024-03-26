@@ -7,25 +7,25 @@ public class WaterGun : MonoBehaviour
 {
     public int water = 100;
     public AudioClip coinSound;
-    public Slider WaterSlider;
 
     public GameObject player;
     private float waittime;
     public float reloadTime = 2;
+    
+    [HideInInspector] public Slider WaterSlider;
+    [HideInInspector] public Graphic Water;
+    [HideInInspector] public Color Blue;
+    [HideInInspector] public Graphic DropImage;
 
-    public Graphic Water;
-    public Color Blue;
-    public Graphic DropImage;
-
-    public void Start(){
-
-         
-       if (WaterSlider != null && Water != null)
+    public void Start()
     {
-        WaterSlider.value = water;
-        Water.color = Color.grey;
-        DropImage.color = Color.grey;
-    }
+
+        if (WaterSlider != null && Water != null)
+        {
+            WaterSlider.value = water;
+            Water.color = Color.grey;
+            DropImage.color = Color.grey;
+        }
 
     }
 
@@ -43,7 +43,7 @@ public class WaterGun : MonoBehaviour
                     water = 100;
                 else
                     water += 20;
-                    WaterSlider.value = water;
+                WaterSlider.value = water;
             }
         }
     }
@@ -61,7 +61,7 @@ public class WaterGun : MonoBehaviour
         if (player.transform.position.y < 1 && waittime >= reloadTime)
         {
             waittime = 0;
-            water  += 5;
+            water += 5;
             if (water < 100)
             {
                 WaterSlider.value = water;

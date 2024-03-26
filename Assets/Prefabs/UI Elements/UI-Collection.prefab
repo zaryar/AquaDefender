@@ -1371,9 +1371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   water: 100
   coinSound: {fileID: 0}
-  WaterSlider: {fileID: 1925369025016618078}
   player: {fileID: 6752234196962838471, guid: a7f1380de8e71724393bf4c2086edef2, type: 3}
   reloadTime: 2
+  WaterSlider: {fileID: 1925369025016618078}
   Water: {fileID: 6976015494698711217}
   Blue: {r: 0.14509805, g: 0.61960787, b: 0.8235294, a: 1}
   DropImage: {fileID: 7231835230961524811}

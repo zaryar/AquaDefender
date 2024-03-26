@@ -13,14 +13,15 @@ public class InvisibilityChest : Chest
     //public static event Action OnChestOpened;
     private AudioSource audioSource;
     public Text chestText;
-    public InvisibilityCountdown InvisibilityScript;
+    [HideInInspector] public InvisibilityCountdown InvisibilityScript;
     // public AudioClip chestOpen; 
     // Start is called before the first frame update
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        
+        chestText =  GameObject.Find("chestText").GetComponent<Text>();
+
     }
 
     

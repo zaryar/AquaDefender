@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class IceChest : Chest
 {
-    public bool swordUnlocked = false;
+    [HideInInspector] public bool swordUnlocked = false;
     private AudioSource audioSource;
-    public Text swordText;
-    public float energyAmountToCharge = 5f;
-    public bool isPlayerInRange = false;
-    public IceBar Bar;
+    [HideInInspector] public Text swordText;
+    [HideInInspector] public float energyAmountToCharge = 5f;
+    [HideInInspector] public bool isPlayerInRange = false;
+    [HideInInspector] public IceBar Bar;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        swordText =  GameObject.Find("swordText").GetComponent<Text>();
         
     }
 
