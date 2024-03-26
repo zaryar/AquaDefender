@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SwordTemplate : WeaponTemplate
 {
-    
+
     [SerializeField] private float swordAttackRange = 2f;
     [SerializeField] private float swordCooldown = 1.0f;
     [SerializeField] private int swordDamage = 5;
@@ -18,20 +18,25 @@ public class SwordTemplate : WeaponTemplate
     private float energyCost = 5f;
     IceChest iceChest;
     public IceBar iceBar;
+    Transform parentTransform;
 
     public void Start()
     {
-        iceBar = FindObjectOfType<IceBar>();
-        currentEnergy = energyMax;
-        iceBar.SetMaxEnergy(energyMax);
-        iceChest = FindObjectOfType<IceChest>();
+        parentTransform = transform.parent;
+        if (parentTransform.CompareTag("Player"))
+        {
+            iceBar = FindObjectOfType<IceBar>();
+            currentEnergy = energyMax;
+            iceBar.SetMaxEnergy(energyMax);
+            iceChest = FindObjectOfType<IceChest>();
+        }
     }
 
     public float GetswordAttackRange()
     {
-        return swordAttackRange; 
+        return swordAttackRange;
     }
-    
+
 
     public bool Attack(bool freeze = false)
     {
@@ -44,34 +49,37 @@ public class SwordTemplate : WeaponTemplate
                 tag = hit[i].tag;
                 if (opposingFraction.Contains(tag))
                 {
-                    if(freeze && hit[i].gameObject.GetComponent<BasicEnemy>()!= null && currentEnergy >= energyCost){
+                    if (freeze && hit[i].gameObject.GetComponent<BasicEnemy>() != null && currentEnergy >= energyCost)
+                    {
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
                         iceBar.SetEnergy(currentEnergy);
                     }
-                    else if(freeze && hit[i].gameObject.GetComponent<EvilChest>()!= null && currentEnergy >= energyCost){
+                    else if (freeze && hit[i].gameObject.GetComponent<EvilChest>() != null && currentEnergy >= energyCost)
+                    {
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(IceSwordDamage);
                         StartCoroutine(hit[i].gameObject.GetComponent<EvilChest>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
                         iceBar.SetEnergy(currentEnergy);
                     }
 
-                    else if(hit[i].gameObject.GetComponent<EnemyTemplate>()!= null)
+                    else if (hit[i].gameObject.GetComponent<EnemyTemplate>() != null)
                     {
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt(swordDamage);
                     }
-                    else if(hit[i].gameObject.GetComponent<Health>()!= null)
+                    else if (hit[i].gameObject.GetComponent<Health>() != null)
                     {
                         hit[i].gameObject.GetComponent<Health>().TakeDamage(swordDamage);
                     }
 
-                } 
-                else if (hit[i].GetComponent<Chest>()) {
+                }
+                else if (hit[i].GetComponent<Chest>())
+                {
                     Chest chest = hit[i].GetComponent<Chest>();
                     chest.openChest();
                 }
-                
+
             }
 
             onCooldown = true;
@@ -80,21 +88,22 @@ public class SwordTemplate : WeaponTemplate
             return true;
         }
         return false;
-        
+
     }
 
     public IEnumerator ChargeEnergy(float amount)
     {
-        while(iceChest.isPlayerInRange){
-        currentEnergy = Mathf.Min(currentEnergy + amount, energyMax); 
-        iceBar.SetEnergy(currentEnergy);
-        yield return new WaitForSeconds(1f); 
+        while (iceChest.isPlayerInRange)
+        {
+            currentEnergy = Mathf.Min(currentEnergy + amount, energyMax);
+            iceBar.SetEnergy(currentEnergy);
+            yield return new WaitForSeconds(1f);
         }
-        
+
     }
 
-    
-    
 
-    
+
+
+
 }
