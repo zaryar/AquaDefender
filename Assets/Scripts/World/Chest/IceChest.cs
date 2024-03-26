@@ -10,7 +10,7 @@ public class IceChest : Chest
     [HideInInspector] public Text swordText;
     [HideInInspector] public float energyAmountToCharge = 5f;
     [HideInInspector] public bool isPlayerInRange = false;
-    [HideInInspector] public IceBar Bar;
+    public IceBar Bar;
 
     void Awake()
     {
