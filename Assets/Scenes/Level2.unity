@@ -5234,7 +5234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 387800286696758706, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 387800286696758706, guid: 1c0d7c23254454640a7cdeb69f11bd1e, type: 3}
       propertyPath: m_NavMeshData
