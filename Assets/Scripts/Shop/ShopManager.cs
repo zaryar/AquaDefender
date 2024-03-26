@@ -111,11 +111,11 @@ public class ShopManager : MonoBehaviour
             case "shipinc (ShopItem)":
                     buildEscapeShipScript.SpawnShipPart();
                 break;
-            case "4 (ShopItem)":
-                Debug.Log("4");
+            case "CritChangse (ShopItem)":
+                GameController.instance.CritChance += 0.05f;
                 break;
-            case "5 (ShopItem)":
-                Debug.Log("5");
+            case "CritDMG (ShopItem)":
+                GameController.instance.CritDmg += 0.05f;
                 break;
             case "Boots":
                 Debug.Log("Boots");
