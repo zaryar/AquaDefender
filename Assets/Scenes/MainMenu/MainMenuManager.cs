@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,10 @@ public class MainMenuManager : MonoBehaviour
 
     void Update()
     {
-        lvl2Button.interactable = lvl2unlocked;
+        if (lvl2Button != null)
+            lvl2Button.interactable = lvl2unlocked;
+
+        lvl2unlocked = PlayerPrefs.GetInt("Lvl2", 0) == 1;
     }
 
     public void LoadMainMenu()
