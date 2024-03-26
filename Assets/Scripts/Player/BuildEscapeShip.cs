@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class BuildEscapeShip : MonoBehaviour
 {
@@ -16,13 +18,30 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
 
     private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
-    private bool isBossDead = false;
+    private bool isBossDead = true;
+
+    //Animation
+    [SerializeField] private GameObject videoGameObject; 
+    [SerializeField] private GameObject rawImage; 
+
+
 
     public int currentShipLvl = 0;
 
+
+    void Start()
+    {
+        // Macht das Raw Image zu Beginn unsichtbar
+        rawImage.SetActive(false);
+
+
+    }
+
+
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && currentShipLvl == 7 && isBossDead)
+        Debug.Log(currentShipLvl);
+        if (other.gameObject.CompareTag("Player") && currentShipLvl ==7  && isBossDead)
         {
             if (Input.GetKeyDown(KeyCode.F) && !hasDrivenAway)
             {
@@ -54,7 +73,7 @@ public class BuildEscapeShip : MonoBehaviour
 
         // Set the flag to true to prevent the animation from playing again
         hasDrivenAway = true;
-        StartCoroutine(LoadVictoryScene());
+        StartCoroutine(ShowVideo());
     }
 
     IEnumerator LoadVictoryScene()
@@ -64,6 +83,24 @@ public class BuildEscapeShip : MonoBehaviour
 
         // Load the victory scene
         SceneManager.LoadSceneAsync("victory");
+    }
+
+    IEnumerator ShowVideo()
+    {
+        // Warte auf das Ende der Animation
+        // Angenommen, die Animation dauert 3 Sekunden
+        yield return new WaitForSeconds(3.0f);
+
+        // Aktiviere das Video und das Image
+        videoGameObject.SetActive(true);
+        rawImage.SetActive(true);
+
+        // Hier könntest du auch den Video Player starten, falls nötig
+        videoGameObject.GetComponent<VideoPlayer>().Play();
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("Level2");
+        rawImage.SetActive(false);
+        videoGameObject.SetActive(false);
     }
 
 
