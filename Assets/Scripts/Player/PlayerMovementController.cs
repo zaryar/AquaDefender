@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 //using UnityEngine.UI; // F�r den Zugriff auf UI-Komponenten
@@ -146,7 +148,7 @@ public class PlayerMovementController : MonoBehaviour
         _sword = _swordTransform.GetComponent<SwordTemplate>();
         _barrelSpawnTransform = transform.Find("BarrelSpawn");
         _barrelSpawn = _barrelSpawnTransform.GetComponent<BarrelSpawner>();
-        iceChest = GameObject.Find("IceChest").GetComponent<IceChest>();
+        if (GameObject.Find("IceChest")!= null) iceChest = GameObject.Find("IceChest").GetComponent<IceChest>();
 
 
         _playerControls.CharacterControls.Move.started += context => { Move(context); };
@@ -207,6 +209,7 @@ public class PlayerMovementController : MonoBehaviour
         };
         _playerControls.CharacterControls.IceSword.started += context =>
         {   
+            if(iceChest== null) return;
             if(weapon == 1 && iceChest.swordUnlocked) {
                 bool _isStriking= true;
                 _sword.Attack(true);
