@@ -368,7 +368,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b7a72ab5a6ab2cd438bef59317830ff1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2874f8d3e44fadb4f878dd12612b6e6a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -470,12 +470,9 @@ MonoBehaviour:
   geyserSpawnPoint: {x: 0, y: 0, z: 0}
   WaterGeyser: {fileID: 83980712087269186, guid: 0b0ebecc1906a7a4281d4f875fe051af, type: 3}
   timeBeweenWater: 0.006
-  restTime: 3.5
-  activeTime: 3.5
+  restTime: 1
+  activeTime: 5
   canUpdate: 0
-  gunUnlocked: 0
-  gunText: {fileID: 0}
-  Bar: {fileID: 0}
 --- !u!1001 &2936179346390468512
 PrefabInstance:
   m_ObjectHideFlags: 0

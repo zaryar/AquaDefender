@@ -38,12 +38,11 @@ public class Chest : MonoBehaviour
                 invisibilityChestInstance.unlockFeature();
             }
 
-            // if (this is WaterChest){
-            //     WaterChest waterChest = this as WaterChest;
-            //     waterChest.canUpdate = true;
-            //     waterChest.gunUnlocked = true;
-            //     waterChest.unlockFeature();
-            // }
+            if (this is WaterChest){
+                WaterChest waterChest = this as WaterChest;
+                waterChest.canUpdate = true;
+                waterChest.unlockFeature();
+            }
 
             if (this is IceChest){
                 IceChest iceChest = this as IceChest;
