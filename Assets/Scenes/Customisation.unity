@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3fd42408d455b408e95b1b4b6e576d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smw: {fileID: 2020473403}
+  sms: {fileID: 2020473403}
   Hat1: {fileID: 532369584}
   Hat2: {fileID: 967988559}
   Hat3: {fileID: 277568754}

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CustomisationMenu : MonoBehaviour
 {
-    public SwordModelSwapper smw;
+    public SwordModelSwapper sms;
     private int _currentsword;
     public GameObject Hat1;
     public GameObject Hat2;
@@ -17,9 +17,10 @@ public class CustomisationMenu : MonoBehaviour
 
     private void Start()
     {
-        smw.enableRenderer();
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Customisation") { sms.enableRenderer(); }
         _currentsword = PlayerPrefs.GetInt("Sword", 1);
-        _currentsword = (_currentsword + 1 % 3) + 1;
+        _currentsword = ((_currentsword + 1) % 3) + 1;
         swapSword();
         _hat = PlayerPrefs.GetInt("Hat", 1);
         _hat = (_hat + 3) % 4;
@@ -44,15 +45,15 @@ public class CustomisationMenu : MonoBehaviour
         switch (_currentsword)
         {
                 case 1:
-                smw.swapModel(Weapons.Swords.sword2);
+                sms.swapModel(Weapons.Swords.sword2);
                 _currentsword= 2;
                 break;
                 case 2:
-                smw.swapModel(Weapons.Swords.sword3);
+                sms.swapModel(Weapons.Swords.sword3);
                 _currentsword = 3;
                 break;
                 case 3:
-                smw.swapModel(Weapons.Swords.sword1);
+                sms.swapModel(Weapons.Swords.sword1);
                 _currentsword = 1;
                 break;
         }
