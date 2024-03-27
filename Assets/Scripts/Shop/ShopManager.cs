@@ -96,12 +96,14 @@ public class ShopManager : MonoBehaviour
                 break;
             case "PermHealth (ShopItem)":
                 healthScript.maxHealth += 5;
+                GameController.instance.BonusHealth += 5;
                 break;
             case "Armor (ShopItem)":
                 healthScript.armor += 10;
+                GameController.instance.Armor += 10;
                 break;
             case "Boots (ShopItem)":
-                playerMovementControllerScript.movementSpeed += 0.3f;
+                GameController.instance.MovespeedFactor += 0.05f;
                 break;
             case "BarelUp (ShopItem)":
                 barrelCounterScript.plus1Barrel();
@@ -109,14 +111,14 @@ public class ShopManager : MonoBehaviour
             case "shipinc (ShopItem)":
                     buildEscapeShipScript.SpawnShipPart();
                 break;
-            case "4 (ShopItem)":
-                //
+            case "CritChangse (ShopItem)":
+                GameController.instance.CritChance += 0.05f;
                 break;
-            case "5 (ShopItem)":
-                //
+            case "CritDMG (ShopItem)":
+                GameController.instance.CritDmg += 0.05f;
                 break;
             case "Boots":
-                //
+                Debug.Log("Boots");
                 break;
         }
     }
@@ -152,6 +154,8 @@ public class ShopManager : MonoBehaviour
         // initialize audioSource
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = buySoundEffect;
+        audioSource.playOnAwake= false;
+        audioSource.volume = 0.6f;
 
         audioSource.Stop();
         audioSource.time = 0;
