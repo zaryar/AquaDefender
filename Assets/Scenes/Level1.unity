@@ -1171,7 +1171,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1060259069}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1520706029893915386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5373,6 +5373,9 @@ PrefabInstance:
     - {fileID: 6953191562837986766, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
     - {fileID: 8064086345951425538, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4551042963423568071, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 456310591}
     - targetCorrespondingSourceObject: {fileID: 616242525310242538, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 181265134}
@@ -5420,6 +5423,11 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!224 &1520706029893915386 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4551042963423568071, guid: e7670cc2b16fd0e4c81672e81554c1cc, type: 3}
+  m_PrefabInstance: {fileID: 1520706029893915382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1740535491420532641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6098,4 +6106,3 @@ SceneRoots:
   - {fileID: 2081082011519452582}
   - {fileID: 866497447}
   - {fileID: 220457973}
-  - {fileID: 456310591}
