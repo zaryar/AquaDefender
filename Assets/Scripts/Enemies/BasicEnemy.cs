@@ -58,6 +58,7 @@ public class BasicEnemy : EnemyTemplate
         }
         OnDeath?.Invoke(); // Ereignis auslösen
         _agent.enabled = false;
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
         base.Die();
     }
     private void Awake()
