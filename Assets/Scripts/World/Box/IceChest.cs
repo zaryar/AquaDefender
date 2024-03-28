@@ -10,13 +10,13 @@ public class IceChest : Chest
     [HideInInspector] public Text swordText;
     [HideInInspector] public float energyAmountToCharge = 5f;
     [HideInInspector] public bool isPlayerInRange = false;
-    [HideInInspector] public IceBar Bar;
+    [HideInInspector] public SwordBar Bar;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         swordText =  GameObject.Find("swordText").GetComponent<Text>();
-        Bar = GameObject.Find("IceBar").GetComponent<IceBar>();
+        Bar = GameObject.Find("SwordBar").GetComponent<SwordBar>();
     }
 
 

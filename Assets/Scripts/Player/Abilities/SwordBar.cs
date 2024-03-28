@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IceBar : MonoBehaviour
+public class SwordBar : MonoBehaviour
 {
     [HideInInspector] public Slider energySlider; 
     [HideInInspector] public Graphic Ice;
