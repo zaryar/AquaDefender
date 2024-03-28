@@ -16,7 +16,7 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
 
     private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
-    private bool isBossDead = false;
+    private bool isBossDead = false;     
 
     public int currentShipLvl = 0;
 
