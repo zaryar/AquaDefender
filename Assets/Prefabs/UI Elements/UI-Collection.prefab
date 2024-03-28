@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 7329934705177194627}
   - component: {fileID: 5607570759764308562}
   m_Layer: 0
-  m_Name: snowflake
+  m_Name: Snowflake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4700,7 +4700,6 @@ MonoBehaviour:
   energySlider: {fileID: 110002172459169514}
   Ice: {fileID: 8838304588738735272}
   lightBlue: {r: 0.14208792, g: 0.81768703, b: 0.9716981, a: 0}
-  Snowflake: {fileID: 5607570759764308562}
 --- !u!1 &8704779777800798308
 GameObject:
   m_ObjectHideFlags: 0
