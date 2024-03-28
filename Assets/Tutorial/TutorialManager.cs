@@ -92,7 +92,7 @@ public class TutorialManager : MonoBehaviour
 
                 if (isSword)
                 {
-                    StartCoroutine(GoToNextStepAfterDelay(TutorialStep.SwordAbillity, 2f));
+                    StartCoroutine(GoToNextStepAfterDelay(TutorialStep.SpwanBarrels, 2f));
                 }
                 break;
             // Implementiere weitere Fälle für jeden Schritt
@@ -105,10 +105,9 @@ public class TutorialManager : MonoBehaviour
                 break;
             case TutorialStep.OpenChest:
 
-                if (hasInvinc)
-                {
-                    StartCoroutine(GoToNextStepAfterDelay(TutorialStep.UseInvincevle, 1f));
-                }
+               
+                StartCoroutine(GoToNextStepAfterDelay(TutorialStep.UseShop, 3f));
+                
                 break;
             case TutorialStep.UseInvincevle:
 
@@ -167,7 +166,7 @@ public class TutorialManager : MonoBehaviour
                 tutorialText.text = "Tip: Pick up barrels dropped by enemies and place them with the SPACE bar. Hit or shoot them to make them explode.";
                 break;
             case TutorialStep.OpenChest:
-                tutorialText.text = "Look for a chest and open it with a left-click. But be careful – some might fight back!";
+                tutorialText.text = "Tip: Look for a chest and open it with a left-click. But be careful – some might fight back!";
                 break;
             case TutorialStep.UseInvincevle:
                 tutorialText.text = "Tip: Press the 'I' key to activate invisibility.";
