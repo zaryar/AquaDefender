@@ -7,12 +7,17 @@ public class LoadingIce : MonoBehaviour
     [HideInInspector] public Graphic Volume;
     [HideInInspector] public Color Mint;
     [HideInInspector] public Graphic snow;
+    [HideInInspector] public float iceEnergy;
+
 
     public void Start(){
 
-        IceSlider = GetComponentInChildren<Slider>();
+        IceSlider = transform.GetComponent<Slider>();
         Volume = transform.Find("Volume").GetComponent<Graphic>();
         snow = transform.Find("snow").GetComponent<Graphic>();
+        
+        IceSlider.maxValue = iceEnergy;
+        IceSlider.value = iceEnergy;
         
         Mint = Volume.color;
         Volume.color = Color.grey;
@@ -21,9 +26,7 @@ public class LoadingIce : MonoBehaviour
 
 
     public void SetMaxEnergy(float energy){
-
-        IceSlider.maxValue = energy;
-        IceSlider.value = energy;
+        iceEnergy = energy;
     }
 
     public void SetEnergy(float currentEnergy){
