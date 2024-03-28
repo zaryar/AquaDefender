@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 1359915274975948941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.128, z: 0}
+  m_LocalPosition: {x: 0, y: 2.18, z: 0}
   m_LocalScale: {x: 1, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5705417399086705315
 Transform:
   m_ObjectHideFlags: 0
@@ -784,7 +784,8 @@ MonoBehaviour:
   maxHealth: 15
   deathTimer: 2
   HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 564285270889922983}
+  hurt: 0
   _target: {fileID: 0}
   _player: {fileID: 0}
   _agent: {fileID: 0}
