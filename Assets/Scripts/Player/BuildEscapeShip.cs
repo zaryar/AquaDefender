@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using System;
 
 public class BuildEscapeShip : MonoBehaviour
 {
@@ -16,9 +17,16 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
 
     private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
-    private bool isBossDead = true;
+    private bool isBossDead = false;
+
+
+    // Definiere ein Event für das Wegfahren des Schiffes mit dem Typ Action
+    public static event Action OnShipHasDeparted;
+
 
     public int currentShipLvl = 0;
+
+    
 
     void OnTriggerStay(Collider other)
     {
@@ -49,14 +57,16 @@ public class BuildEscapeShip : MonoBehaviour
 
         // Play the drive away animation
         shipAnimator.Play("DriveAway");
-
         Debug.Log("You won!");
+        OnShipHasDeparted?.Invoke();
 
         // Set the flag to true to prevent the animation from playing again
         hasDrivenAway = true;
         PlayerPrefs.SetInt("Lvl2", 1);
-        StartCoroutine(LoadVictoryScene());
+
     }
+
+    
 
     IEnumerator LoadVictoryScene()
     {
