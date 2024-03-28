@@ -1613,7 +1613,11 @@ MonoBehaviour:
   _gun: {fileID: 0}
   enemy_gun: {fileID: 0}
   _sword: {fileID: 0}
-  huhClips: []
+  huhClips:
+  - {fileID: 8300000, guid: 43ae13bcc5309a246bd70c2e16e49d28, type: 3}
+  - {fileID: 8300000, guid: 3ec52c2850202054593cd0d9ba275f4e, type: 3}
+  - {fileID: 8300000, guid: df80fe20ceb16c24aaf36228f9a810db, type: 3}
+  - {fileID: 8300000, guid: 12b66c7ef1199414ea118576657dd691, type: 3}
   player_id: 0
 --- !u!1 &5122969008697546358
 GameObject:

@@ -983,9 +983,6 @@ PrefabInstance:
       addedObject: {fileID: 216559502835299588}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b913e2b42b029ea45a09a2ecb6f2d063, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9209314358678746980}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b913e2b42b029ea45a09a2ecb6f2d063, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4580011172099629367}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b913e2b42b029ea45a09a2ecb6f2d063, type: 3}
       insertIndex: -1
@@ -1090,35 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6867330182482117140}
-  AimRig: {fileID: 0}
---- !u!114 &9209314358678746980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18896943580370572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0262b0aa55e3ce64b8f6137b036b3d7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  deathTimer: 0
-  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
-  healthbar: {fileID: 0}
-  hurt: 0
-  _target: {fileID: 0}
-  _player: {fileID: 0}
-  _agent: {fileID: 0}
-  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
-  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
-  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
-  _gun: {fileID: 0}
-  enemy_gun: {fileID: 0}
-  _sword: {fileID: 0}
-  huhClips: []
-  player_id: 0
+  AimRig: {fileID: 2782775907752583061}
 --- !u!114 &4580011172099629367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  deathTimer: 0
+  deathTimer: 1
   HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
   healthbar: {fileID: 0}
   hurt: 0
@@ -1145,7 +1114,11 @@ MonoBehaviour:
   _gun: {fileID: 0}
   enemy_gun: {fileID: 0}
   _sword: {fileID: 0}
-  huhClips: []
+  huhClips:
+  - {fileID: 8300000, guid: 43ae13bcc5309a246bd70c2e16e49d28, type: 3}
+  - {fileID: 8300000, guid: 3ec52c2850202054593cd0d9ba275f4e, type: 3}
+  - {fileID: 8300000, guid: df80fe20ceb16c24aaf36228f9a810db, type: 3}
+  - {fileID: 8300000, guid: 12b66c7ef1199414ea118576657dd691, type: 3}
   player_id: 0
 --- !u!114 &2140198137147392273
 MonoBehaviour:
