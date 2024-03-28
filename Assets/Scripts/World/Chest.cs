@@ -4,46 +4,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
-public class InvisibilityChest : Chest
+public class Chest : MonoBehaviour
 {
 
+    [SerializeField] bool isOpen = false;
     GameObject player;
-    //public static event Action OnChestOpened;
+    public static event Action OnChestOpened;
+    private Animator animator;
     private AudioSource audioSource;
     public Text chestText;
-    [HideInInspector] public InvisibilityCountdown InvisibilityScript;
+    public InvisibilityCountdown InvisibilityScript;
     // public AudioClip chestOpen; 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         audioSource = GetComponent<AudioSource>();
-        chestText =  GameObject.Find("chestText").GetComponent<Text>();
-        InvisibilityScript = GameObject.Find("InvisibilityBar").GetComponent<InvisibilityCountdown>();
     }
 
-    
-
-    public void unlockFeature()
+    public void openChest()
     {
-        
-        //if (base.isOpen)
-        
-            //Debug.Log("Offen?"+isOpen);
+
+        if (!isOpen)
+        {
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
+
+            animator.SetBool("isOpen", true);
             PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
             playerMovementController.gotInvisibility = true;
             InvisibilityScript.Invisibility.color = Color.white;
             InvisibilityScript.Ghost.color = Color.white;
-            // Lï¿½se das Event aus, wenn die Kiste geï¿½ffnet wird
-            //OnChestOpened?.Invoke();
+            // Löse das Event aus, wenn die Kiste geöffnet wird
+            OnChestOpened?.Invoke();
 
             StartCoroutine(displayText());
-        
-        
+        }
+        isOpen = true;
+    }
+
+    public void closeChest()
+    {
+        animator.SetBool("isOpen", false);
     }
 
     
