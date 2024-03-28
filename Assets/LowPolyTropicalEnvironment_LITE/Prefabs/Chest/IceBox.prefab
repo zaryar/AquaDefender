@@ -368,7 +368,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6aa5a6d5ac089e44ea9120a9e37eff41, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 278ade359d84a9d47a8b35f483c80c1b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -468,9 +468,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 0
   swordUnlocked: 0
-  swordText: {fileID: 0}
+  unlockText: {fileID: 0}
   energyAmountToCharge: 5
   isPlayerInRange: 0
+  Bar: {fileID: 0}
 --- !u!1001 &2936179346390468512
 PrefabInstance:
   m_ObjectHideFlags: 0
