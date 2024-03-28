@@ -8,20 +8,17 @@ using UnityEngine.UI;
 public class Chest : MonoBehaviour
 {
 
-    [SerializeField] bool isOpen = false;
-    GameObject player;
+    [SerializeField] protected bool isOpen = false;
+
     public static event Action OnChestOpened;
     private Animator animator;
-    private AudioSource audioSource;
-    public Text chestText;
-    public InvisibilityCountdown InvisibilityScript;
+    
+   
     // public AudioClip chestOpen; 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void openChest()
@@ -29,21 +26,28 @@ public class Chest : MonoBehaviour
 
         if (!isOpen)
         {
-            //Debug.Log(audioSource, audioSource.clip);
-            audioSource.Play();
-
             animator.SetBool("isOpen", true);
-            PlayerMovementController playerMovementController = player.GetComponent<PlayerMovementController>();
-            playerMovementController.gotInvisibility = true;
-            InvisibilityScript.Invisibility.color = Color.white;
-            InvisibilityScript.Ghost.color = Color.white;
-            // Löse das Event aus, wenn die Kiste geöffnet wird
-            OnChestOpened?.Invoke();
+            //OnChestOpened?.Invoke();
 
-            StartCoroutine(displayText());
+        
+            isOpen = true;
+
+            if (this is TransparentBox)
+            {
+                TransparentBox TransparentBoxInstance = this as TransparentBox;
+                TransparentBoxInstance.unlockFeature();
+            }
+
+            if (this is IceBox){
+                IceBox IceBox = this as IceBox;
+                IceBox.swordUnlocked = true;
+                IceBox.unlockFeature();
+            }
         }
-        isOpen = true;
+        
     }
+
+    
 
     public void closeChest()
     {
@@ -52,16 +56,5 @@ public class Chest : MonoBehaviour
 
     
 
-    IEnumerator displayText()
-    {
-        chestText.gameObject.SetActive(true);
-        chestText.text = "Invisibility unlocked!";
-
-        yield return new WaitForSeconds(3f); 
-
-        chestText.text = "";
-        chestText.gameObject.SetActive(false);
-    
-    }
 }
 
