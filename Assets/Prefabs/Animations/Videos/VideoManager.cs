@@ -18,13 +18,14 @@ public class VideoManager : MonoBehaviour
 
     IEnumerator ShowCutsceneToLevel2()
     {
-        Debug.Log(" Cutscene");
+        
         // Warte auf das Ende der Animation
         yield return new WaitForSeconds(2.0f);
 
         // Stelle sicher, dass videoGameObject und rawImage zugewiesen wurden
         if (videoGameObject != null && rawImage != null)
         {
+            Debug.Log("C2");
             // Aktiviere das Video und das Image
             videoGameObject.SetActive(true);
             rawImage.SetActive(true);
@@ -32,6 +33,7 @@ public class VideoManager : MonoBehaviour
             VideoPlayer videoPlayer = videoGameObject.GetComponent<VideoPlayer>();
             if (videoPlayer != null)
             {
+                Debug.Log("C3");
                 videoPlayer.Play();
             }
             else
@@ -71,7 +73,7 @@ public class VideoManager : MonoBehaviour
 
     private void ShipDepartureHandler()
     {
-        Debug.Log("Jetzt");
+        Debug.Log("C1");
         StartCoroutine(ShowCutsceneToLevel2()); // Starte die Coroutine
     }
 }
