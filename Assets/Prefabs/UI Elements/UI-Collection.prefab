@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 7329934705177194627}
   - component: {fileID: 5607570759764308562}
   m_Layer: 0
-  m_Name: Snowflake
+  m_Name: snowflake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
