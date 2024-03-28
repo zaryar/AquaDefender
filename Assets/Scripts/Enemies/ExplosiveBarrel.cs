@@ -34,6 +34,11 @@ public class ExplosiveBarrel : EnemyTemplate
 
                 c.gameObject.GetComponent<EnemyTemplate>().Hurt((int)(Damage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
             }
+
+            else if (c.gameObject.GetComponent<DragonAI>() != null)
+            {
+                c.gameObject.GetComponent<DragonAI>().TakeDamage((int)(Damage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
+            }
         }
         Destroy(fire);
         base.Die();

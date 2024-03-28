@@ -20,13 +20,13 @@ public class BuildEscapeShip : MonoBehaviour
     private bool isBossDead = false;
 
 
-    // Definiere ein Event für das Wegfahren des Schiffes mit dem Typ Action
+    // Definiere ein Event fï¿½r das Wegfahren des Schiffes mit dem Typ Action
     public static event Action OnShipHasDeparted;
 
 
     public int currentShipLvl = 0;
 
-    
+
 
     void OnTriggerStay(Collider other)
     {
@@ -66,7 +66,7 @@ public class BuildEscapeShip : MonoBehaviour
 
     }
 
-    
+
 
     IEnumerator LoadVictoryScene()
     {
