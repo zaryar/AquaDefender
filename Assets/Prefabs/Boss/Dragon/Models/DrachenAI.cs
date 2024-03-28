@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class DragonAI : MonoBehaviour
 {
@@ -14,13 +15,14 @@ public class DragonAI : MonoBehaviour
     public GameObject waterJetProjectile; // Wasserstrahl Prefab
     public GameObject waterBombPrefab; // Prefab der Wasserkugel
     public float waterBombSpeed = 10f; // Geschwindigkeit der Wasserkugel
-    public int health = 100; // Gesundheit des Drachens
-    private int maxHealth = 100;
+    public static float currentHealth; // Gesundheit des Drachens
+    public float maxHealth = 100;
     private float attackCooldown = 2f; // Zeit zwischen Angriffen
     private int attacksDuringFlight = 0;
     private const int MaxAttacksDuringFlight = 2;
     private bool isPreparingWaterBomb = false;
     public static event Action OnBossDeath;
+    public static event Action BossSpawned;
 
     private float stopDistance = 1.0f; // Radius, innerhalb dessen der Drache nicht näher zum Spieler geht
     private Animator animator;
@@ -28,8 +30,6 @@ public class DragonAI : MonoBehaviour
     private bool isFlying = true;
     private bool isLanding = false;
     private bool isGrounded = false;
-
-
 
     private Vector3 originalPosition;
     private bool returningToOriginalPosition = false;
@@ -48,16 +48,19 @@ public class DragonAI : MonoBehaviour
 
     private Rigidbody drachenRigidbody;
 
+    public event Action<float> OnHealthChanged;
 
     private void Start()
     {
-        maxHealth = health;
+        BossSpawned?.Invoke(); // Event auslösen, um zu signalisieren, dass der Boss gespawnt ist
+        currentHealth = maxHealth;
+        
         flightHealthThresholds = (maxHealth / 4)*3 - 1;
         drachenRigidbody = GetComponent<Rigidbody>();
         drachenRigidbody.isKinematic = true; // Starte mit Physik aktiviert
 
         animator = GetComponent<Animator>();
-
+         
         // Finde das Spieler-GameObject über den Tag und weise seine Transform - Komponente zu
         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
         if (playerGameObject != null) 
@@ -114,12 +117,14 @@ public class DragonAI : MonoBehaviour
         animator.SetBool("isLand", false);
     }
 
+    
+
     private void HandleMovement()
     {
 
         
-        Debug.Log("teashold " + flightHealthThresholds+ "  Health "+ health);
-        if (health < flightHealthThresholds && isGrounded)
+        
+        if (currentHealth < flightHealthThresholds && isGrounded)
         {
             flightHealthThresholds = flightHealthThresholds - maxHealth / 4 ;
             StartFlying();
@@ -281,34 +286,14 @@ public class DragonAI : MonoBehaviour
         HandleWaterBombAttackTimer();
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        health -= amount;
-        if (health < 0) health = 0;
-
-        // Aktualisiere die Gesundheitsanzeige
-        UpdateHealthBar(amount);
-
-        if (health <= 0)
+        currentHealth -= amount;
+        OnHealthChanged?.Invoke(currentHealth / maxHealth);
+        if (currentHealth <= 0)
         {
-            // Führe Aktionen aus, wenn der Drache besiegt ist
             Die();
         }
-    }
-    public HealthBar3D healthBar;
-
-
-    private void UpdateHealthBar(int dmg)
-    {   
-
-        // Angenommen, deine HealthBar3D-Instanz ist zugänglich
-        // Du musst vielleicht einen Weg finden, darauf zu verweisen
-        
-        if (healthBar != null)
-        {
-            healthBar.update_healthbar(maxHealth, dmg);
-        }
-        Debug.Log("Drache ist besiegt!"+ health);
     }
 
     private void Die()
@@ -486,4 +471,6 @@ public class DragonAI : MonoBehaviour
             attackCooldown -= Time.deltaTime;
         }
     }
+
+    
 }
