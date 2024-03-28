@@ -12,7 +12,7 @@ public class HealthBarController : MonoBehaviour
     {
         // Setzt den Namen des Bosses im Text-UI
         bossNameText.text = "Water Dragon";
-        HideHealthBar();
+        //HideHealthBar();
     }
 
     private void Update()

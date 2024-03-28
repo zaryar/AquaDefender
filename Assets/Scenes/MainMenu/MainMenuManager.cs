@@ -34,6 +34,11 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadSceneAsync("lvlSelector");
     }
 
+    public void LoadCustom()
+    {
+        SceneManager.LoadSceneAsync("Customisation");
+    }
+
     public void LoadLVL2()
     {
         if (lvl2unlocked)
