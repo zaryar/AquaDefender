@@ -49,6 +49,13 @@ public class SwordTemplate : WeaponTemplate
                     {
                         hit[i].gameObject.GetComponent<Health>().TakeDamage(swordDamage);
                     }
+                    else if (hit[i].gameObject.GetComponent<DragonAI>() != null)
+                    {
+                        hit[i].gameObject.GetComponent<DragonAI>().TakeDamage((int)(swordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
+                    }
+
+
+
 
                 } 
                 else if (hit[i].GetComponent<Chest>()) {
