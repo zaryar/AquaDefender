@@ -1541,7 +1541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 66471752267588305}
-  AimRig: {fileID: 0}
+  AimRig: {fileID: 7126033434822110760}
 --- !u!114 &126903313429971075
 MonoBehaviour:
   m_ObjectHideFlags: 0

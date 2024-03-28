@@ -26,6 +26,7 @@ public class EnemyHumanoidAnimationController : MonoBehaviour
     public void DeathAnimation()
     {
         _isDead = true;
+        if (AimRig != null) { AimRig.weight = 0f; }
         animator.SetBool(_isDeadHash, true);
     }
 
