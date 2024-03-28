@@ -3,7 +3,12 @@ guid: d7f51daeac94c524e8dd01a631c6357a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueTest
+    second: {fileID: 2100000, guid: 85f2af2992823574a831bdd7e420558e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
