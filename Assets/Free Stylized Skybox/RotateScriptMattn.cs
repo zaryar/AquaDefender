@@ -34,4 +34,10 @@ public class RotateSkybox : MonoBehaviour
         // Rotiert die Skybox um die Y-Achse basierend auf der Zeit und der Rotationsgeschwindigkeit
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * rotationSpeed);
     }
+
+    void Start()
+    {
+        Time.timeScale = 1.0f;
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * rotationSpeed);
+    }
 }
