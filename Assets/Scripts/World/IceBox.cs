@@ -7,7 +7,7 @@ public class IceBox : Chest
 {
     [HideInInspector] public bool swordUnlocked = false;
     private AudioSource audioSource;
-    [HideInInspector] public Text swordText;
+    [HideInInspector] public Text unlockText;
     [HideInInspector] public float energyAmountToCharge = 5f;
     [HideInInspector] public bool isPlayerInRange = false;
     [HideInInspector] public LoadingIce Bar;
@@ -15,7 +15,7 @@ public class IceBox : Chest
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        //swordText =  GameObject.Find("swordText").GetComponent<Text>();
+        unlockText =  GameObject.Find("unlockText").GetComponent<Text>();
         Bar = GameObject.Find("LoadingIce").GetComponent<LoadingIce>();
     }
 
@@ -25,23 +25,23 @@ public class IceBox : Chest
             //Debug.Log(audioSource, audioSource.clip);
             audioSource.Play();
             
-            //StartCoroutine(displayText());
+            StartCoroutine(displayText());
 
             Bar.Volume.color = Bar.Mint;
             Bar.snow.color = Bar.Mint;
     }
 
-    // IEnumerator displayText()
-    // {
-    //     swordText.gameObject.SetActive(true);
-    //     swordText.text = "New sword unlocked! [click right]";
+    IEnumerator displayText()
+    {
+        unlockText.gameObject.SetActive(true);
+        unlockText.text = "New sword unlocked! [click right]";
 
-    //     yield return new WaitForSeconds(3f); 
+        yield return new WaitForSeconds(3f); 
 
-    //     swordText.text = "";
-    //     swordText.gameObject.SetActive(false);
+        unlockText.text = "";
+        unlockText.gameObject.SetActive(false);
     
-    // }
+    }
 
     // Überprüfen Sie die Kollision mit dem Spieler
     private void OnTriggerEnter(Collider other)
