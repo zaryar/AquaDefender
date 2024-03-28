@@ -1416,11 +1416,11 @@ GameObject:
   - component: {fileID: 5090396192987478821}
   - component: {fileID: 3779285795976377630}
   - component: {fileID: 126903313429971075}
-  - component: {fileID: 6030707965594143553}
   - component: {fileID: 8582745148713505050}
   - component: {fileID: 8652369853407789290}
+  - component: {fileID: 2314929919122187414}
   m_Layer: 0
-  m_Name: pirateCamperEnemy
+  m_Name: pirateHiddenEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,34 +1559,6 @@ MonoBehaviour:
   Hat3: {fileID: 6671978748816426232}
   Chest1: {fileID: 3612947288527540505}
   Chest2: {fileID: 5482841134482072676}
---- !u!114 &6030707965594143553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5015881893432528285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cfc2b5466c809c4ea45134258f5ea10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  deathTimer: 1
-  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
-  healthbar: {fileID: 0}
-  hurt: 0
-  _target: {fileID: 0}
-  _player: {fileID: 0}
-  _agent: {fileID: 0}
-  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
-  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
-  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
-  _gun: {fileID: 0}
-  enemy_gun: {fileID: 0}
-  _sword: {fileID: 0}
-  huhClips: []
-  player_id: 0
 --- !u!114 &8582745148713505050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,6 +1587,34 @@ MonoBehaviour:
   - m_Rig: {fileID: 7126033434822110760}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &2314929919122187414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015881893432528285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0262b0aa55e3ce64b8f6137b036b3d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  deathTimer: 1
+  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
+  healthbar: {fileID: 0}
+  hurt: 0
+  _target: {fileID: 0}
+  _player: {fileID: 0}
+  _agent: {fileID: 0}
+  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
+  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
+  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
+  _gun: {fileID: 0}
+  enemy_gun: {fileID: 0}
+  _sword: {fileID: 0}
+  huhClips: []
+  player_id: 0
 --- !u!1 &5122969008697546358
 GameObject:
   m_ObjectHideFlags: 0

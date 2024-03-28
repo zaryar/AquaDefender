@@ -1415,12 +1415,12 @@ GameObject:
   - component: {fileID: 469617905617379793}
   - component: {fileID: 5090396192987478821}
   - component: {fileID: 3779285795976377630}
-  - component: {fileID: 126903313429971075}
-  - component: {fileID: 6030707965594143553}
+  - component: {fileID: 5754473014320621581}
   - component: {fileID: 8582745148713505050}
+  - component: {fileID: 126903313429971075}
   - component: {fileID: 8652369853407789290}
   m_Layer: 0
-  m_Name: pirateCamperEnemy
+  m_Name: piratePatroulEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 66471752267588305}
   AimRig: {fileID: 0}
---- !u!114 &126903313429971075
+--- !u!114 &5754473014320621581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1551,24 +1551,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5015881893432528285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834a691ae8d71d843bdf5b2264df5a1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hat1: {fileID: 2349611045180947681}
-  Hat2: {fileID: 1659983125708056360}
-  Hat3: {fileID: 6671978748816426232}
-  Chest1: {fileID: 3612947288527540505}
-  Chest2: {fileID: 5482841134482072676}
---- !u!114 &6030707965594143553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5015881893432528285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cfc2b5466c809c4ea45134258f5ea10, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e1278013a3b044d9633e5bf8d3098f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
@@ -1599,6 +1582,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0ff74adf387584ea527f2b5054f985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &126903313429971075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015881893432528285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834a691ae8d71d843bdf5b2264df5a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hat1: {fileID: 2349611045180947681}
+  Hat2: {fileID: 1659983125708056360}
+  Hat3: {fileID: 6671978748816426232}
+  Chest1: {fileID: 3612947288527540505}
+  Chest2: {fileID: 5482841134482072676}
 --- !u!114 &8652369853407789290
 MonoBehaviour:
   m_ObjectHideFlags: 0
