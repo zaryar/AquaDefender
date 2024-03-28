@@ -15,6 +15,7 @@ public class EvilChest : EnemyTemplate
     [HideInInspector] public Transform _player;
     [HideInInspector] public NavMeshAgent _agent;
     [HideInInspector] public Transform _target;
+    private AudioSource audioSource;
     private bool isFreezed = false;
     int damageAmount = 1;
     public float attackRange = 2f;
@@ -23,10 +24,12 @@ public class EvilChest : EnemyTemplate
     private bool isBiting = false;
     private int count = 0;
     private float lastBiteTime;
+    public bool firstTime = true;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         HealthInit();
         _agent = transform.parent.GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
@@ -36,33 +39,43 @@ public class EvilChest : EnemyTemplate
 
     void Update()
     {
-        if (_target== null ||_isDead || !hurt) return;
+        if (_target == null || _isDead || !hurt) return;
 
         //_agent.destination = _player.position;
 
-        if (_target == _player){
+        if (_target == _player)
+        {
             StartCoroutine(PlayerVisible());
             _agent.destination = _player.position;
-            if(!isBiting && Vector3.Distance(transform.position, _player.position) <= attackRange)
+            if (!isBiting && Vector3.Distance(transform.position, _player.position) <= attackRange)
                 StartCoroutine(Bite());
         }
-        
+
     }
 
-    
 
-    IEnumerator Bite() {
 
-    if(!isFreezed){
-        float time = Time.time;
-        isBiting = true;
-        animator.SetBool("hurt", true);
-        _player.GetComponent<Health>().TakeDamage(damageAmount);
-        yield return new WaitForSeconds(biteCooldown);
-        isBiting = false;
-    }
-        
-        
+    IEnumerator Bite()
+    {
+
+        if (firstTime)
+        {
+            firstTime = false;
+            audioSource.Play();
+        }
+
+
+        if (!isFreezed)
+        {
+            float time = Time.time;
+            isBiting = true;
+            animator.SetBool("hurt", true);
+            _player.GetComponent<Health>().TakeDamage(damageAmount);
+            yield return new WaitForSeconds(biteCooldown);
+            isBiting = false;
+        }
+
+
     }
 
     public IEnumerator PlayerVisible()
@@ -72,7 +85,7 @@ public class EvilChest : EnemyTemplate
             _target = null;
 
             _player.GetComponent<InvisibilityCountdown>().StartCountdown();
-            
+
             while (_player.GetComponent<PlayerMovementController>().invisible)
             {
                 yield return new WaitForSeconds(0.5f);
