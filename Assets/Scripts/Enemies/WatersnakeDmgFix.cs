@@ -12,7 +12,7 @@ public class TriggerExample : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Prüft, ob das Objekt, das den Trigger berührt, mit dem Tag "Player" versehen ist
         {
-            Debug.Log("Player hat den Trigger berührt!");
+            //Debug.Log("Player hat den Trigger berührt!");
             player.GetComponent<Health>().TakeDamage(5);
         }
     }
