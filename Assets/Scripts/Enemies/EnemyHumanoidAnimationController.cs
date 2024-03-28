@@ -38,7 +38,7 @@ public class EnemyHumanoidAnimationController : MonoBehaviour
     {
         float angle = Vector3.Angle(_agent.velocity.normalized, gameObject.transform.forward);
         _moveDir = Quaternion.Euler(0, angle + 180, 0) * new Vector3(0, 0, 1);
-        return _agent.velocity.magnitude > 0.1f;
+        return _agent.velocity.magnitude > 0.2f;
     }
     private void Update()
     {

@@ -601,7 +601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8160052977827127962
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1699162332400520034
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,7 +1059,7 @@ Transform:
   m_GameObject: {fileID: 3668960991161022385}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.8}
+  m_LocalPosition: {x: 0, y: 0.072, z: -1.072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1181,7 +1181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8540512842391479254
 Transform:
   m_ObjectHideFlags: 0
@@ -1316,13 +1316,14 @@ GameObject:
   - component: {fileID: 7186048287481116928}
   - component: {fileID: 66471752267588305}
   - component: {fileID: 6531003589600848854}
-  - component: {fileID: 7260889175829984387}
   - component: {fileID: 469617905617379793}
   - component: {fileID: 5090396192987478821}
   - component: {fileID: 3779285795976377630}
   - component: {fileID: 126903313429971075}
+  - component: {fileID: 6030707965594143553}
+  - component: {fileID: 8582745148713505050}
   m_Layer: 0
-  m_Name: pirateBasicEnemy
+  m_Name: pirateCamperEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1391,37 +1392,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.4
   m_Height: 2.16
   m_Direction: 1
   m_Center: {x: 0, y: 0.89, z: 0}
---- !u!114 &7260889175829984387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5015881893432528285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54e165638df36043a136eb19f927704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 15
-  deathTimer: 2
-  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
-  healthbar: {fileID: 5090396192987478821}
-  hurt: 0
-  _target: {fileID: 0}
-  _player: {fileID: 0}
-  _agent: {fileID: 0}
-  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
-  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
-  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
-  _gun: {fileID: 0}
-  enemy_gun: {fileID: 0}
-  _sword: {fileID: 0}
-  huhClips: []
 --- !u!195 &469617905617379793
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1431,7 +1405,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5015881893432528285}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.41
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1487,6 +1461,46 @@ MonoBehaviour:
   Hat3: {fileID: 6671978748816426232}
   Chest1: {fileID: 3612947288527540505}
   Chest2: {fileID: 5482841134482072676}
+--- !u!114 &6030707965594143553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015881893432528285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfc2b5466c809c4ea45134258f5ea10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  deathTimer: 0
+  HitParticle: {fileID: 575812239389501723, guid: 3f6128763f60597488e55af67c179f58, type: 3}
+  healthbar: {fileID: 5090396192987478821}
+  hurt: 0
+  _target: {fileID: 0}
+  _player: {fileID: 0}
+  _agent: {fileID: 0}
+  goldPrefab: {fileID: 1166182956344846186, guid: fdd8ec298f354804199f6819beb5c201, type: 3}
+  waterPrefab: {fileID: 8666695763443912654, guid: a5ca85c1a1577dc48aa9d868d48dac43, type: 3}
+  barrelCoin: {fileID: 4442027363977263695, guid: b7720873a44e34eebb9a79ebe904a741, type: 3}
+  _gun: {fileID: 0}
+  enemy_gun: {fileID: 0}
+  _sword: {fileID: 0}
+  huhClips: []
+  player_id: 0
+--- !u!114 &8582745148713505050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015881893432528285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0ff74adf387584ea527f2b5054f985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5122969008697546358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,6 +2738,10 @@ PrefabInstance:
     - target: {fileID: 2066654448068457089, guid: c6136c993ba878647904ea2d0bb638f3, type: 3}
       propertyPath: m_Name
       value: SwordCollection
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066654448068457089, guid: c6136c993ba878647904ea2d0bb638f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3881821762158159103, guid: c6136c993ba878647904ea2d0bb638f3, type: 3}
       propertyPath: m_LocalScale.x
