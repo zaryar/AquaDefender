@@ -17,7 +17,7 @@ public class SwordTemplate : WeaponTemplate
     public float currentEnergy; // Aktuelle Energiemenge des Ice Swords
     private float energyCost = 5f;
     IceBox iceBox;
-    //public IceBar iceBar;
+    public LoadingIce LoadingIce;
     Transform parentTransform;
 
     public void Start()
@@ -25,10 +25,10 @@ public class SwordTemplate : WeaponTemplate
         parentTransform = transform.parent;
         if (parentTransform.CompareTag("Player"))
         {
-            //iceBar = FindObjectOfType<IceBar>();
+            LoadingIce = FindObjectOfType<LoadingIce>();
             currentEnergy = energyMax;
-            //iceBar.SetMaxEnergy(energyMax);
-            //iceChest = FindObjectOfType<IceChest>();
+            LoadingIce.SetMaxEnergy(energyMax);
+            iceBox = FindObjectOfType<IceBox>();
         }
     }
 
@@ -55,14 +55,14 @@ public class SwordTemplate : WeaponTemplate
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt((int)(IceSwordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
                         StartCoroutine(hit[i].gameObject.GetComponent<BasicEnemy>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
-                        //iceBar.SetEnergy(currentEnergy);
+                        LoadingIce.SetEnergy(currentEnergy);
                     }
                     else if (freeze && hit[i].gameObject.GetComponent<EvilChest>() != null && currentEnergy >= energyCost)
                     {
                         hit[i].gameObject.GetComponent<EnemyTemplate>().Hurt((int)(IceSwordDamage * (UnityEngine.Random.value > GameController.instance.CritChance ? 1 : 1 + GameController.instance.CritDmg)));
                         StartCoroutine(hit[i].gameObject.GetComponent<EvilChest>().freeze(freezingTime, freezingMaterial));
                         currentEnergy -= energyCost;
-                        //iceBar.SetEnergy(currentEnergy);
+                        LoadingIce.SetEnergy(currentEnergy);
                     }
 
                     else if (hit[i].gameObject.GetComponent<EnemyTemplate>() != null)
@@ -98,7 +98,7 @@ public class SwordTemplate : WeaponTemplate
         while (iceBox.isPlayerInRange)
         {
             currentEnergy = Mathf.Min(currentEnergy + amount, energyMax);
-            //iceBar.SetEnergy(currentEnergy);
+            LoadingIce.SetEnergy(currentEnergy);
             yield return new WaitForSeconds(1f);
         }
 
