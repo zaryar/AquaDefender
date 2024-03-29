@@ -21,7 +21,7 @@ public class HealthBar3D : MonoBehaviour
     // Update is called once per frame
     public void adapt_bar(Transform barobject, float substract)
     {
-        barobject.localPosition = new Vector3(barobject.localPosition.x - (0.5f * System.Math.Abs(substract)), barobject.localPosition.y, 0);
+        barobject.localPosition = new Vector3(barobject.localPosition.x - (0.5f * System.Math.Abs(substract)), barobject.localPosition.y, barobject.localPosition.z);
         barobject.localScale = new Vector3(Mathf.Max(0,barobject.localScale.x + substract), barobject.localScale.y, barobject.localScale.z);
     }
 
