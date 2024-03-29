@@ -316,6 +316,9 @@ MonoBehaviour:
   IceSwordDamage: 1
   freezingTime: 10
   freezingMaterial: {fileID: 0}
+  energyMax: 100
+  currentEnergy: 0
+  LoadingIce: {fileID: 0}
 --- !u!1 &7697922775519862743
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,9 +709,6 @@ PrefabInstance:
       addedObject: {fileID: 8200694491764144995}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a078c96c057d1444aaec88853724e48d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6629567256348037232}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a078c96c057d1444aaec88853724e48d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8441057819802584377}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a078c96c057d1444aaec88853724e48d, type: 3}
       insertIndex: -1
@@ -732,10 +732,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 100
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -813,18 +813,6 @@ MonoBehaviour:
   enemy_gun: {fileID: 0}
   _sword: {fileID: 0}
   huhClips: []
---- !u!114 &6629567256348037232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209742110037070233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d8396661c67404cbddaa48f3f6842f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &8441057819802584377
 Animator:
   serializedVersion: 5
@@ -835,7 +823,7 @@ Animator:
   m_GameObject: {fileID: 209742110037070233}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a078c96c057d1444aaec88853724e48d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 550ec95afd732da47b40e9830e75c86b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 771a06cf2cd01374395ad95c89fca926, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
