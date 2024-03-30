@@ -6,7 +6,7 @@ public class Geyser : MonoBehaviour
 {
 
     Transform geyserSpawnPoint;
-    public Vector3[] SpawnPoints = new Vector3[20];
+    public Vector3[] SpawnPoints = new Vector3[15];
     public GameObject WaterGeyser;
     private float waittime;
     public float timeBeweenWater = 0.006f;
