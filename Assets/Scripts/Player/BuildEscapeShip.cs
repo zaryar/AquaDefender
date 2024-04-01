@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class BuildEscapeShip : MonoBehaviour
 {
     Transform shipSpawner;
+     [SerializeField] public TMP_Text countdownText;
     [SerializeField] public GameObject Gerippe;
     [SerializeField] public GameObject Planken;
     [SerializeField] public GameObject Deck;
@@ -17,7 +20,9 @@ public class BuildEscapeShip : MonoBehaviour
     [SerializeField] private Animator shipAnimator; // Reference to the Animator component on the ship
 
     private bool hasDrivenAway = false; // Flag to check if the ship has already driven away
-    private bool isBossDead = false;     
+    public bool isBossDead = false; 
+
+    private bool sek60Over = false;    
 
 
     // Definiere ein Event f�r das Wegfahren des Schiffes mit dem Typ Action
@@ -34,6 +39,7 @@ public class BuildEscapeShip : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && !hasDrivenAway)
             {
+                hasDrivenAway = true;
                 DriveAway();
             }
         }
@@ -61,7 +67,6 @@ public class BuildEscapeShip : MonoBehaviour
         OnShipHasDeparted?.Invoke();
 
         // Set the flag to true to prevent the animation from playing again
-        hasDrivenAway = true;
         PlayerPrefs.SetInt("Lvl2", 1);
 
     }
@@ -148,6 +153,32 @@ public class BuildEscapeShip : MonoBehaviour
     private void HandleBossDeath()
     {
         isBossDead = true;
+    }
+
+    void Update()
+    {
+        if (isBossDead && !sek60Over)
+        {
+            StartCoroutine(LoadSceneAfterDelay(60));
+            sek60Over = true; // So that the coroutine is not started multiple times
+        }
+    }
+
+    IEnumerator LoadSceneAfterDelay(int delay)
+    {
+        while (delay > 0 && !hasDrivenAway)
+        {
+            countdownText.text = delay + " seconds to leave";
+            yield return new WaitForSeconds(1);
+            delay--;
+        }
+
+        countdownText.text = "";
+        if (!hasDrivenAway)
+        {
+            SceneManager.LoadScene(6);
+        }
+        
     }
 
 
