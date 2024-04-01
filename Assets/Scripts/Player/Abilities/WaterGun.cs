@@ -42,7 +42,7 @@ public class WaterGun : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         waittime += Time.deltaTime;
-        if (player.transform.position.y < 1 && waittime >= reloadTime)
+        if (player.transform.position.y < 1.2f && waittime >= reloadTime)
         {
             waittime = 0;
             water  += 5;
