@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: ' Rogue''s Luck'
   itemAmount: +5% crit chance
-  itemCost: 5
+  itemCost: 6
   itemIcon: {fileID: 21300000, guid: 577ca7be6fc712841a147235106a274b, type: 3}
