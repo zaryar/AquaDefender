@@ -97,7 +97,6 @@ public class tentacles : EnemyTemplate
         ausholen_t2_rend = ausholen_t2.GetComponent<SkinnedMeshRenderer>();
         ausholen_t3_rend = ausholen_t3.GetComponent<SkinnedMeshRenderer>();
         ausholen_t4_rend = ausholen_t4.GetComponent<SkinnedMeshRenderer>();
-        healthbar = gameObject.GetComponent<HealthBar3D>();
         //Debug.Log(getHealth()); 
         SetHealth(maximumHealth);
         //Debug.Log(getHealth());
