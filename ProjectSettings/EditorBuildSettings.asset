@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Customisation.unity
     guid: 98ce20e0c2d11ec4ca18d86a7a3896cd
+  - enabled: 1
+    path: Assets/Scenes/Starving.unity
+    guid: 771616839097c1e4b87e3001dea358ea
   m_configObjects: {}
