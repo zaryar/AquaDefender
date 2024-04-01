@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CritDMG
   m_EditorClassIdentifier: 
   itemName: ' Dread Strike'
-  itemAmount: +5 crit DMG
+  itemAmount: +5 crit dmg
   itemCost: 10
   itemIcon: {fileID: 21300000, guid: 143ee9d56b499804c981bf669aa4a8fd, type: 3}
