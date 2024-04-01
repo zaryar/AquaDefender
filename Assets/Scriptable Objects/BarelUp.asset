@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2168097827050d49b480ea813156b0b, type: 3}
   m_Name: BarelUp
   m_EditorClassIdentifier: 
-  itemName: Rum Cask
-  itemAmount: +1 Barrel
+  itemName: Rum    Cask
+  itemAmount: +1 barrel
   itemCost: 5
   itemIcon: {fileID: 21300000, guid: 168ba38c4e5551c4487612b56d0b05f1, type: 3}
