@@ -21,3 +21,9 @@
 
 ### Detailed Wave System
 For more information about how the wave system works, see [Wave System Documentation](WaveSystem.md).
+
+### 
+Gameplay: https://youtu.be/qcV0CcTwDfU
+Trailer: https://youtu.be/znaJVWQ1Jd8
+Text: https://docs.google.com/document/d/1ej4rq16wK53x6Evo23YikgETXm5V4Ynk2QL1oeOXF04/edit?usp=sharing
+Website + Game:
