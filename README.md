@@ -29,4 +29,7 @@
 ### Detailed Wave System
 For more information about how the wave system works, see [Wave System Documentation](WaveSystem.md).
 
+### Resources used
+[here](sources.md)
+
 
