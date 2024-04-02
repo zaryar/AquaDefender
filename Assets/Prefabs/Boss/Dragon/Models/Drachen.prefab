@@ -143,11 +143,7 @@ MonoBehaviour:
   waterJetProjectile: {fileID: 8666695763443912654, guid: 593453c860964994da6abbee446472fe, type: 3}
   waterBombPrefab: {fileID: 8666695763443912654, guid: 4602683ba312bf048acd879a99b75f8b, type: 3}
   waterBombSpeed: 10
-  currentHealth: 100
-  maxHealth: 100
-  healthBarBackground: {fileID: 0}
-  healthBarForeground: {fileID: 0}
-  bossText: {fileID: 0}
+  maxHealth: 350
 --- !u!95 &-5741599716509946457
 Animator:
   serializedVersion: 5

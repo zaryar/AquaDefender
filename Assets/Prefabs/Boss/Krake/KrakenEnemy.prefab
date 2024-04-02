@@ -349,8 +349,8 @@ MonoBehaviour:
   _agent: {fileID: 0}
   waterAmmunition: {fileID: 2976975659969434071, guid: 5a72708773175a346a7f5faeeba99022, type: 3}
   WaterDust: {fileID: 7399260055782154690, guid: 36cc00b623f1917419d74b1e0fbc076d, type: 3}
-  maximumHealth: 200
-  hitdamage: 5
+  maximumHealth: 650
+  hitdamage: 10
 --- !u!1001 &1384565889390800709
 PrefabInstance:
   m_ObjectHideFlags: 0
