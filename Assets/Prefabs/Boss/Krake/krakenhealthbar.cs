@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Krakenhealthbar : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Krakenhealthbar : MonoBehaviour
     public Image healthBarBackground;
     public Text bossNameText;
     GameObject boss;
+    private bool wasAlive = false;
+    
 
 
     void Start()
@@ -24,24 +27,33 @@ public class Krakenhealthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         boss = GameObject.Find("KrakenEnemy(Clone)");
         if (boss != null)
         {
             UpdateHealthBar();
             //ShowHealthBarUI();
+            wasAlive = true;
         }
+
         else
         {
             HideHealthBar();
+            if (wasAlive)
+            {
+                // Load the victory scene
+                SceneManager.LoadScene("victory");
+            }
         }
     }
 
     void UpdateHealthBar()
     {
-        float current_health = (float)boss.GetComponent<tentacles>().getHealth(); 
+        float current_health = (float)boss.GetComponent<tentacles>().getHealth();
         float max_health = (float)boss.GetComponent<tentacles>().maximumHealth;
         healthBar.fillAmount = current_health / max_health;
-        
+
         //Debug.Log(current_health / max_health); 
     }
     public void ShowHealthBarUI()
