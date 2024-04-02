@@ -25,31 +25,39 @@ public class PatroulEnemy : BasicEnemy
     void Update()
     {
         //if(_target == _player)
-          //  StartCoroutine(PlayerVisible());
-
-        orient_player(); 
-        _agent.destination = trajectory[patroul_number];
-        if (patroul_status == 0 && patroul_number == 2)
+        //  StartCoroutine(PlayerVisible());
+        if (_agent == null || trajectory == null)
         {
-            patroul_status = 1;
-        }
-        else if (patroul_status == 1 && patroul_number == 0)
-        {
-            patroul_status = 0;
+            Debug.LogError("Agent or trajectory is null");
+            return;
         }
 
-        if (Vector3.Distance(transform.position, _agent.destination) < 1.0f && patroul_status == 0)
+        orient_player();
+        if (_agent.isOnNavMesh)
         {
-            patroul_number += 1;
-        }
-        else if (Vector3.Distance(transform.position, _agent.destination) < 1.0f && patroul_status == 1)
-        {
-            patroul_number -= 1;
-        }
-        if (Vector3.Distance(transform.position, _target.position) < 7f)
-        {
-            gun_aim();
-            _gun.Shoot();
+            _agent.destination = trajectory[patroul_number];
+            if (patroul_status == 0 && patroul_number == 2)
+            {
+                patroul_status = 1;
+            }
+            else if (patroul_status == 1 && patroul_number == 0)
+            {
+                patroul_status = 0;
+            }
+
+            if (Vector3.Distance(transform.position, _agent.destination) < 1.0f && patroul_status == 0)
+            {
+                patroul_number += 1;
+            }
+            else if (Vector3.Distance(transform.position, _agent.destination) < 1.0f && patroul_status == 1)
+            {
+                patroul_number -= 1;
+            }
+            if (Vector3.Distance(transform.position, _target.position) < 7f)
+            {
+                gun_aim();
+                _gun.Shoot();
+            }
         }
     }
 }
