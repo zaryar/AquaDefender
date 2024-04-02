@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2172,6 +2172,30 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1536026407}
+    - target: {fileID: 480758210916348085, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
+      propertyPath: waves.Array.data[3].enemyGroups.Array.data[0].enemies.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 480758210916348085, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
+      propertyPath: waves.Array.data[5].enemyGroups.Array.data[0].enemies.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 480758210916348085, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
+      propertyPath: waves.Array.data[3].enemyGroups.Array.data[0].enemies.Array.data[6].count
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 480758210916348085, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
+      propertyPath: waves.Array.data[5].enemyGroups.Array.data[0].enemies.Array.data[5].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 480758210916348085, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
+      propertyPath: waves.Array.data[3].enemyGroups.Array.data[0].enemies.Array.data[6].prefab
+      value: 
+      objectReference: {fileID: 5015881893432528285, guid: 05e8ec84ddf4775439e219b4bc9a506e, type: 3}
+    - target: {fileID: 480758210916348085, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
+      propertyPath: waves.Array.data[5].enemyGroups.Array.data[0].enemies.Array.data[5].prefab
+      value: 
+      objectReference: {fileID: 5015881893432528285, guid: 05e8ec84ddf4775439e219b4bc9a506e, type: 3}
     - target: {fileID: 1276329680926139793, guid: 960076c311f3a4173b3d09d6c5ec8506, type: 3}
       propertyPath: m_Name
       value: Spawner
