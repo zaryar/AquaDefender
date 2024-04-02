@@ -31,18 +31,24 @@ public class CamperEnemy : BasicEnemy
     {
         if (_target == _player)
             StartCoroutine(PlayerVisible());
-        
+
         if (_target == null)
             return;
 
 
-        orient_player();
-        _agent.destination = Get_sorted_distance(trajectory, _target.position, "min");
-        if (Vector3.Distance(transform.position, _agent.destination) <= 0.8 && Vector3.Distance(transform.position, _target.position) < 10f)
+        if (_agent.isOnNavMesh) // Check if the agent is on the NavMesh
         {
-            gun_aim();
-            _gun.Shoot();
+            orient_player();
+            _agent.destination = Get_sorted_distance(trajectory, _target.position, "min");
+            if (Vector3.Distance(transform.position, _agent.destination) <= 0.8 && Vector3.Distance(transform.position, _target.position) < 10f)
+            {
+                gun_aim();
+                _gun.Shoot();
+            }
         }
-
+        else
+        {
+            Debug.Log("_agent is not on the NavMesh");
+        }
     }
 }
